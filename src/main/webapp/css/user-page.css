@@ -1,0 +1,47 @@
+/*
+ * Copyright 2019 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Set the size of the message input to be 100 pixels high
+   and will fill the width of its parent element. */
+#message-input {
+  height: 100px;
+  width: 100%;
+}
+
+/* Give each message a rounded border. */
+.message-div {
+  border: thin solid black;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Add a bottom border to the message header. */
+.message-header {
+  border-bottom: thin solid black;
+  padding: 5px;
+}
+
+/* Give the message body a margin so the text
+   isn't too close to the border. */
+.message-body {
+  margin: 5px;
+}
+
+/* Use this to hide certain elements like forms if the
+   user is not logged in or viewing their own page. */
+.hidden {
+  display: none;
+}
