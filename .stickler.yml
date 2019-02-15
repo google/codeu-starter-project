@@ -1,0 +1,12 @@
+linters:
+  csslint: {  }
+  checkstyle:
+    config: './google_checks.xml'
+  eslint:
+    config: './eslint.json'
+files:
+  ignore:
+    - 'bower_components/*'
+    - 'node_modules/*'
+fixers:
+  enable: true
