@@ -1,7 +1,7 @@
 linters:
   csslint: {  }
   checkstyle:
-    config: './checkstyle.xml'
+    config: './google_checks.xml'
   eslint:
     config: './eslint.config'
 files:
