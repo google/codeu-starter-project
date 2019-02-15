@@ -3,7 +3,7 @@ linters:
   checkstyle:
     config: './google_checks.xml'
   eslint:
-    config: './eslint.config'
+    config: './eslint.json'
 files:
   ignore:
     - 'bower_components/*'
