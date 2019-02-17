@@ -1,5 +1,10 @@
 linters:
   csslint: {  }
+  checkstyle:
+    config: ./checkstyle.xml
+  eslint:
+    config: ./eslint.config
+
 files:
   ignore:
     - 'bower_components/*'
