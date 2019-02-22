@@ -49,7 +49,7 @@ public class Datastore {
   /**
    * Gets messages posted by a specific user or all users.
    *
-   * @param specific user to fetch the message, or "All" to fetch all messages
+   * @param specific user to fetch the message, or "all" -- case insensitive -- to fetch all messages
    * @return a list of messages posted by the user(or all users), or empty list if user(or everyone) has never posted a
    *     message. List is sorted by time descending.
    */
@@ -58,7 +58,7 @@ public class Datastore {
 
     Query query = new Query("Message")
       .addSort("timestamp", SortDirection.DESCENDING);
-    if(!user.equals("All")){query.setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user));} // Set user filter if input query is not all users
+    if(!(user.equalsIgnoreCase("all")){query.setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user));} // Set user filter if input query is not all users
     PreparedQuery results = datastore.prepare(query);
     
     for (Entity entity : results.asIterable()) {
