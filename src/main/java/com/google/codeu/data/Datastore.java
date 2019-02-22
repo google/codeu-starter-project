@@ -56,20 +56,11 @@ public class Datastore {
   public List<Message> getMessages(String user) {
     List<Message> messages = new ArrayList<>();
 
-    if(user.equals("All")){
-      Query query = new Query("Message")
-        .addSort("timestamp", SortDirection.DESCENDING);
-      PreparedQuery results = datastore.prepare(query);
-    }
-    else{
-      Query query =
-        new Query("Message")
-          .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
-          .addSort("timestamp", SortDirection.DESCENDING);
-      PreparedQuery results = datastore.prepare(query);
-    }
+    Query query = new Query("Message")
+      .addSort("timestamp", SortDirection.DESCENDING);
+    if(!user.equals("All")){query.setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user));} // Set user filter if input query is not all users
+    PreparedQuery results = datastore.prepare(query);
     
-
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
