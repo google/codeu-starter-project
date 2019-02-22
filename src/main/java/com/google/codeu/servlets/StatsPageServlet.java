@@ -1,20 +1,18 @@
 package com.google.codeu.servlets;
 
+import com.google.codeu.data.Datastore;
+import com.google.gson.JsonObject;
 import java.io.IOException;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.codeu.data.Datastore;
-import com.google.gson.JsonObject;
-
 /**
  * Handles fetching site statistics.
  */
 @WebServlet("/stats")
-public class StatsPageServlet extends HttpServlet{
+public class StatsPageServlet extends HttpServlet {
 
   private Datastore datastore;
 
