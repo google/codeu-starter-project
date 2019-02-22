@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
  * Handles fetching all messages for the public feed.
  */
 @WebServlet("/feed")
-public class MessageFeedServlet extends HttpServlet{
+public class MessageFeedServlet extends HttpServlet {
   
- @Override
- public void doGet(HttpServletRequest request, HttpServletResponse response)
-   throws IOException {
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws IOException {
   
-  response.getOutputStream().println("this will be my message feed");
- }
+    response.getOutputStream().println("this will be my message feed");
+  }
 }
