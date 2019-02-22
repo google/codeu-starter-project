@@ -47,57 +47,33 @@ public class Datastore {
   }
 
   /**
-   * Gets messages posted by a specific user.
+   * Gets messages posted by a specific user or all users.
    *
-   * @return a list of messages posted by the user, or empty list if user has never posted a
+   * @param specific user to fetch the message, or "All" to fetch all messages
+   * @return a list of messages posted by the user(or all users), or empty list if user(or everyone) has never posted a
    *     message. List is sorted by time descending.
    */
   public List<Message> getMessages(String user) {
     List<Message> messages = new ArrayList<>();
 
-    Query query =
-        new Query("Message")
-            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
-            .addSort("timestamp", SortDirection.DESCENDING);
-    PreparedQuery results = datastore.prepare(query);
-
-    for (Entity entity : results.asIterable()) {
-      try {
-        String idString = entity.getKey().getName();
-        UUID id = UUID.fromString(idString);
-        String text = (String) entity.getProperty("text");
-        long timestamp = (long) entity.getProperty("timestamp");
-
-        Message message = new Message(id, user, text, timestamp);
-        messages.add(message);
-      } catch (Exception e) {
-        System.err.println("Error reading message.");
-        System.err.println(entity.toString());
-        e.printStackTrace();
-      }
+    if(user.equals("All")){
+      Query query = new Query("Message")
+        .addSort("timestamp", SortDirection.DESCENDING);
+      PreparedQuery results = datastore.prepare(query);
     }
-
-    return messages;
-  }
-
-  /**
-   * Gets all messages posted by a every user.
-   *
-   * @return a list of all the messages, or empty list if no one has ever posted a
-   *     message. List is sorted by time descending.
-   */
-  public List<Message> getAllMessages(){
-    List<Message> messages = new ArrayList<>();
-
-    Query query = new Query("Message")
-      .addSort("timestamp", SortDirection.DESCENDING);
-    PreparedQuery results = datastore.prepare(query);
+    else{
+      Query query =
+        new Query("Message")
+          .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
+          .addSort("timestamp", SortDirection.DESCENDING);
+      PreparedQuery results = datastore.prepare(query);
+    }
+    
 
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
         UUID id = UUID.fromString(idString);
-        String user = (String) entity.getProperty("user");
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
 
