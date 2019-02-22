@@ -58,7 +58,7 @@ public class Datastore {
 
     Query query = new Query("Message")
       .addSort("timestamp", SortDirection.DESCENDING);
-    if(!(user.equalsIgnoreCase("all")){query.setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user));} // Set user filter if input query is not all users
+    if(!user.equalsIgnoreCase("all")){query.setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user));} // Set user filter if input query is not all users
     PreparedQuery results = datastore.prepare(query);
     
     for (Entity entity : results.asIterable()) {
