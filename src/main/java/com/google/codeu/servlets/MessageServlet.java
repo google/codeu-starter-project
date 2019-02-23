@@ -68,8 +68,9 @@ public class MessageServlet extends HttpServlet {
   /** Stores a new {@link Message}. */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+	  System.out.println("called");
     UserService userService = UserServiceFactory.getUserService();
+    
     if (!userService.isUserLoggedIn()) {
       response.sendRedirect("/index.html");
       return;
@@ -81,6 +82,5 @@ public class MessageServlet extends HttpServlet {
     Message message = new Message(user, text);
     datastore.storeMessage(message);
 
-    response.sendRedirect("/user-page.html?user=" + user);
-  }
+    response.sendRedirect("/user-page.html?user=" + user);  }
 }
