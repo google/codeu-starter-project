@@ -1,9 +1,9 @@
 package com.google.codeu.servlets;
-
-import java.io.IOException;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.google.codeu.data.Datastore;
+import java.io.IOException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,15 +23,15 @@ public class AboutMeServlet extends HttpServlet {
     datastore = new Datastore();
   }
  
- /**
+  /**
   * Responds with the "about me" section for a particular user.
   */
-   @Override
+  @Override
  public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
     response.setContentType("text/html");
     String user = request.getParameter("user");
-    if(user == null || user.equals("")) {
+    if (user == null || user.equals("")) {
       return;
     }
   
@@ -52,7 +52,7 @@ public class AboutMeServlet extends HttpServlet {
     String userEmail = userService.getCurrentUser().getEmail();
 
     System.out.println("Saving about me for " + userEmail);
-  // TODO: save the data
+    // TODO: save the data
   
     response.sendRedirect("/user-page.html?user=" + userEmail);
   }
