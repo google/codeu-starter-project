@@ -16,7 +16,7 @@ public class MessageFeedServlet extends HttpServlet {
   @Override
  public void doGet(HttpServletRequest request, HttpServletResponse response)
      throws IOException { 
-  // This message is hardcoded for now just to test. Will change later
+    // This message is hardcoded for now just to test. Will change later
     response.getOutputStream().println("this will be my message feed");
   }
 }
