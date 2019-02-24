@@ -1,11 +1,11 @@
 package com.google.codeu.servlets;
 
-import java.io.IOException;
-import java.util.List;
-
 import com.google.codeu.data.Datastore;
 import com.google.codeu.data.Message;
 import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

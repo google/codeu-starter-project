@@ -80,7 +80,7 @@ public class Datastore {
   }
   
   /**
-   * Retrieves list of messages for a specific user
+   * Retrieves list of messages for a specific user.
    *
    * @return a list of results, or empty list if no results found
    */
