@@ -61,6 +61,7 @@ function buildMessageDiv(message){
 }
   
 // Fetch data and populate the UI of the page.
+/* exported buildFeedUI */
 function buildFeedUI(){
  fetchMessages();
 }
