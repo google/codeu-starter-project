@@ -30,7 +30,6 @@ public class Message {
    * Constructs a new {@link Message} posted by {@code user} with {@code text} content. Generates a
    * random ID and uses the current system time for the creation time.
    */
-
   public Message(String user, String text, String recipient) {
     this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient);
   }
@@ -47,23 +46,26 @@ public class Message {
     this.recipient = recipient;
   }
 
-  // Provides access to the field recipient
+  /* Gets the recipient private member variable */
   public String getRecipient() {
     return recipient;
   }
-
+  /* Gets the id private member variable */
   public UUID getId() {
     return id;
   }
 
+  /* Gets the user private member variable */
   public String getUser() {
     return user;
   }
 
+  /* Gets the text private member variable */
   public String getText() {
     return text;
   }
 
+  /* Gets the timestamp private member variable */
   public long getTimestamp() {
     return timestamp;
   }
