@@ -25,6 +25,7 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
@@ -87,7 +88,6 @@ public class Datastore {
         e.printStackTrace();
       }
     }
-    
     return messages;
   }
   
@@ -98,12 +98,13 @@ public class Datastore {
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
   }
   
+  /** Returns the longest message length of all users. */
   public int getLongestMessageCount() {
 	  return longestMessage;
   }
   
+  /** Returns the total number of users that have posted. */
   public int getTotalUserCount() {
 	    return users.size();
 	  }
-
 }
