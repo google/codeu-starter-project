@@ -32,6 +32,8 @@ import java.util.UUID;
 public class Datastore {
 
   private DatastoreService datastore;
+  
+  private static int longestMessage = 0;
 
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
@@ -43,10 +45,18 @@ public class Datastore {
     messageEntity.setProperty("user", message.getUser());
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
+    
+    int messageLength = message.getText().length();
 
     datastore.put(messageEntity);
+    if (messageLength > longestMessage) {
+    	longestMessage = messageLength;
+    }
   }
 
+  public void storeUsers (Message message) {
+	  
+  }
   /**
    * Gets messages posted by a specific user.
    *
@@ -87,4 +97,9 @@ public class Datastore {
     PreparedQuery results = datastore.prepare(query);
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
   }
+  
+  public int getLongestMessage() {
+	  return longestMessage;
+  }
+
 }

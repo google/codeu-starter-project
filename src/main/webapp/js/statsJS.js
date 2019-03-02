@@ -7,8 +7,11 @@
         const statsContainer = document.getElementById('stats-container');
         statsContainer.innerHTML = '';
 
-        const messageCountElement = buildStatElement('Message count: ' + stats.messageCount);
+        const messageCountElement = buildStatElement('Message Count: ' + stats.messageCount);
         statsContainer.appendChild(messageCountElement);
+        
+        const longestMessageElement = buildStatElement('Longest Message Length: ' + stats.longestMessageLength);
+        statsContainer.appendChild(longestMessageElement);
       });
     }
 
