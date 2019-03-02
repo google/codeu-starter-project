@@ -31,11 +31,13 @@ public class StatsPageServlet extends HttpServlet {
     response.setContentType("application/json");
 
     int messageCount = datastore.getTotalMessageCount();
-    int longestMessage = datastore.getLongestMessage();
+    int longestMessage = datastore.getLongestMessageCount();
+    int totalUsers = datastore.getTotalUserCount();
 
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("messageCount", messageCount);
     jsonObject.addProperty("longestMessageLength", longestMessage);
+    jsonObject.addProperty("userCount", totalUsers);
     response.getOutputStream().println(jsonObject.toString());
   }
 }

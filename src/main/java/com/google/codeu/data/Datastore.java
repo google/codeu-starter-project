@@ -25,15 +25,16 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
 
-  private DatastoreService datastore;
-  
+  private DatastoreService datastore; 
   private static int longestMessage = 0;
+  private static HashSet<String> users = new HashSet<String>();
 
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
@@ -49,14 +50,13 @@ public class Datastore {
     int messageLength = message.getText().length();
 
     datastore.put(messageEntity);
+    
     if (messageLength > longestMessage) {
     	longestMessage = messageLength;
     }
+    users.add(message.getUser());
   }
 
-  public void storeUsers (Message message) {
-	  
-  }
   /**
    * Gets messages posted by a specific user.
    *
@@ -87,7 +87,7 @@ public class Datastore {
         e.printStackTrace();
       }
     }
-
+    
     return messages;
   }
   
@@ -98,8 +98,12 @@ public class Datastore {
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
   }
   
-  public int getLongestMessage() {
+  public int getLongestMessageCount() {
 	  return longestMessage;
   }
+  
+  public int getTotalUserCount() {
+	    return users.size();
+	  }
 
 }

@@ -12,6 +12,9 @@
         
         const longestMessageElement = buildStatElement('Longest Message Length: ' + stats.longestMessageLength);
         statsContainer.appendChild(longestMessageElement);
+        
+        const usersCountElement = buildStatElement('Total Number of Users: ' + stats.userCount);
+        statsContainer.appendChild(usersCountElement);
       });
     }
 
