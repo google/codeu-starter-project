@@ -51,6 +51,7 @@ function showMessageFormIfViewingSelf() {
 /**
  * Adds the recipient parameter to the form's action attribute if logged in.
  */
+/* Export showMessageFormIfLoggedIn */
 function showMessageFormIfLoggedIn() {
   fetch('/login-status')
       .then((response) => {
