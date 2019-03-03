@@ -34,9 +34,8 @@ public class Datastore {
 
   private DatastoreService datastore; 
   private static int longestMessage = 0;
-  private static HashMap<String, Integer> users = new HashMap<String,Integer>();
-  //hashmap how many times people have used it
-  //arraylist of how many times they posted
+  private static HashMap<String, Integer> postsPerUser = new HashMap<String,Integer>();
+
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
   }
@@ -47,15 +46,14 @@ public class Datastore {
     messageEntity.setProperty("user", message.getUser());
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
-    
-    int messageLength = message.getText().length();
 
     datastore.put(messageEntity);
     
+    int messageLength = message.getText().length();
     if (messageLength > longestMessage) {
       longestMessage = messageLength;
     }
-    users.put(message.getUser(), getMessages(message.getUser()).size());
+    postsPerUser.put(message.getUser(), getMessages(message.getUser()).size());
   }
 
   /**
@@ -105,7 +103,7 @@ public class Datastore {
   
   /** Returns the total number of users that have posted. */
   public int getTotalUserCount() {
-    return users.size();
+    return postsPerUser.size();
   }
   
   /** Returns the top three users that have posted on the website. */
@@ -114,16 +112,16 @@ public class Datastore {
     int numTopUsers = 3;
     String currTopUser = "";
 
-    while (numTopUsers >= 0) {
+    //Find the three users with the most posts
+    for (int i = numTopUsers; i <= 0; i--) {
       int maxPosts = 0;
-      for (String person : users.keySet()) {
-        if (users.get(person) > maxPosts && !topUsers.contains(person)) {
-          maxPosts = users.get(person);
-          currTopUser = person;
+      for (String user : postsPerUser.keySet()) {
+        if (postsPerUser.get(user) > maxPosts && !topUsers.contains(user)) {
+          maxPosts = postsPerUser.get(user);
+          currTopUser = user;
         }
       }
       topUsers.add(currTopUser);
-      numTopUsers -= 1;
     } 
     return topUsers;
   }
