@@ -44,6 +44,28 @@ function addLoginOrLogoutLinkToNavigation() {
 }
 
 /**
+ * Adds a Public Feed link to the page
+ */
+function addPublicFeed() {
+  const navigationElement = document.getElementById('navigation');
+  if (!navigationElement) {
+    console.warn('Navigation element not found!');
+    return;
+  }
+  navigationElement.appendChild(createListItem(createLink('/feed.html', 'Public Feed')));
+}
+
+
+
+
+function buildNavBar() {
+	// Add login/logout link
+	addLoginOrLogoutLinkToNavigation();
+	// Add Public Feed link
+	addPublicFeed();
+}
+
+/**
  * Creates an li element.
  * @param {Element} childElement
  * @return {Element} li element
