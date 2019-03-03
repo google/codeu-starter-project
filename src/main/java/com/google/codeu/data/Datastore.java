@@ -25,13 +25,16 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
 
-  private DatastoreService datastore;
+  private DatastoreService datastore; 
+  private static int longestMessage = 0;
+  private static HashMap<String, Integer> postsPerUser = new HashMap<String,Integer>();
 
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
@@ -46,6 +49,12 @@ public class Datastore {
     messageEntity.setProperty("recipient", message.getRecipient());
 
     datastore.put(messageEntity);
+    
+    int messageLength = message.getText().length();
+    if (messageLength > longestMessage) {
+      longestMessage = messageLength;
+    }
+    postsPerUser.put(message.getUser(), getMessages(message.getUser()).size());
   }
 
   /**
@@ -113,5 +122,35 @@ public class Datastore {
     Query query = new Query("Message");
     PreparedQuery results = datastore.prepare(query);
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
+  }
+  
+  /** Returns the longest message length of all users. */
+  public int getLongestMessageCount() {
+    return longestMessage;
+  }
+  
+  /** Returns the total number of users that have posted. */
+  public int getTotalUserCount() {
+    return postsPerUser.size();
+  }
+  
+  /** Returns the top three users that have posted on the website. */
+  public ArrayList<String> getTopUsers() {
+    ArrayList<String> topUsers = new ArrayList<String>(3);
+    int numTopUsers = 3;
+    String currTopUser = "";
+
+    //Find the three users with the most posts
+    for (int i = numTopUsers; i <= 0; i--) {
+      int maxPosts = 0;
+      for (String user : postsPerUser.keySet()) {
+        if (postsPerUser.get(user) > maxPosts && !topUsers.contains(user)) {
+          maxPosts = postsPerUser.get(user);
+          currTopUser = user;
+        }
+      }
+      topUsers.add(currTopUser);
+    } 
+    return topUsers;
   }
 }
