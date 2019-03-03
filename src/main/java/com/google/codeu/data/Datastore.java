@@ -112,19 +112,19 @@ public class Datastore {
   public ArrayList<String> getTopUsers() {
     ArrayList<String> topUsers = new ArrayList<String>(3);
     int numTopUsers = 3;
-	String currTopUser = "";
+    String currTopUser = "";
 
-	while (numTopUsers >= 0) {
+    while (numTopUsers >= 0) {
       int maxPosts = 0;
-	  for (String person : users.keySet()) {
+      for (String person : users.keySet()) {
         if (users.get(person) > maxPosts && !topUsers.contains(person)) {
-		  maxPosts = users.get(person);
-		  currTopUser = person;
+          maxPosts = users.get(person);
+          currTopUser = person;
         }
-	  }
-	  topUsers.add(currTopUser);
-	  numTopUsers -= 1;
+      }
+      topUsers.add(currTopUser);
+      numTopUsers -= 1;
     } 
-	  return topUsers;
-    }
+    return topUsers;
+  }
 }
