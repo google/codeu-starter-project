@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import java.util.List;
-
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 /**
@@ -39,14 +36,14 @@ public class AboutMeServlet extends HttpServlet {
 
     String user = request.getParameter("user");
 
-    if(user == null || user.equals("")) {
+    if (user == null || user.equals("")) {
       // Request is invalid, return empty response
       return;
     }
 
     User userData = datastore.getUser(user);
 
-    if(userData == null || userData.getAboutMe() == null) {
+    if (userData == null || userData.getAboutMe() == null) {
       return;
     }
 

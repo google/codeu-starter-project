@@ -10,7 +10,7 @@ public class User {
     this.aboutMe = aboutMe;
   }
 
-  public String getEmail(){
+  public String getEmail() {
     return email;
   }
 
