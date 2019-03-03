@@ -53,7 +53,7 @@ public class Datastore {
     datastore.put(messageEntity);
     
     if (messageLength > longestMessage) {
-    	longestMessage = messageLength;
+      longestMessage = messageLength;
     }
     users.put(message.getUser(), getMessages(message.getUser()).size());
   }
@@ -100,32 +100,31 @@ public class Datastore {
   
   /** Returns the longest message length of all users. */
   public int getLongestMessageCount() {
-	  return longestMessage;
+    return longestMessage;
   }
   
   /** Returns the total number of users that have posted. */
   public int getTotalUserCount() {
-	    return users.size();
-	  }
+    return users.size();
+  }
   
   /** Returns the top three users that have posted on the website. */
   public ArrayList<String> getTopUsers() {
-	  ArrayList<String> topUsers = new ArrayList<String>(3);
-	  int numTopUsers = 3;
-	  String currTopUser = "";
-	  
-	  while (numTopUsers >= 0) {
-		  int maxPosts = 0;
-		  for (String person : users.keySet()) {
-			  if (users.get(person) > maxPosts && !topUsers.contains(person)) {
-				  maxPosts = users.get(person);
-				  currTopUser = person;
-			  }
-		  }
-		  topUsers.add(currTopUser);
-		  numTopUsers -= 1;
-	 }
-	  
+    ArrayList<String> topUsers = new ArrayList<String>(3);
+    int numTopUsers = 3;
+	String currTopUser = "";
+
+	while (numTopUsers >= 0) {
+      int maxPosts = 0;
+	  for (String person : users.keySet()) {
+        if (users.get(person) > maxPosts && !topUsers.contains(person)) {
+		  maxPosts = users.get(person);
+		  currTopUser = person;
+        }
+	  }
+	  topUsers.add(currTopUser);
+	  numTopUsers -= 1;
+    } 
 	  return topUsers;
-  }
+    }
 }
