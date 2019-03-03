@@ -26,7 +26,6 @@ import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,8 +34,9 @@ public class Datastore {
 
   private DatastoreService datastore; 
   private static int longestMessage = 0;
-  private static HashSet<String> users = new HashSet<String>();
-
+  private static HashMap<String, Integer> users = new HashMap<String,Integer>();
+  //hashmap how many times people have used it
+  //arraylist of how many times they posted
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
   }
@@ -55,7 +55,7 @@ public class Datastore {
     if (messageLength > longestMessage) {
     	longestMessage = messageLength;
     }
-    users.add(message.getUser());
+    users.put(message.getUser(), getMessages(message.getUser()).size());
   }
 
   /**
@@ -107,4 +107,25 @@ public class Datastore {
   public int getTotalUserCount() {
 	    return users.size();
 	  }
+  
+  /** Returns the top three users that have posted on the website. */
+  public ArrayList<String> getTopUsers() {
+	  ArrayList<String> topUsers = new ArrayList<String>(3);
+	  int numTopUsers = 3;
+	  String currTopUser = "";
+	  
+	  while (numTopUsers >= 0) {
+		  int maxPosts = 0;
+		  for (String person : users.keySet()) {
+			  if (users.get(person) > maxPosts && !topUsers.contains(person)) {
+				  maxPosts = users.get(person);
+				  currTopUser = person;
+			  }
+		  }
+		  topUsers.add(currTopUser);
+		  numTopUsers -= 1;
+	 }
+	  
+	  return topUsers;
+  }
 }

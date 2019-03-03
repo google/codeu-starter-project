@@ -15,6 +15,9 @@
         
         const usersCountElement = buildStatElement('Total Number of Users: ' + stats.userCount);
         statsContainer.appendChild(usersCountElement);
+        
+        const topUsers = buildStatElement('Top Users: ' + stats.topUser1 + ', ' + stats.topUser2 + ', ' + stats.topUser3);
+        statsContainer.appendChild(topUsers);
       });
     }
 
