@@ -40,9 +40,9 @@ public class StatsPageServlet extends HttpServlet {
     jsonObject.addProperty("messageCount", messageCount);
     jsonObject.addProperty("longestMessageLength", longestMessage);
     jsonObject.addProperty("userCount", totalUsers);
-    jsonObject.addProperty("topUser1", topPosters.get(0));
-    jsonObject.addProperty("topUser2", topPosters.get(1));
-    jsonObject.addProperty("topUser3", topPosters.get(2));
+    for (int i = 0; i < topPosters.size(); i++) {
+      jsonObject.addProperty("topUser" + (i + 1), topPosters.get(i));
+    }
     response.getOutputStream().println(jsonObject.toString());
   }
 }

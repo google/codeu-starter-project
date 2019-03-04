@@ -177,8 +177,9 @@ public class Datastore {
     String currTopUser = "";
 
     //Find the three users with the most posts
-    for (int i = numTopUsers; i <= 0; i--) {
+    for (int i = numTopUsers; i > 0; i--) {
       int maxPosts = 0;
+      currTopUser = "";
       for (String user : postsPerUser.keySet()) {
         if (postsPerUser.get(user) > maxPosts && !topUsers.contains(user)) {
           maxPosts = postsPerUser.get(user);
