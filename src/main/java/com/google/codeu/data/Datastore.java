@@ -25,13 +25,16 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
 
-  private DatastoreService datastore;
+  private DatastoreService datastore; 
+  private static int longestMessage = 0;
+  private static HashMap<String, Integer> postsPerUser = new HashMap<String,Integer>();
 
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
@@ -46,6 +49,12 @@ public class Datastore {
     messageEntity.setProperty("recipient", message.getRecipient());
 
     datastore.put(messageEntity);
+    
+    int messageLength = message.getText().length();
+    if (messageLength > longestMessage) {
+      longestMessage = messageLength;
+    }
+    postsPerUser.put(message.getUser(), getMessages(message.getUser()).size());
   }
 
   /**
@@ -56,20 +65,47 @@ public class Datastore {
    *     List is sorted by time descending.
    */
   public List<Message> getMessages(String recipient) {
-    List<Message> messages = new ArrayList<>();
-
     Query query =
         new Query("Message")
             .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
             .addSort("timestamp", SortDirection.DESCENDING);
+    List<Message> messages = fetchMessages(query);
+    
+    return messages;
+  }
+  
+  /**
+   * Gets messages posted by all users.
+   *
+   * @return a list of messages posted by all users, or an empty list if no user has posted a 
+   *     message. List is sorted by time descending.
+   */
+  public List<Message> getAllMessages() {
+    Query query =
+        new Query("Message")
+            .addSort("timestamp", SortDirection.DESCENDING);
+    List<Message> messages = fetchMessages(query);
+    
+    return messages;
+  }
+  
+  /**
+   * Retrieves list of messages for a specific user.
+   *
+   * @return a list of results, or empty list if no results found
+   */
+  public List<Message> fetchMessages(Query query) {
     PreparedQuery results = datastore.prepare(query);
-
+    List<Message> messages = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
+
         UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
-        String text = (String) entity.getProperty("text");              
+        String text = (String) entity.getProperty("text");  
+        String recipient = (String) entity.getProperty("recipient");
+        
         long timestamp = (long) entity.getProperty("timestamp");
 
         Message message = new Message(id, user, text, timestamp, recipient);
@@ -82,11 +118,75 @@ public class Datastore {
     }
     return messages;
   }
+
+  
   
   /** Returns the total number of messages for all users. */
   public int getTotalMessageCount() {
     Query query = new Query("Message");
     PreparedQuery results = datastore.prepare(query);
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
+
+  }
+  
+
+
+  /* About me Section */
+  /** Stores the User in Datastore. */
+  public void storeUser(User user) {
+    Entity userEntity = new Entity("User", user.getEmail());
+    userEntity.setProperty("email", user.getEmail());
+    userEntity.setProperty("aboutMe", user.getAboutMe());
+    datastore.put(userEntity);
+  }
+ 
+  /**
+  * Returns the User owned by the email address, or
+  * null if no matching User was found.
+  */
+  public User getUser(String email) {
+ 
+    Query query = new Query("User")
+        .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
+    PreparedQuery results = datastore.prepare(query);
+    Entity userEntity = results.asSingleEntity();
+    if (userEntity == null) {
+      return null;
+    }
+  
+    String aboutMe = (String) userEntity.getProperty("aboutMe");
+    User user = new User(email, aboutMe);
+  
+    return user;
+  }
+  
+  /** Returns the longest message length of all users. */
+  public int getLongestMessageCount() {
+    return longestMessage;
+  }
+  
+  /** Returns the total number of users that have posted. */
+  public int getTotalUserCount() {
+    return postsPerUser.size();
+  }
+  
+  /** Returns the top three users that have posted on the website. */
+  public ArrayList<String> getTopUsers() {
+    ArrayList<String> topUsers = new ArrayList<String>(3);
+    int numTopUsers = 3;
+    String currTopUser = "";
+
+    //Find the three users with the most posts
+    for (int i = numTopUsers; i <= 0; i--) {
+      int maxPosts = 0;
+      for (String user : postsPerUser.keySet()) {
+        if (postsPerUser.get(user) > maxPosts && !topUsers.contains(user)) {
+          maxPosts = postsPerUser.get(user);
+          currTopUser = user;
+        }
+      }
+      topUsers.add(currTopUser);
+    } 
+    return topUsers;
   }
 }
