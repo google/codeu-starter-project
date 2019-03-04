@@ -21,7 +21,7 @@
   function buildMessageDiv(message){
    const usernameDiv = document.createElement('div');
    usernameDiv.classList.add("left-align");
-   usernameDiv.appendChild(document.createTextNode(message.user));
+   usernameDiv.appendChild(createLink('/user-page.html?user=' + message.user,message.user));
    
    const timeDiv = document.createElement('div');
    timeDiv.classList.add('right-align');
@@ -48,3 +48,16 @@
   function buildUI(){
    fetchMessages();
   }
+  
+  /**
+ * Creates an anchor element.
+ * @param {string} url
+ * @param {string} text
+ * @return {Element} Anchor element
+ */
+function createLink(url, text) {
+  const linkElement = document.createElement('a');
+  linkElement.appendChild(document.createTextNode(text));
+  linkElement.href = url;
+  return linkElement;
+}
