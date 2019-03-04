@@ -81,7 +81,6 @@ public class Datastore {
         e.printStackTrace();
       }
     }
-
     return messages;
   }
 
