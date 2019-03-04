@@ -4,5 +4,7 @@ target
 .factorypath
 .project
 .idea
+launch.json
+settings.json
 *.iml
 .DS_Store
