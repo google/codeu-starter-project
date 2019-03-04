@@ -43,6 +43,7 @@ public class Datastore {
     messageEntity.setProperty("user", message.getUser());
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
+    messageEntity.setProperty("recipient", message.getRecipient()); // Store recipient in data
 
     datastore.put(messageEntity);
   }
@@ -64,7 +65,7 @@ public class Datastore {
       query.setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user));
     }
     PreparedQuery results = datastore.prepare(query);
-    
+
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
@@ -72,8 +73,8 @@ public class Datastore {
         String msgUser = (String) entity.getProperty("user"); // The user who posted this message
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
-
-        Message message = new Message(id, msgUser, text, timestamp);
+        String recipient = (String) entity.getProperty("recipient"); // Add recipient
+        Message message = new Message(id, user, text, timestamp, recipient);
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
