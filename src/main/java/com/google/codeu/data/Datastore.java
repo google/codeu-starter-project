@@ -58,15 +58,16 @@ public class Datastore {
   }
 
   /**
-   * Gets messages posted by a specific user.
+   * Gets messages sent to a specific recipient.
    *
-   * @return a list of messages posted by the user, or empty list if user has never posted a
-   *     message. List is sorted by time descending.
+   * @return a list of messages sent to the recipient, or empty list if recipient
+   *     has never received has never posted a
+   *     List is sorted by time descending.
    */
-  public List<Message> getMessages(String user) {
+  public List<Message> getMessages(String recipient) {
     Query query =
         new Query("Message")
-            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
+            .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
             .addSort("timestamp", SortDirection.DESCENDING);
     List<Message> messages = fetchMessages(query);
     
@@ -99,11 +100,13 @@ public class Datastore {
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
-        UUID id = UUID.fromString(idString);
+
+        UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
-        String text = (String) entity.getProperty("text");
-        long timestamp = (long) entity.getProperty("timestamp");
+        String text = (String) entity.getProperty("text");  
         String recipient = (String) entity.getProperty("recipient");
+        
+        long timestamp = (long) entity.getProperty("timestamp");
 
         Message message = new Message(id, user, text, timestamp, recipient);
         messages.add(message);
