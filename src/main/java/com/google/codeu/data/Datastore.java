@@ -103,12 +103,16 @@ public class Datastore {
 
         UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
-        String text = (String) entity.getProperty("text");  
         String recipient = (String) entity.getProperty("recipient");
-        
         long timestamp = (long) entity.getProperty("timestamp");
-
-        Message message = new Message(id, user, text, timestamp, recipient);
+        
+        // Replace all image URLS in message with proper image HTML tags
+        String text = (String) entity.getProperty("text");
+        String regex = "(https?://([^\\s.]+.?[^\\s.]*)+/[^\\s.]+.(png|jpg))";
+        String replacement = "<img src=\"$1\" />";
+        String textWithImagesReplaced = text.replaceAll(regex, replacement);
+        
+        Message message = new Message(id, user, textWithImagesReplaced, timestamp, recipient);
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
