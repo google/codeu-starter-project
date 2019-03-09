@@ -38,7 +38,7 @@ public class MessageServlet extends HttpServlet {
   private Datastore datastore;
 
   private final String imgUrlRegex = 
-    "(https?://[[.][\\w][\\d]]+/[/[\\w][\\d]]+\\S+[[\\w][\\d]]\\.(png|jpg|gif))";
+      "(https?://[[.][\\w][\\d]]+/[/[\\w][\\d]]+\\S+[[\\w][\\d]]\\.(png|jpg|gif))";
 
   private final String imgUrlReplacement = "<img src=\"$1\" />";
 
@@ -93,10 +93,10 @@ public class MessageServlet extends HttpServlet {
   }
 
   /** 
-   * Private method to recognize the image url in the text message and convert to <img> tag
-   * Message with no img url will not be modified
+   * Private method to recognize the image url in the text message and convert to <img> tag.
+   * Message with no img url will not be modified.
    */
-  private String extractImgUrl(String text){
-    return(text.replaceAll(this.imgUrlRegex, this.imgUrlReplacement));
+  private String extractImgUrl(String text) {
+    return (text.replaceAll(this.imgUrlRegex, this.imgUrlReplacement));
   }
 }
