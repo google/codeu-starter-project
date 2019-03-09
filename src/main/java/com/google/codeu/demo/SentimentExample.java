@@ -10,7 +10,7 @@ public class SentimentExample {
   
   public static void main(String[] args) throws IOException {
 
-    String text = "I love coding!";
+    String text = "I hate coding!";
     Document doc = Document.newBuilder()
         .setContent(text).setType(Type.PLAIN_TEXT).build();
 

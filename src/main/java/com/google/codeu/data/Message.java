@@ -26,6 +26,7 @@ public class Message {
   private String text;
   private long timestamp;
   private String recipient;
+  private float sentimentScore;
 
   /**
    * Constructs a new {@link Message} posted by {@code user} with {@code text}
@@ -35,9 +36,10 @@ public class Message {
    * @param user The user posting {@code this} message
    * @param text The content of {@code this} message
    * @param recipient The recipient of {@code this} message
+   * @param sentimentScore The Sentiment Analysis Score of this message
    */
-  public Message(String user, String text, String recipient) {
-    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient);
+  public Message(String user, String text, String recipient, float sentimentScore) {
+    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore);
   }
 
   /**
@@ -50,13 +52,15 @@ public class Message {
    * @param timestamp The time {@code this} message was made at in milliseconds
    *                  since the Unix Epoch
    * @param recipient The recipient of {@code this} message
+   * @param sentimentScore The score returned by Sentiment Analysis of the message
    */
-  public Message(UUID id, String user, String text, long timestamp, String recipient) {
+  public Message(UUID id, String user, String text, long timestamp, String recipient, float sentimentScore) {
     this.id = id;
     this.user = user;
     this.text = text;
     this.timestamp = timestamp;
     this.recipient = recipient;
+    this.sentimentScore = sentimentScore;
   }
 
   public UUID getId() {
@@ -77,5 +81,9 @@ public class Message {
   
   public String getRecipient() {
     return recipient;
+  }
+  
+  public float getSentimentScore() {
+	  return sentimentScore;
   }
 }
