@@ -36,7 +36,10 @@ import org.jsoup.safety.Whitelist;
 public class MessageServlet extends HttpServlet {
 
   private Datastore datastore;
-  private final String imgUrlRegex = "(https?://\\w+\\S+\\.(png|jpg))";
+
+  private final String imgUrlRegex = 
+    "(https?://[[.][\\w][\\d]]+/[/[\\w][\\d]]+\\S+[[\\w][\\d]]\\.(png|jpg|gif))";
+
   private final String imgUrlReplacement = "<img src=\"$1\" />";
 
   @Override
@@ -80,13 +83,20 @@ public class MessageServlet extends HttpServlet {
 
     String user = userService.getCurrentUser().getEmail();
     String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    text = extractImgUrl(text);
     String recipient = request.getParameter("recipient");
 
-    String textWithImgReplaced = text.replaceAll(imgUrlRegex, imgUrlReplacement);
-
-    Message message = new Message(user, textWithImgReplaced, recipient);
+    Message message = new Message(user, text, recipient);
     datastore.storeMessage(message);
 
     response.sendRedirect("/user-page.html?user=" + recipient);
+  }
+
+  /** 
+   * Private method to recognize the image url in the text message and convert to <img> tag
+   * Message with no img url will not be modified
+   */
+  private String extractImgUrl(String text){
+    return(text.replaceAll(this.imgUrlRegex, this.imgUrlReplacement));
   }
 }
