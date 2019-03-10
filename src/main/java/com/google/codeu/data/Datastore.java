@@ -43,7 +43,7 @@ public class Datastore {
     messageEntity.setProperty("user", message.getUser());
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
-
+    messageEntity.setProperty("recipient", message.getRecipient());
     datastore.put(messageEntity);
   }
 
@@ -60,31 +60,33 @@ public class Datastore {
    * @return a list of messages posted by the user, or empty list if user has never posted a
    *     message. List is sorted by time descending.
    */
-  public List<Message> getMessages(String user) {
-    List<Message> messages = new ArrayList<>();
+public List<Message> getMessages(String recipient) {
+  List<Message> messages = new ArrayList<>();
 
-    Query query =
-        new Query("Message")
-            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
-            .addSort("timestamp", SortDirection.DESCENDING);
-    PreparedQuery results = datastore.prepare(query);
+  Query query =
+      new Query("Message")
+          .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
+          .addSort("timestamp", SortDirection.DESCENDING);
+  PreparedQuery results = datastore.prepare(query);
 
-    for (Entity entity : results.asIterable()) {
-      try {
-        String idString = entity.getKey().getName();
-        UUID id = UUID.fromString(idString);
-        String text = (String) entity.getProperty("text");
-        long timestamp = (long) entity.getProperty("timestamp");
+  for (Entity entity : results.asIterable()) {
+    try {
+      String idString = entity.getKey().getName();
+      UUID id = UUID.fromString(idString);
+      String user = (String) entity.getProperty("user");
 
-        Message message = new Message(id, user, text, timestamp);
-        messages.add(message);
-      } catch (Exception e) {
-        System.err.println("Error reading message.");
-        System.err.println(entity.toString());
-        e.printStackTrace();
-      }
+      String text = (String) entity.getProperty("text");
+      long timestamp = (long) entity.getProperty("timestamp");
+
+      Message message = new Message(id, user, text, timestamp, recipient);
+      messages.add(message);
+    } catch (Exception e) {
+      System.err.println("Error reading message.");
+      System.err.println(entity.toString());
+      e.printStackTrace();
     }
+  }
 
-    return messages;
+  return messages;
   }
 }
