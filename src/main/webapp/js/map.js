@@ -1,4 +1,4 @@
-global google
+/*global Google */
 
 /** Creates a map that shows landmarks around Google. */
 function createMap(){
