@@ -48,7 +48,8 @@ public class Datastore {
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
     messageEntity.setProperty("sentimentScore", message.getSentimentScore());
-
+    messageEntity.setProperty("messageCategories", message.getMessageCategories());
+    	
     datastore.put(messageEntity);
     
     int messageLength = message.getText().length();
@@ -107,8 +108,9 @@ public class Datastore {
         String recipient = (String) entity.getProperty("recipient"); 
         // sentimentScore casted to Double from float first to avoid it being saved as a 0
         float sentimentScore = entity.getProperty("sentimentScore") == null? (float) 0.0 : ((Double) entity.getProperty("sentimentScore")).floatValue();
-
-        Message message = new Message(id, user, text, timestamp, recipient, sentimentScore);
+        String messageCategories = (String) entity.getProperty("messageCategories");
+        
+        Message message = new Message(id, user, text, timestamp, recipient, sentimentScore, messageCategories);
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");

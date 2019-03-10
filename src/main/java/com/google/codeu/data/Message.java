@@ -27,6 +27,7 @@ public class Message {
   private long timestamp;
   private String recipient;
   private float sentimentScore;
+  private String messageCategories;
 
   /**
    * Constructs a new {@link Message} posted by {@code user} with {@code text}
@@ -38,8 +39,8 @@ public class Message {
    * @param recipient The recipient of {@code this} message
    * @param sentimentScore The Sentiment Analysis Score of this message
    */
-  public Message(String user, String text, String recipient, float sentimentScore) {
-    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore);
+  public Message(String user, String text, String recipient, float sentimentScore, String messageCategories) {
+    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore, messageCategories);
   }
 
   /**
@@ -54,13 +55,14 @@ public class Message {
    * @param recipient The recipient of {@code this} message
    * @param sentimentScore The score returned by Sentiment Analysis of the message
    */
-  public Message(UUID id, String user, String text, long timestamp, String recipient, float sentimentScore) {
+  public Message(UUID id, String user, String text, long timestamp, String recipient, float sentimentScore, String messageCategories) {
     this.id = id;
     this.user = user;
     this.text = text;
     this.timestamp = timestamp;
     this.recipient = recipient;
     this.sentimentScore = sentimentScore;
+    this.messageCategories = messageCategories;
   }
 
   public UUID getId() {
@@ -85,5 +87,9 @@ public class Message {
   
   public float getSentimentScore() {
 	  return sentimentScore;
+  }
+  
+  public String getMessageCategories() {
+	  return messageCategories;
   }
 }
