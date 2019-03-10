@@ -1,28 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Map Project</title>
+  <title>Google Tour</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCII0kJqaa9uBysCMxSVcYJn1d2KeuAcDU"></script>
-  <script>
-    let map;
-    function createMap(){
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 37.422, lng: -122.084},
-        zoom: 16
-      });
-    }
-  </script>
-  <style>
-    #map{
-      width: 500px;
-      height: 500px;
-      border: thin solid black;
-    }
-  </style>
+  <script src="map.js"></script>
+  <link rel="stylesheet" href="map.css">
 </head>
-<body>
-  <body onload="createMap();">
-  <h1>Map Project</h1>
+<body onload="createMap();">
+  <h1>Google Tour</h1>
+  <p>Here are a few of my favorite places at Google!</p>
   <div id="map"></div>
 </body>
 </html>
