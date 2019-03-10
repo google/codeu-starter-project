@@ -104,8 +104,8 @@ public class Datastore {
         String user = (String) entity.getProperty("user");
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
-        String recipient = (String) entity.getProperty("recipient");
-        float sentimentScore = (float) entity.getProperty("sentimentScore");
+        String recipient = (String) entity.getProperty("recipient"); 
+        float sentimentScore = entity.getProperty("sentimentScore") == null? (float) 0.0 : ((Double) entity.getProperty("sentimentScore")).floatValue();
 
         Message message = new Message(id, user, text, timestamp, recipient, sentimentScore);
         messages.add(message);
