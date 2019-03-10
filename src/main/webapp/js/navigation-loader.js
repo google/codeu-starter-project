@@ -55,6 +55,15 @@ function addPublicFeed() {
   navigationElement.appendChild(createListItem(createLink('/feed.html', 'Public Feed')));
 }
 
+function addMap() {
+  const navigationElement = document.getElementById('navigation');
+  if (!navigationElement) {
+    console.warn('Navigation element not found!');
+    return;
+  }
+  navigationElement.appendChild(createListItem(createLink('/map.html', 'Map')));
+}
+
 
 
 
@@ -63,6 +72,8 @@ function buildNavBar() {
 	addLoginOrLogoutLinkToNavigation();
 	// Add Public Feed link
 	addPublicFeed();
+	// Add Map link
+	addMap();
 }
 
 /**
