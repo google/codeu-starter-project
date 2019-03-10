@@ -45,3 +45,9 @@
 .hidden {
   display: none;
 }
+
+.message-body img {
+  display: block;
+  margin-top: 25px;
+  max-width: 75%;
+}
