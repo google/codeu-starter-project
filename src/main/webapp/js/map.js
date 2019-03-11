@@ -5,7 +5,7 @@ function createMap(){
 
   const map = new window.google.maps.Map(document.getElementById('map'), {
     center: {lat: 37.422403, lng: -122.088073},
-    zoom: 15
+    zoom: 6
   });
 
   addLandmark(map, 37.423829, -122.092154, 'Google West Campus', 'Google West Campus is home to YouTube and Maps.')
@@ -45,15 +45,15 @@ function initMap(map) {
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
+        handleLocationError(map, true, infoWindow, map.getCenter());
       });
     } else {
-        handleLocationError(false, infoWindow, map.getCenter());
+        handleLocationError(map, false, infoWindow, map.getCenter());
     }
 }
 
 /** Handles location not found errors is initMap */
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+function handleLocationError(map, browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent('Location found.');
   infoWindow.setContent(browserHasGeolocation ?
