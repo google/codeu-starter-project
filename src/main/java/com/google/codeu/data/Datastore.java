@@ -62,12 +62,16 @@ public class Datastore {
     String[] messageCategoryList = message.getMessageCategories().split("/");
 
     for (String category : messageCategoryList) {
+    	category = category.replace("[", "");
+    	category = category.replaceAll("]", "");
+
     	if (messageCategoryCount.containsKey(category)) {
     		messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);
     	}
     	else {
     		messageCategoryCount.put(category, 1);
     	}
+
     }
   }
 
