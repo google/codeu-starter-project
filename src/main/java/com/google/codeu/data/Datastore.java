@@ -130,7 +130,6 @@ public class Datastore {
         String messageCategories = (String) entity.getProperty("messageCategories");
         
         // Replace all image URLS in message with proper image HTML tags
-        String text = (String) entity.getProperty("text");
         String regex = "(https?://([^\\s.]+.?[^\\s.]*)+/[^\\s.]+.(png|jpg))";
         String replacement = "<img src=\"$1\" />";
         String textWithImagesReplaced = text.replaceAll(regex, replacement);
