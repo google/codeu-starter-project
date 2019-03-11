@@ -1,4 +1,4 @@
-/* exported google */
+/*global google*/
 
 google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
