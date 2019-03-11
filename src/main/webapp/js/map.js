@@ -1,6 +1,9 @@
+/* exported createMap */
+/* exported google */
+
 function createMap(){
 
-  const map = new google.maps.Map(document.getElementById('map'), {
+  const map = new window.google.maps.Map(document.getElementById('map'), {
     center: {lat: 37.422403, lng: -122.088073},
     zoom: 15
   });
@@ -13,13 +16,13 @@ function createMap(){
 /** Adds a marker that shows an InfoWindow when clicked. */
 function addLandmark(map, lat, lng, title, description){
 
-  const marker = new google.maps.Marker({
+  const marker = new window.google.maps.Marker({
     position: {lat: lat, lng: lng},
     map: map,
     title: title
   });
 
-  var infoWindow = new google.maps.InfoWindow({
+  var infoWindow = new window.google.maps.InfoWindow({
     content: description
   });
   marker.addListener('click', function() {
