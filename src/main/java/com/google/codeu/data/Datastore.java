@@ -123,7 +123,8 @@ public class Datastore {
         long timestamp = (long) entity.getProperty("timestamp");
         String recipient = (String) entity.getProperty("recipient"); 
         // sentimentScore casted to Double from float first to avoid it being saved as a 0
-        float sentimentScore = entity.getProperty("sentimentScore") == null? (float) 0.0 : ((Double) entity.getProperty("sentimentScore")).floatValue();
+        float sentimentScore = entity.getProperty("sentimentScore") == null ? (float) 0.0 : 
+          ((Double) entity.getProperty("sentimentScore")).floatValue();
         String messageCategories = (String) entity.getProperty("messageCategories");
         
         Message message = new Message(id, user, text, timestamp, recipient, sentimentScore, messageCategories);
@@ -178,10 +179,10 @@ public class Datastore {
   
   /** Returns the categories and their counts of all of the messages. */
   public String getMessageCategories() {
-	  String messageCategories = "";
-	  for (String category : messageCategoryCount.keySet()) {
-		  messageCategories = messageCategories + "("+ category + " " + messageCategoryCount.get(category) + ")" + " ; ";
-	  }
-	  return messageCategories;
+    String messageCategories = "";
+    for (String category : messageCategoryCount.keySet()) {
+      messageCategories = messageCategories + "("+ category + " " + messageCategoryCount.get(category) + ")" + " ; ";
+    }
+    return messageCategories;
   }
 }

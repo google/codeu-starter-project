@@ -97,35 +97,34 @@ public class MessageServlet extends HttpServlet {
   
   /** Calculates the sentiment score of a message. */
   private float getSentimentScore(String text) throws IOException {
-	  Document doc = Document.newBuilder()
-	      .setContent(text).setType(Type.PLAIN_TEXT).build();
+    Document doc = Document.newBuilder().setContent(text).setType(Type.PLAIN_TEXT).build();
 
-	  LanguageServiceClient languageService = LanguageServiceClient.create();
-	  Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-	  languageService.close();
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    languageService.close();
 
-	  return sentiment.getScore();
-	}
+    return sentiment.getScore();
+  }
   
   /** Determines the appropriate categories of a message > 20 words. */
   private HashMap<String, Float> getMessageCategories(String text) throws IOException {
-	  HashMap<String, Float> messageCategories = new HashMap<String, Float>();
-	  try (LanguageServiceClient language = LanguageServiceClient.create()) {
-		  // set content to the text string
-		  Document doc = Document.newBuilder()
-		      .setContent(text)
-		      .setType(Type.PLAIN_TEXT)
-		      .build();
-		  ClassifyTextRequest request = ClassifyTextRequest.newBuilder()
-		      .setDocument(doc)
-		      .build();
-		  // detect categories in the given text
-		  ClassifyTextResponse response = language.classifyText(request);
+    HashMap<String, Float> messageCategories = new HashMap<String, Float>();
+    try (LanguageServiceClient language = LanguageServiceClient.create()) {
+	// set content to the text string
+	Document doc = Document.newBuilder()
+      .setContent(text)
+	  .setType(Type.PLAIN_TEXT)
+	  .build();
+	ClassifyTextRequest request = ClassifyTextRequest.newBuilder()
+	  .setDocument(doc)
+	  .build();
+	// detect categories in the given text
+	ClassifyTextResponse response = language.classifyText(request);
 
-		  for (ClassificationCategory category : response.getCategoriesList()) {
-		    messageCategories.put(category.getName(), category.getConfidence());
-		  }
-		}
-	  return messageCategories;
+	for (ClassificationCategory category : response.getCategoriesList()) {
+	  messageCategories.put(category.getName(), category.getConfidence());
 	}
+  }
+  return messageCategories;
+}
 }
