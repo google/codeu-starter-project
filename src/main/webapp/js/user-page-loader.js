@@ -67,6 +67,11 @@ function fetchMessages() {
           messagesContainer.appendChild(messageDiv);
         });
       });
+  const parameterLanguage = urlParams.get('language');
+  let url = '/messages?user=' + parameterUsername;
+  if(parameterLanguage) {
+    url += '&language=' + parameterLanguage;
+  }
 }
 
 /**
