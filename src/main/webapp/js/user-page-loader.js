@@ -30,8 +30,9 @@ function setPageTitle() {
 }
 
 /**
- * Shows the message form if the user is logged in and viewing their own page.
+ * Shows the message form if the user is logged in.
  */
+<<<<<<< HEAD
 function showMessageFormIfViewingSelf() {
   fetch("/login-status")
     .then(response => {
@@ -44,6 +45,21 @@ function showMessageFormIfViewingSelf() {
         document.getElementById("about-me-form").classList.remove("hidden");
       }
     });
+=======
+function showMessageFormIfLoggedIn() {
+  fetch('/login-status')
+      .then((response) => {
+        return response.json();
+      })
+      .then((loginStatus) => {
+        if (loginStatus.isLoggedIn) {
+          const messageForm = document.getElementById('message-form');
+          messageForm.action = '/messages?recipient=' + parameterUsername;
+          messageForm.classList.remove('hidden');
+          document.getElementById('about-me-form').classList.remove('hidden');
+        }
+      });
+>>>>>>> f29c2bdac1e501551c0863024d35af9c0d722657
 }
 
 /** Fetches messages and add them to the page. */
@@ -98,6 +114,7 @@ function buildMessageDiv(message) {
   return messageDiv;
 }
 
+<<<<<<< HEAD
 function fetchAboutMe() {
   const url = "/about?user=" + parameterUsername;
   fetch(url)
@@ -109,6 +126,19 @@ function fetchAboutMe() {
       if (aboutMe == "") {
         aboutMe = "This user has not entered any information yet.";
       }
+=======
+function fetchAboutMe(){
+  const url = '/about?user=' + parameterUsername;
+  fetch(url).then((response) => {
+    return response.text();
+  }).then((aboutMe) => {
+    const aboutMeContainer = document.getElementById('about-me-container');
+    if(aboutMe == ''){
+      aboutMe = 'This user has not entered any information yet.';
+    }
+
+    aboutMeContainer.innerHTML = aboutMe;
+>>>>>>> f29c2bdac1e501551c0863024d35af9c0d722657
 
       aboutMeContainer.innerHTML = aboutMe;
     });
@@ -117,7 +147,7 @@ function fetchAboutMe() {
 /** Fetches data and populates the UI of the page. */
 function buildUI() {
   setPageTitle();
-  showMessageFormIfViewingSelf();
+  showMessageFormIfLoggedIn();
   fetchMessages();
   fetchAboutMe();
 }

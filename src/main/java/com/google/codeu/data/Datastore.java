@@ -76,15 +76,16 @@ public class Datastore {
   }
 
   /**
-   * Gets messages posted by a specific user.
+   * Gets messages sent to a specific recipient.
    *
-   * @return a list of messages posted by the user, or empty list if user has never posted a
-   *     message. List is sorted by time descending.
+   * @return a list of messages sent to the recipient, or empty list if recipient
+   *     has never received has never posted a
+   *     List is sorted by time descending.
    */
-  public List<Message> getMessages(String user) {
+  public List<Message> getMessages(String recipient) {
     Query query =
         new Query("Message")
-            .setFilter(new Query.FilterPredicate("user", FilterOperator.EQUAL, user))
+            .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
             .addSort("timestamp", SortDirection.DESCENDING);
     List<Message> messages = fetchMessages(query);
     
@@ -117,8 +118,10 @@ public class Datastore {
     for (Entity entity : results.asIterable()) {
       try {
         String idString = entity.getKey().getName();
-        UUID id = UUID.fromString(idString);
+
+        UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
+<<<<<<< HEAD
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
         String recipient = (String) entity.getProperty("recipient"); 
@@ -128,6 +131,18 @@ public class Datastore {
         String messageCategories = (String) entity.getProperty("messageCategories");
         
         Message message = new Message(id, user, text, timestamp, recipient, sentimentScore, messageCategories);
+=======
+        String recipient = (String) entity.getProperty("recipient");
+        long timestamp = (long) entity.getProperty("timestamp");
+        
+        // Replace all image URLS in message with proper image HTML tags
+        String text = (String) entity.getProperty("text");
+        String regex = "(https?://([^\\s.]+.?[^\\s.]*)+/[^\\s.]+.(png|jpg))";
+        String replacement = "<img src=\"$1\" />";
+        String textWithImagesReplaced = text.replaceAll(regex, replacement);
+        
+        Message message = new Message(id, user, textWithImagesReplaced, timestamp, recipient);
+>>>>>>> f29c2bdac1e501551c0863024d35af9c0d722657
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
@@ -137,6 +152,7 @@ public class Datastore {
     }
     return messages;
   }
+
   
   
   /** Returns the total number of messages for all users. */
@@ -144,6 +160,38 @@ public class Datastore {
     Query query = new Query("Message");
     PreparedQuery results = datastore.prepare(query);
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
+
+  }
+  
+
+
+  /* About me Section */
+  /** Stores the User in Datastore. */
+  public void storeUser(User user) {
+    Entity userEntity = new Entity("User", user.getEmail());
+    userEntity.setProperty("email", user.getEmail());
+    userEntity.setProperty("aboutMe", user.getAboutMe());
+    datastore.put(userEntity);
+  }
+ 
+  /**
+  * Returns the User owned by the email address, or
+  * null if no matching User was found.
+  */
+  public User getUser(String email) {
+ 
+    Query query = new Query("User")
+        .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
+    PreparedQuery results = datastore.prepare(query);
+    Entity userEntity = results.asSingleEntity();
+    if (userEntity == null) {
+      return null;
+    }
+  
+    String aboutMe = (String) userEntity.getProperty("aboutMe");
+    User user = new User(email, aboutMe);
+  
+    return user;
   }
   
   /** Returns the longest message length of all users. */
