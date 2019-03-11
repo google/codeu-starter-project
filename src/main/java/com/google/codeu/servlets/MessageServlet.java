@@ -95,6 +95,7 @@ public class MessageServlet extends HttpServlet {
     response.sendRedirect("/user-page.html?user=" + recipient);
   }
   
+  /** Calculates the sentiment score of a message. */
   private float getSentimentScore(String text) throws IOException {
 	  Document doc = Document.newBuilder()
 	      .setContent(text).setType(Type.PLAIN_TEXT).build();
@@ -106,6 +107,7 @@ public class MessageServlet extends HttpServlet {
 	  return sentiment.getScore();
 	}
   
+  /** Determines the appropriate categories of a message > 20 words. */
   private HashMap<String, Float> getMessageCategories(String text) throws IOException {
 	  HashMap<String, Float> messageCategories = new HashMap<String, Float>();
 	  try (LanguageServiceClient language = LanguageServiceClient.create()) {

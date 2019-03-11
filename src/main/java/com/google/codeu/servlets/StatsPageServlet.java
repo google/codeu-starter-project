@@ -35,11 +35,13 @@ public class StatsPageServlet extends HttpServlet {
     int longestMessage = datastore.getLongestMessageCount();
     int totalUsers = datastore.getTotalUserCount();
     ArrayList<String> topPosters = datastore.getTopUsers();
+    String messageCategories = datastore.getMessageCategories();
 
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("messageCount", messageCount);
     jsonObject.addProperty("longestMessageLength", longestMessage);
     jsonObject.addProperty("userCount", totalUsers);
+    jsonObject.addProperty("messageCategories", messageCategories);
     for (int i = 0; i < topPosters.size(); i++) {
       jsonObject.addProperty("topUser" + (i + 1), topPosters.get(i));
     }

@@ -19,6 +19,10 @@
         const topUsers = buildStatElement('Top Users: ' + (stats.topUser1  || '') + ', ' + 
           (stats.topUser2  || '') + ', ' + (stats.topUser3 || ''));
         statsContainer.appendChild(topUsers);
+        
+        const messageCategories = buildStatElement('Message Topics: ' + stats.messageCategories);
+        statsContainer.appendChild(messageCategories);
+        
       });
     }
 

@@ -35,7 +35,8 @@ public class Datastore {
   private DatastoreService datastore; 
   private static int longestMessage = 0;
   private static HashMap<String, Integer> postsPerUser = new HashMap<String,Integer>();
-
+  private static HashMap<String, Integer> messageCategoryCount = new HashMap<String ,Integer>();
+  
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
   }
@@ -57,6 +58,17 @@ public class Datastore {
       longestMessage = messageLength;
     }
     postsPerUser.put(message.getUser(), getMessages(message.getUser()).size());
+    
+    String[] messageCategoryList = message.getMessageCategories().split("/");
+
+    for (String category : messageCategoryList) {
+    	if (messageCategoryCount.containsKey(category)) {
+    		messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);
+    	}
+    	else {
+    		messageCategoryCount.put(category, 1);
+    	}
+    }
   }
 
   /**
@@ -158,5 +170,13 @@ public class Datastore {
       topUsers.add(currTopUser);
     } 
     return topUsers;
+  }
+  
+  public String getMessageCategories() {
+	  String messageCategories = "";
+	  for (String category : messageCategoryCount.keySet()) {
+		  messageCategories = messageCategories + "("+ category + " " + messageCategoryCount.get(category) + ")" + " ; ";
+	  }
+	  return messageCategories;
   }
 }
