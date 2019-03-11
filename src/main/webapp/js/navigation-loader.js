@@ -77,7 +77,6 @@ function addMap() {
   navigationElement.appendChild(createListItem(createLink("/map.html", "Map")));
 }
 
-
 function buildNavBar() {
   // Add login/logout link
   addLoginOrLogoutLinkToNavigation();
