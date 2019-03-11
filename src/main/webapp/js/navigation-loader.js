@@ -65,8 +65,6 @@ function addPublicFeed() {
   );
 }
 
-<<<<<<< HEAD
-=======
 /**
  * Adds link to map page
  */
@@ -79,17 +77,15 @@ function addMap() {
   navigationElement.appendChild(createListItem(createLink("/map.html", "Map")));
 }
 
->>>>>>> f29c2bdac1e501551c0863024d35af9c0d722657
+
 function buildNavBar() {
   // Add login/logout link
   addLoginOrLogoutLinkToNavigation();
   // Add Public Feed link
   addPublicFeed();
-<<<<<<< HEAD
-=======
+
   // Add Map link
   addMap();
->>>>>>> f29c2bdac1e501551c0863024d35af9c0d722657
 }
 
 /**

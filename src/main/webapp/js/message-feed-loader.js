@@ -17,7 +17,6 @@ function fetchMessages() {
         messageContainer.appendChild(messageDiv);
       });
     });
-<<<<<<< HEAD
 }
 
 function buildMessageDiv(message) {
@@ -49,7 +48,7 @@ function buildMessageDiv(message) {
 // Fetch data and populate the UI of the page.
 function buildUI() {
   fetchMessages();
-=======
+
   }
   
   function buildMessageDiv(message){
@@ -94,5 +93,4 @@ function createLink(url, text) {
   linkElement.appendChild(document.createTextNode(text));
   linkElement.href = url;
   return linkElement;
->>>>>>> f29c2bdac1e501551c0863024d35af9c0d722657
 }
