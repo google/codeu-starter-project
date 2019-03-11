@@ -37,7 +37,6 @@ import com.google.cloud.translate.Translation;
 /** Handles fetching and saving {@link Message} instances. */
 @WebServlet("/messages")
 public class MessageServlet extends HttpServlet {
-
   private Datastore datastore;
 
   @Override
@@ -88,25 +87,12 @@ public class MessageServlet extends HttpServlet {
 
     String user = userService.getCurrentUser().getEmail();
     String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    String recipient = request.getParameter("recipient");
 
-    Message message = new Message(user, text);
+    Message message = new Message(user, text, recipient);
     datastore.storeMessage(message);
 
-    response.sendRedirect("/user-page.html?user=" + user);
-    
-  }
-  private void translateMessages(List<Message> messages, String targetLanguageCode) {
-    Translate translate = TranslateOptions.getDefaultInstance().getService();
+    response.sendRedirect("/user-page.html?user=" + recipient);
 
-
-    for(Message message : messages) {
-      String originalText = message.getText();
-
-      Translation translation = translate.translate(originalText, TranslateOption.targetLanguage(targetLanguageCode));
-      String translatedText = translation.getTranslatedText();
-        
-      message.setText(translatedText);
-    }    
-  
   }
 }
