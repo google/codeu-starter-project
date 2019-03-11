@@ -1,3 +1,5 @@
+/* exported google */
+
 google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -23,7 +25,7 @@ function drawChart(){
   var chart_options = {
       title: "Disney Movie Votes",
       width: 900,
-      height: 400,
+      height: 400
   };
 
   // Create new instance of barchart
