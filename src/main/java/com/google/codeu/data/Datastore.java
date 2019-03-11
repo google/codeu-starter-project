@@ -176,6 +176,7 @@ public class Datastore {
     return topUsers;
   }
   
+  /** Returns the categories and their counts of all of the messages. */
   public String getMessageCategories() {
 	  String messageCategories = "";
 	  for (String category : messageCategoryCount.keySet()) {
