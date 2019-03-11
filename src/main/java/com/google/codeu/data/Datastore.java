@@ -122,6 +122,10 @@ public class Datastore {
         UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 40e3a90fb3f87210917abd614a5fc74fab3b2f7a
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
         String recipient = (String) entity.getProperty("recipient"); 
@@ -130,19 +134,26 @@ public class Datastore {
           ((Double) entity.getProperty("sentimentScore")).floatValue();
         String messageCategories = (String) entity.getProperty("messageCategories");
         
+<<<<<<< HEAD
         Message message = new Message(id, user, text, timestamp, recipient, sentimentScore, messageCategories);
 =======
         String recipient = (String) entity.getProperty("recipient");
         long timestamp = (long) entity.getProperty("timestamp");
         
+=======
+>>>>>>> 40e3a90fb3f87210917abd614a5fc74fab3b2f7a
         // Replace all image URLS in message with proper image HTML tags
-        String text = (String) entity.getProperty("text");
         String regex = "(https?://([^\\s.]+.?[^\\s.]*)+/[^\\s.]+.(png|jpg))";
         String replacement = "<img src=\"$1\" />";
         String textWithImagesReplaced = text.replaceAll(regex, replacement);
         
+<<<<<<< HEAD
         Message message = new Message(id, user, textWithImagesReplaced, timestamp, recipient);
 >>>>>>> f29c2bdac1e501551c0863024d35af9c0d722657
+=======
+        Message message = new Message(id, user, textWithImagesReplaced, timestamp, recipient, sentimentScore, messageCategories);
+        
+>>>>>>> 40e3a90fb3f87210917abd614a5fc74fab3b2f7a
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
