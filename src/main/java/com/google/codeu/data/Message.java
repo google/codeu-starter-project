@@ -37,7 +37,8 @@ public class Message {
    * @param user The user posting {@code this} message
    * @param text The content of {@code this} message
    * @param recipient The recipient of {@code this} message
-   * @param sentimentScore The Sentiment Analysis Score of this message
+   * @param sentimentScore The sentiment analysis score of this message
+   * @param messageCategories The categories detected by category classification of this message
    */
   public Message(String user, String text, String recipient, float sentimentScore, String messageCategories) {
     this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore, messageCategories);
@@ -54,6 +55,7 @@ public class Message {
    *                  since the Unix Epoch
    * @param recipient The recipient of {@code this} message
    * @param sentimentScore The score returned by Sentiment Analysis of the message
+   * @param messageCategories The categories detected in the message
    */
   public Message(UUID id, String user, String text, long timestamp, String recipient, float sentimentScore, String messageCategories) {
     this.id = id;
