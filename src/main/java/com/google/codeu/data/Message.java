@@ -60,7 +60,7 @@ public class Message {
   }
 
   public void setText(String other_text){
-    text = other_text;
+    this.text = other_text;
   }
 
   public long getTimestamp() {
