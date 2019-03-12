@@ -110,21 +110,21 @@ public class MessageServlet extends HttpServlet {
   private HashMap<String, Float> getMessageCategories(String text) throws IOException {
     HashMap<String, Float> messageCategories = new HashMap<String, Float>();
     try (LanguageServiceClient language = LanguageServiceClient.create()) {
-	// set content to the text string
-	Document doc = Document.newBuilder()
+      // set content to the text string
+      Document doc = Document.newBuilder()
       .setContent(text)
-	  .setType(Type.PLAIN_TEXT)
-	  .build();
-	ClassifyTextRequest request = ClassifyTextRequest.newBuilder()
-	  .setDocument(doc)
-	  .build();
-	// detect categories in the given text
-	ClassifyTextResponse response = language.classifyText(request);
+	    .setType(Type.PLAIN_TEXT)
+	    .build();
+      ClassifyTextRequest request = ClassifyTextRequest.newBuilder()
+	    .setDocument(doc)
+	    .build();
+      // detect categories in the given text
+      ClassifyTextResponse response = language.classifyText(request);
 
-	for (ClassificationCategory category : response.getCategoriesList()) {
-	  messageCategories.put(category.getName(), category.getConfidence());
-	}
-  }
+      for (ClassificationCategory category : response.getCategoriesList()) {
+        messageCategories.put(category.getName(), category.getConfidence());
+      }
+    }
   return messageCategories;
-}
+  }
 }

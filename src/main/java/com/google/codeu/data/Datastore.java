@@ -126,7 +126,7 @@ public class Datastore {
         String recipient = (String) entity.getProperty("recipient"); 
         // sentimentScore casted to Double from float first to avoid it being saved as a 0
         float sentimentScore = entity.getProperty("sentimentScore") == null ? (float) 0.0 : 
-          ((Double) entity.getProperty("sentimentScore")).floatValue();
+            ((Double) entity.getProperty("sentimentScore")).floatValue();
         String messageCategories = (String) entity.getProperty("messageCategories");
 
         // Replace all image URLS in message with proper image HTML tags
@@ -134,7 +134,8 @@ public class Datastore {
         String replacement = "<img src=\"$1\" />";
         String textWithImagesReplaced = text.replaceAll(regex, replacement);
 
-        Message message = new Message(id, user, textWithImagesReplaced, timestamp, recipient, sentimentScore, messageCategories);
+        Message message = new Message(id, user, textWithImagesReplaced, timestamp, 
+            recipient, sentimentScore, messageCategories);
 
         messages.add(message);
       } catch (Exception e) {
@@ -222,7 +223,8 @@ public class Datastore {
   public String getMessageCategories() {
     String messageCategories = "";
     for (String category : messageCategoryCount.keySet()) {
-      messageCategories = messageCategories + "("+ category + " " + messageCategoryCount.get(category) + ")" + " ; ";
+      messageCategories = messageCategories + "(" + category + " " + 
+          messageCategoryCount.get(category) + ")" + " ; ";
     }
     return messageCategories;
   }
