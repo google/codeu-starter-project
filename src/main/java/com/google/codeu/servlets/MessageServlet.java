@@ -18,10 +18,18 @@ package com.google.codeu.servlets;
 
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
+import com.google.cloud.language.v1.ClassificationCategory;
+import com.google.cloud.language.v1.ClassifyTextRequest;
+import com.google.cloud.language.v1.ClassifyTextResponse;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.Document.Type;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import com.google.codeu.data.Datastore;
 import com.google.codeu.data.Message;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,10 +86,45 @@ public class MessageServlet extends HttpServlet {
     String user = userService.getCurrentUser().getEmail();
     String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
     String recipient = request.getParameter("recipient");
+    float sentimentScore = getSentimentScore(text);
+    String messageCategories = getMessageCategories(text).keySet().toString();
 
-    Message message = new Message(user, text, recipient);
+    Message message = new Message(user, text, recipient, sentimentScore, messageCategories);
     datastore.storeMessage(message);
 
     response.sendRedirect("/user-page.html?user=" + recipient);
+  }
+  
+  /** Calculates the sentiment score of a message. */
+  private float getSentimentScore(String text) throws IOException {
+    Document doc = Document.newBuilder().setContent(text).setType(Type.PLAIN_TEXT).build();
+
+    LanguageServiceClient languageService = LanguageServiceClient.create();
+    Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    languageService.close();
+
+    return sentiment.getScore();
+  }
+  
+  /** Determines the appropriate categories of a message > 20 words. */
+  private HashMap<String, Float> getMessageCategories(String text) throws IOException {
+    HashMap<String, Float> messageCategories = new HashMap<String, Float>();
+    try (LanguageServiceClient language = LanguageServiceClient.create()) {
+      // set content to the text string
+      Document doc = Document.newBuilder()
+          .setContent(text)
+          .setType(Type.PLAIN_TEXT)
+          .build();
+      ClassifyTextRequest request = ClassifyTextRequest.newBuilder()
+          .setDocument(doc)
+          .build();
+      // detect categories in the given text
+      ClassifyTextResponse response = language.classifyText(request);
+
+      for (ClassificationCategory category : response.getCategoriesList()) {
+        messageCategories.put(category.getName(), category.getConfidence());
+      }
+    }
+    return messageCategories;
   }
 }
