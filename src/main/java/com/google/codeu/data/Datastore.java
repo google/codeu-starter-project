@@ -223,8 +223,8 @@ public class Datastore {
   public String getMessageCategories() {
     String messageCategories = "";
     for (String category : messageCategoryCount.keySet()) {
-      messageCategories = messageCategories + "(" + category + " " + 
-          messageCategoryCount.get(category) + ")" + " ; ";
+      messageCategories = messageCategories + "(" + category + " " 
+          + messageCategoryCount.get(category) + ")" + " ; ";
     }
     return messageCategories;
   }

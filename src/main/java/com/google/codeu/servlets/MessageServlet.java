@@ -112,12 +112,12 @@ public class MessageServlet extends HttpServlet {
     try (LanguageServiceClient language = LanguageServiceClient.create()) {
       // set content to the text string
       Document doc = Document.newBuilder()
-      .setContent(text)
-	    .setType(Type.PLAIN_TEXT)
-	    .build();
+          .setContent(text)
+          .setType(Type.PLAIN_TEXT)
+          .build();
       ClassifyTextRequest request = ClassifyTextRequest.newBuilder()
-	    .setDocument(doc)
-	    .build();
+          .setDocument(doc)
+          .build();
       // detect categories in the given text
       ClassifyTextResponse response = language.classifyText(request);
 
@@ -125,6 +125,6 @@ public class MessageServlet extends HttpServlet {
         messageCategories.put(category.getName(), category.getConfidence());
       }
     }
-  return messageCategories;
+    return messageCategories;
   }
 }

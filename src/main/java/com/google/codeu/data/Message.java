@@ -43,7 +43,7 @@ public class Message {
   public Message(String user, String text, String recipient, 
       float sentimentScore, String messageCategories) {
     this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore, 
-    		messageCategories);
+      messageCategories);
   }
 
   /**
@@ -59,8 +59,8 @@ public class Message {
    * @param sentimentScore The score returned by Sentiment Analysis of the message
    * @param messageCategories The categories detected in the message
    */
-    public Message(UUID id, String user, String text, long timestamp, String recipient, 
-		  float sentimentScore, String messageCategories) {
+  public Message(UUID id, String user, String text, long timestamp, String recipient, 
+      float sentimentScore, String messageCategories) {
     this.id = id;
     this.user = user;
     this.text = text;
