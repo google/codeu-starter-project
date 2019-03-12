@@ -43,7 +43,7 @@ public class Message {
   public Message(String user, String text, String recipient, 
       float sentimentScore, String messageCategories) {
     this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore, 
-      messageCategories);
+        messageCategories);
   }
 
   /**

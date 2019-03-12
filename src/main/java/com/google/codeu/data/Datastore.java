@@ -67,8 +67,8 @@ public class Datastore {
 
       if (messageCategoryCount.containsKey(category)) {
         messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);
-      }
-      else {
+
+      } else {
         messageCategoryCount.put(category, 1);
       }
 
