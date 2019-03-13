@@ -1,0 +1,604 @@
+,id,name,rating,address,city,lat,long
+0,99-tea-house-fremont-2,99% Tea House,4.5,3623 Thornton Ave,Fremont,37.56295,-122.01003999999999
+1,one-tea-fremont-2,One Tea,4.5,46809 Warm Springs Blvd,Fremont,37.4890666928572,-121.929413750767
+2,royaltea-usa-fremont,Royaltea USA,4.0,38509 Fremont Blvd,Fremont,37.551315128803296,-121.993849799037
+3,teco-tea-and-coffee-bar-fremont,TECO Tea & Coffee Bar,4.5,39030 Paseo Padre Pkwy,Fremont,37.5536945,-121.981043
+4,t-lab-fremont-3,T-LAB,4.0,34133 Fremont Blvd,Fremont,37.576149,-122.04370490000001
+5,q-tea-monster-newark,Q-Tea Monster,4.0,39181 Cedar Blvd,Newark,37.5229604101756,-122.00578563248101
+6,gong-cha-fremont,Gong Cha,4.0,46827 Warm Springs Blvd,Fremont,37.4885682635695,-121.929191268869
+7,happy-lemon-fremont-2,Happy Lemon,4.5,46873 Warm Spring Blvd,Fremont,37.488442909347604,-121.930383669657
+8,factory-tea-bar-fremont-2,Factory Tea Bar,3.5,46461 Mission Blvd,Fremont,37.4922976027806,-121.92791871353998
+9,super-cue-cafe-fremont,Super Cue Cafe,3.5,43743 Boscell Rd,Fremont,37.500778287649204,-121.973167955875
+10,milk-and-honey-cafe-fremont,Milk and Honey Cafe,3.5,34265 Fremont Blvd,Fremont,37.575448103287,-122.042586920966
+11,tea-island-fremont-2,Tea Island,4.0,46196 Warm Springs Blvd,Fremont,37.493541436044296,-121.929889351584
+12,taro-taro-dessert-and-tea-house-fremont,Taro Taro Dessert & Tea House,3.5,6018 Stevenson Blvd,Fremont,37.5195973820395,-121.98949322884701
+13,i-tea-fremont-2,i-Tea,3.5,43421 Christy St,Fremont,37.504992442164,-121.971231736243
+14,i-tea-newark,i-Tea,4.0,34925 Newark Blvd,Newark,37.550693578716995,-122.051467484131
+15,sharetea-fremont-2,Sharetea,4.0,3948 Washington Blvd,Fremont,37.53195,-121.95788999999999
+16,urbain-tea-fremont,uRbain tea,3.5,1590 Washington Blvd,Fremont,37.531231411929795,-121.937047836775
+17,mandro-teahouse-newark-3,MandRo Teahouse,4.0,34956 Newark Blvd,Newark,37.55150491512379,-122.050272187505
+18,gong-cha-newark,Gong Cha,4.0,39730 Cedar Blvd,Newark,37.5208,-121.996426
+19,tea-six-fremont-2,Tea Six,3.5,34460 Fremont Blvd,Fremont,37.57509,-122.0386
+20,tata-teahouse-fremont-2,Tata Teahouse,3.0,39230 Argonaut Way,Fremont,37.543782,-121.986825
+21,tea-station-newark,Tea Station,3.5,39115 Cedar Blvd,Newark,37.523356,-122.00664499999999
+22,sno-crave-tea-house-fremont,Sno-Crave Tea House,3.0,43773 Boscell Rd,Fremont,37.500044,-121.97362199999999
+23,boba-queen-fremont,Boba Queen,3.5,34420 Fremont Blvd,Fremont,37.5757,-122.03976999999999
+24,t4-tea-fremont-2,T4 Tea,3.5,43430 Mission Blvd,Fremont,37.53181,-121.91944
+25,boba-fitt-drinks-union-city,Boba Fitt Drinks,3.5,31877 Alvarado Blvd,Union City,37.5897191178595,-122.07114841296699
+26,sweet-home-cafe-fremont-2,Sweet Home Cafe,3.5,6068 Stevenson Blvd,Fremont,37.518066641964204,-121.989524069478
+27,tea-era-mountain-view-2,Tea Era,4.0,271 Castro St,Mountain View,37.3929561,-122.0792811
+28,teaspoon-los-altos,Teaspoon,4.0,4546 El Camino Real,Los Altos,37.401254171244,-122.114469291963
+29,t4-fremont-8,T4,3.5,46132 Warm Springs Blvd,Fremont,37.4932967,-121.93129809999999
+30,my-delights-fremont,My Delights,4.0,43486 Ellsworth St,Fremont,37.53049850463871,-121.920637562871
+31,t4-fremont-3,T4,3.0,36400 Fremont Blvd,Fremont,37.5631118502019,-122.015291475919
+32,sno-crave-teahouse-union-city,Sno-Crave Teahouse,4.0,1788 Decoto Rd,Union City,37.588998700000005,-122.02086570000002
+33,sharetea-union-city-3,Sharetea,3.5,34391 Alvarado Niles Rd,Union City,37.587234,-122.02271200000001
+34,tastea-san-jose-2,Tastea,4.0,1160 N Capitol Ave,San Jose,37.3878,-121.86018999999999
+35,i-tea-castro-valley,i-Tea,4.0,20666 Redwood Rd,Castro Valley,37.695910999999995,-122.072915
+36,caface-newark-2,CaFace,3.5,6180 Jarvis Ave,Newark,37.54872,-122.04928999999998
+37,tea-villa-milpitas,Tea Villa,4.0,1679 N Milpitas Blvd,Milpitas,37.4547351745994,-121.91157187616899
+38,mr-green-bubble-union-city,Mr Green Bubble,3.5,1644 Decoto Rd,Union City,37.5895754513833,-122.020674874683
+39,pop-tea-bar-palo-alto-2,Pop Tea Bar,4.0,456 Cambridge Ave,Palo Alto,37.42655,-122.14631999999999
+40,i-tea-milpitas,i-Tea,4.0,760 E Calaveras Blvd,Milpitas,37.43274,-121.89277
+41,joy-4-tea-union-city,Joy 4 Tea,3.5,32148 Alvarado Blvd,Union City,37.589416387910795,-122.06768341249901
+42,sweet-coco-fremont-3,Sweet CoCo,4.0,46164 Warm Springs Blvd,Fremont,37.49369,-121.93053
+43,icy-blue-fremont,Icy Blue,3.5,43360 Mission Blvd,Fremont,37.53259,-121.91949
+44,teatop-milpitas,TeaTop,4.5,82 Ranch Dr,Milpitas,37.42644,-121.92161999999999
+45,ten-ren-tea-co-of-milpitas-milpitas,Ten Ren Tea Co of Milpitas,4.5,1732 N Milpitas Blvd,Milpitas,37.4555854711176,-121.90998427547899
+46,fantasia-coffee-and-tea-milpitas-2,Fantasia Coffee & Tea,4.0,528 Barber Ln,Milpitas,37.4208151690146,-121.91659205901199
+47,tapioca-express-union-city-2,Tapioca Express,3.5,1707 Decoto Rd,Union City,37.589445484175,-122.02183395763001
+48,gong-cha-palo-alto,Gong Cha,4.0,439 Waverley St,Palo Alto,37.447628,-122.160728
+49,sharetea-san-leandro-3,Sharetea,4.0,699 Lewelling Blvd,San Leandro,37.687487183018,-122.136023640633
+50,boba-guys-san-francisco-6,Boba Guys,4.0,429 Stockton St,San Francisco,37.7899434017563,-122.407306303981
+51,boba-guys-san-francisco-4,Boba Guys,4.0,3491 19th St,San Francisco,37.75994,-122.42112
+52,wonderful-dessert-and-cafe-san-francisco-2,Wonderful Dessert & Cafe,4.0,2035 Irving St,San Francisco,37.7633252984489,-122.47987776290199
+53,little-sweet-san-francisco-10,Little Sweet,4.0,3836 Geary Blvd,San Francisco,37.781425,-122.46080220000002
+54,teaspoon-san-francisco,Teaspoon,4.0,2125 Polk St,San Francisco,37.7963159707234,-122.42197595536699
+55,boba-guys-san-francisco-10,Boba Guys,4.0,1522 Fillmore St,San Francisco,37.78365,-122.43247
+56,i-tea-san-francisco-3,i-Tea,4.5,253 Kearny St,San Francisco,37.7905719929647,-122.40430422127199
+57,boba-guys-san-francisco-7,Boba Guys,4.0,8 Octavia St,San Francisco,37.7728849972724,-122.42354638874501
+58,plentea-san-francisco-san-francisco,Plentea - San Francisco,3.5,341 Kearny St,San Francisco,37.7914264423265,-122.404249032891
+59,steap-tea-bar-san-francisco-3,Steap Tea Bar,4.5,827 Sacramento St,San Francisco,37.7932604402304,-122.406762465835
+60,purple-kow-san-francisco-2,Purple Kow,3.5,3620 Balboa St,San Francisco,37.775906,-122.497818
+61,omg-tea-san-francisco,OMG Tea,4.5,2891 San Bruno Ave,San Francisco,37.7254643,-122.402527
+62,asha-tea-house-san-francisco,Asha Tea House,4.0,17 Kearny St,San Francisco,37.7881894888854,-122.40366820246
+63,super-cue-cafe-san-francisco,Super Cue Cafe,4.0,1139 Taraval St,San Francisco,37.742921200000005,-122.4782898
+64,boba-guys-san-francisco-15,Boba Guys,4.0,1002 16th St,San Francisco,37.7665676429306,-122.397055947925
+65,infinitea-san-francisco,InfiniTea,4.0,5351 Geary Blvd,San Francisco,37.780295679705,-122.477084781597
+66,steep-san-francisco-2,STEEP,4.0,240 Ritch St,San Francisco,37.7803345695326,-122.395782692426
+67,mr-t-cafe-san-francisco,Mr. T Cafe,4.0,4689 Mission St,San Francisco,37.72322,-122.43556000000001
+68,tpumps-san-francisco,Tpumps,3.5,1916 Irving St,San Francisco,37.7636264,-122.47859150000001
+69,tj-cups-san-francisco-5,TJ Cups,4.0,2437 Noriega St,San Francisco,37.75339,-122.48993
+70,wondertea-san-francisco-4,Wondertea,4.5,2250 Irving St,San Francisco,37.7634668052021,-122.482386571049
+71,the-boba-shop-san-francisco-4,The Boba Shop,4.5,2071 3rd St,San Francisco,37.7635576540922,-122.38857708871402
+72,steep-creamery-and-tea-san-francisco,STEEP Creamery & Tea,4.0,270 Brannan St,San Francisco,37.7825348173521,-122.391180229883
+73,bubblecup-san-francisco-2,Bubblecup,3.5,1900 Clement St,San Francisco,37.7822781354189,-122.479696422815
+74,sweet-a-little-san-francisco-12,Sweet A Little,4.5,,San Francisco,37.77448,-122.40916000000001
+75,tea-hut-san-francisco-2,Tea Hut,4.5,2815 California St,San Francisco,37.7879050728042,-122.44076168209699
+76,i-tea-san-francisco-2,i-Tea,3.5,2150 Irving St,San Francisco,37.763530700000004,-122.4811325
+77,tancca-san-francisco-3,Tancca,4.5,5015 Geary Blvd,San Francisco,37.7804213,-122.47328429999999
+78,sharetea-san-francisco-3,Sharetea,3.5,135 4th St,San Francisco,37.784464326533204,-122.403442928242
+79,mi-tea-san-francisco,Mi-Tea,3.5,645 Irving St,San Francisco,37.7639596,-122.465019
+80,bb-tea-station-san-francisco-3,BB Tea Station,3.5,1314 Noriega St,San Francisco,37.7542929,-122.47792530000001
+81,tea-fm-san-francisco-3,Tea FM,3.5,1353 Taraval St,San Francisco,37.742639119742705,-122.480892284656
+82,keep-it-san-francisco-6,Keep it,4.5,1170 Powell St,San Francisco,37.7955593172737,-122.409816160798
+83,mr-and-mrs-tea-house-san-francisco,Mr & Mrs Tea House,3.5,544 Clement,San Francisco,37.7830442934418,-122.465241822931
+84,e-tea-san-francisco,E Tea,3.5,5344 Geary Blvd,San Francisco,37.7805467694998,-122.476978003979
+85,gosu-san-francisco,Gosu,3.5,1014 Clement St,San Francisco,37.7829,-122.47017
+86,homeplate-boba-san-francisco,Homeplate Boba,4.0,131-155 King St,San Francisco,37.778707010607796,-122.39015746223998
+87,cuppa-san-francisco,Cuppa,3.5,2810 Diamond St,San Francisco,37.73429,-122.43417
+88,super-cue-cafe-san-francisco-2,Super Cue Cafe,3.5,1330 Ocean Ave,San Francisco,37.724295422977704,-122.457044541931
+89,puppy-bobar-san-francisco,Puppy Bobar,5.0,1142 Grant Ave,San Francisco,37.7975399525428,-122.406789958477
+90,cool-tea-bar-san-francisco-4,Cool Tea Bar,3.5,103 Waverly Pl,San Francisco,37.794315000000005,-122.406927
+91,little-heaven-deli-san-francisco,Little Heaven Deli,4.5,2348 Mission St,San Francisco,37.759479999999996,-122.41943
+92,5-sweets-san-francisco,5 Sweets,4.5,1125 Ocean Ave 102,San Francisco,37.723259000000006,-122.45455929999999
+93,good-earth-cafe-san-francisco-2,Good Earth Cafe,4.5,835 Kearny St,San Francisco,37.795789899999995,-122.40536999999999
+94,sweethut-san-francisco,Sweethut,3.5,519 Clement St,San Francisco,37.7828876674175,-122.46471829712401
+95,frostea-daly-city-2,FrosTea,3.5,6178 Mission St,Daly City,37.70689,-122.4588
+96,teaone-san-francisco-5,Teaone,3.5,5336 Geary Blvd,San Francisco,37.78076,-122.47679
+97,fifty-fifty-coffee-and-tea-san-francisco,Fifty / Fifty Coffee and Tea,4.0,3157 Geary Blvd,San Francisco,37.78142929999999,-122.45294950000002
+98,honey-creme-and-tea-san-francisco,Honey Creme &Tea,3.5,839 Irving St,San Francisco,37.76384,-122.46708000000001
+99,bambu-san-francisco-3,BAMBU,4.0,6050 Geary Blvd,San Francisco,37.7804,-122.48458000000001
+100,i-tea-oakland,i-Tea,4.0,388 9th St,Oakland,37.800613594099296,-122.27067690342699
+101,mr-green-bubble-oakland,Mr Green Bubble,3.5,4299 Piedmont Ave,Oakland,37.828969,-122.249297
+102,t-and-bowl-oakland,T&Bowl,4.0,901 Franklin St,Oakland,37.800475399999996,-122.2722423
+103,u-cha-berkeley,U Cha,4.0,2199 Bancroft Way,Berkeley,37.8678697054593,-122.26608227938401
+104,the-sweet-booth-oakland,The Sweet Booth,4.0,388 9th St,Oakland,37.800445556640604,-122.271835327148
+105,asha-tea-house-berkeley,Asha Tea House,4.0,2086 University Ave,Berkeley,37.87195820000001,-122.268859
+106,i-tea-alameda,i-Tea,4.0,1626 Park St,Alameda,37.7673552038867,-122.240029983222
+107,t4-oakland,T4,3.0,1068 Webster St,Oakland,37.8009841,-122.2700858
+108,wing-man-oakland-3,Wing Man,4.0,5295 College Ave,Oakland,37.83818,-122.25168000000001
+109,sharetea-berkeley,Sharetea,4.0,2440 Bancroft Way,Berkeley,37.8684064,-122.26051129999999
+110,happy-lemon-berkeley-berkeley,Happy Lemon Berkeley,4.0,2106 Shattuck Ave,Berkeley,37.870870000000004,-122.26857
+111,milk-tea-lab-pleasant-hill,Milk Tea Lab,4.0,1972 Contra Costa Blvd,Pleasant Hill,37.9485708483184,-122.058178750759
+112,boba-ninja-berkeley,Boba Ninja,4.0,2519B Durant Ave,Berkeley,37.86821,-122.25803
+113,sharetea-alameda-4,Sharetea,3.5,2670 5th St,Alameda,37.786721500000006,-122.28134469999999
+114,purple-kow-berkeley-2,Purple Kow,3.5,2164 Center St,Berkeley,37.870433500000004,-122.26626929999999
+115,teaway-alameda,Teaway,3.5,2402 Central Ave,Alameda,37.763940000000005,-122.24266000000001
+116,i-tea-walnut-creek-3,i-Tea,4.0,1245 N Broadway,Walnut Creek,37.8981318936801,-122.05929100513501
+117,sweetheart-cafe-oakland,Sweetheart Cafe,3.5,315 9th St,Oakland,37.7994484,-122.27009679999999
+118,gelato-firenze-and-qtea-bar-oakland,Gelato Firenze and QTea Bar,4.0,478 Lake Park Ave,Oakland,37.81106,-122.24718
+119,tea-delight-alameda-2,Tea Delight,4.0,650 Central Ave,Alameda,37.770820099746,-122.27751590793301
+120,quickly-oakland-4,Quickly,4.5,1243 33rd Ave,Oakland,37.7765099,-122.2250587
+121,i-tea-san-leandro-2,i-Tea,4.0,177 Pelton Ctr Way,San Leandro,37.72272,-122.15438999999999
+122,50-tea-oakland,50 Tea,3.5,1004 Webster St,Oakland,37.8007358,-122.270182
+123,tea-press-berkeley-2,Tea Press,4.0,2552 Bancroft Way,Berkeley,37.86864,-122.25778999999999
+124,taiwan-bento-oakland-4,Taiwan Bento,4.0,412 22nd St,Oakland,37.810970000000005,-122.26651000000001
+125,u-tea-cafe-oakland,U Tea Cafe,3.0,1728 A Franklin St,Oakland,37.8064126521349,-122.268292084336
+126,t4-alameda-2,T4,3.5,1431 A Park St,Alameda,37.76509,-122.24233000000001
+127,teazzert-alameda,Teazzert,3.5,1342 Park St,Alameda,37.763529999999996,-122.24318999999998
+128,qteabar-oakland,QTeaBar,5.0,478 Lake Park Ave,Oakland,37.811068634171704,-122.247235737741
+129,the-burrow-brisbane-4,The Burrow,4.5,109 Visitacion,Brisbane,37.6834642,-122.4028888
+130,sweet-belly-oakland,Sweet Belly,4.5,435 19th St,Oakland,37.807609480553495,-122.268880033234
+131,sancha-bar-oakland-3,Sancha Bar,2.5,251 9th St,Oakland,37.7989615787538,-122.268823823837
+132,alice-street-bakery-café-oakland-2,Alice Street Bakery Café,4.5,251 10th St,Oakland,37.799629211425795,-122.26837158203101
+133,t4-san-leandro,T4,3.5,1443 E 14th St,San Leandro,37.723825,-122.15466299999999
+134,quickly-oakland-5,Quickly,3.5,3306 Lakeshore Ave,Oakland,37.810621779569104,-122.24392622709298
+135,bubble-tea-share-time-berkeley,Bubble Tea Share Time,4.0,1938 Shattuck Ave,Berkeley,37.8731630455033,-122.268577069044
+136,shooting-star-cafe-oakland,Shooting Star Cafe,3.5,1022 Webster St,Oakland,37.800992,-122.2701305
+137,pekoe-san-jose,Pekoe,4.0,3276 S White Rd,San Jose,37.314558499499896,-121.790188997984
+138,tea-lyfe-drinks-san-jose-3,Tea Lyfe Drinks,4.0,989 Story Rd,San Jose,37.3323443189417,-121.857742217231
+139,teahee-san-jose,Teahee,4.0,979 Story Rd,San Jose,37.3311487640944,-121.85737667523
+140,boba-pub-san-jose,Boba Pub,4.0,1576 Branham Ln,San Jose,37.25336,-121.9015
+141,teaspoon-san-jose-2,Teaspoon,4.0,4328 Moorpark Ave,San Jose,37.3157651,-121.9782757
+142,passion-t-snacks-and-desserts-san-jose,Passion-T Snacks and Desserts,4.0,2266 Senter Rd,San Jose,37.310519899999996,-121.84997
+143,pop-up-tea-coffee-and-snacks-san-jose,"Pop Up Tea, Coffee & Snacks",4.0,185 Branham Ln,San Jose,37.267032623291,-121.834053039551
+144,happy-lemon-san-jose-5,Happy Lemon,4.5,3005 Silver Creek Rd,San Jose,37.308647,-121.813461
+145,boba-bar-san-jose-3,Boba Bar,3.5,310 S 3rd St,San Jose,37.332404,-121.8845467
+146,sinceretea-san-jose-2,Sinceretea,4.0,392 E Taylor St,San Jose,37.352939899999996,-121.89176
+147,bobateani-san-jose,Bobateani,5.0,75 E Santa Clara St,San Jose,37.33709,-121.88941000000001
+148,soyful-desserts-san-jose-2,Soyful Desserts,4.0,999 Story Rd,San Jose,37.3319875706985,-121.85677421230301
+149,one-tea-san-jose-4,One Tea,4.0,231 E Santa Clara St,San Jose,37.338629553452,-121.885706819594
+150,i-tea-san-jose,i-Tea,4.0,2936 Aborn Square Rd,San Jose,37.3122516785924,-121.809769305956
+151,the-tea-zone-and-fruit-bar-san-jose,The Tea Zone & Fruit Bar,3.5,980 S Winchester Blvd,San Jose,37.309534,-121.949649
+152,createave-cafe-san-jose-4,Createave Cafe,4.0,1698 Hostetter Rd,San Jose,37.386980020394894,-121.883576139808
+153,tleaf-teapresso-san-jose-3,Tleaf Teapresso,4.0,860 Blossom Hill Rd,San Jose,37.248688599352995,-121.857970789389
+154,katea-san-jose,Katea,4.5,5700 Village Oaks Dr,San Jose,37.252519899999996,-121.8501
+155,teatop-san-jose-2,TeaTop,4.0,6158 Bollinger Rd,San Jose,37.30865701383011,-122.012592169713
+156,bubbly-san-jose-4,Bubbly,4.0,1816 Tully Rd,San Jose,37.32229,-121.82405
+157,vampire-penguin-featuring-jastea-san-jose,Vampire Penguin featuring Jastea,4.0,2671 Cropley Ave,San Jose,37.4041770427227,-121.881933087311
+158,simply-boba-san-jose,Simply Boba,4.0,3005 Silver Creek Rd,San Jose,37.3088546673824,-121.813202547221
+159,happy-lemon-cupertino,Happy Lemon,4.5,20488 Stevens Creek Blvd,Cupertino,37.32258,-122.03121000000002
+160,amor-cafe-and-tea-san-jose,Amor Cafe and Tea,4.0,110 E San Fernando St,San Jose,37.335454999999996,-121.886596
+161,shincha-tea-san-jose-3,Shincha Tea,4.0,2487 Alvin Ave,San Jose,37.319177279223204,-121.82704155483299
+162,sharetea-santa-clara-3,Sharetea,4.0,1171 Homestead Rd,Santa Clara,37.348659999999995,-121.94616
+163,chatime-san-jose-san-jose-3,ChaTime San Jose,4.0,311 N Capitol Ave,San Jose,37.3697020772431,-121.845367355225
+164,pure-tea-bar-san-jose,Pure Tea Bar,3.5,6195 Santa Teresa Blvd,San Jose,37.236431,-121.804763
+165,t-spot-boba-drinks-and-snacks-san-jose,T Spot Boba Drinks & Snacks,4.0,2520 Berryessa Rd,San Jose,37.3879799,-121.85888190000001
+166,meow-tea-san-jose,Meow Tea,4.0,2857 Senter Rd,San Jose,37.29956,-121.84016000000001
+167,fantasia-coffee-and-tea-san-jose-4,Fantasia Coffee & Tea,3.5,378 Santana Row,San Jose,37.319475621662,-121.94762103391001
+168,monster-boba-cupertino-3,Monster Boba,3.5,10787 S Blaney Ave,Cupertino,37.3112882127292,-122.02362399548299
+169,teasociety-san-jose,Teasociety,3.5,1658 E Capitol Expy,San Jose,37.306154683674,-121.810519318524
+170,bfresh-snacks-and-drinks-san-jose,BFresh Snacks & Drinks,4.0,3005 Silver Creek Rd,San Jose,37.308647155761705,-121.813461303711
+171,beibay-tea-san-jose,BeiBay Tea,4.0,1180 Blossom Hill Rd,San Jose,37.2497081431029,-121.87928677485701
+172,gong-cha-san-jose-19,Gong Cha,3.5,1701 Lundy Ave,San Jose,37.38753,-121.88725
+173,sweet-gelato-tea-lounge-san-jose,Sweet Gelato Tea Lounge,4.5,979 Story Rd,San Jose,37.33133611473671,-121.85738194973801
+174,sharetea-san-jose-3,Sharetea,3.5,1728 Hostetter Rd,San Jose,37.387508000000004,-121.882934
+175,gong-cha-san-jose-8,Gong Cha,3.5,1600 Saratoga Ave,San Jose,37.2923420099239,-121.98874441586399
+176,soyful-desserts-san-jose-8,Soyful Desserts,4.0,3005 Silver Creek Rd,San Jose,37.3090745900201,-121.81442657547501
+177,oooh-san-jose-4,Oooh,4.0,1783 E Capitol Expwy,San Jose,37.309508,-121.809918
+178,the-tea-zone-lounge-san-jose,The Tea Zone Lounge,4.0,403 N Capitol Ave,San Jose,37.3720189850199,-121.846125258572
+179,the-moo-bar-santa-clara,The Moo Bar,3.5,1080 Kiely Blvd,Santa Clara,37.3459400429099,-121.979151964188
+180,tapioca-express-san-jose-8,Tapioca Express,4.0,81 Curtner Ave,San Jose,37.303037478251206,-121.864601250072
+181,purple-kow-san-jose-4,Purple Kow,3.5,2435 S King Rd,San Jose,37.3210352284759,-121.825406030688
+182,heritage-eats-napa,Heritage Eats,4.5,3824 Bel Aire Plz,Napa,38.32387,-122.30711000000001
+183,yobelle-napa-2,YoBelle,3.5,1000 Main St,Napa,38.2991692041736,-122.285283794503
+184,morimoto-napa-napa,Morimoto Napa,4.0,610 Main St,Napa,38.29671,-122.28328
+185,napa-noodles-napa,Napa Noodles,3.0,1124 1st St,Napa,38.2988340542314,-122.28645868599399
+186,crave-cafe-and-catering-american-canyon,Crave Cafe & Catering,3.5,3419 Broadway St,American Canyon,38.1689755277082,-122.254305819574
+187,quickly-american-canyon-3,Quickly,2.5,410 Napa Junction Rd,American Canyon,38.1848877668381,-122.253697514534
+188,top-that-frozen-yogurt-sonoma,Top That Frozen Yogurt,3.5,531 Broadway Ave,Sonoma,38.2914143800735,-122.45805837213999
+189,over-the-top-shop-frozen-yogurt-american-canyon,Over The Top Shop Frozen Yogurt,2.5,5075 Main St,American Canyon,38.18098,-122.25395
+190,sushi-grill-vallejo,Sushi Grill,4.0,5184 Sonoma Blvd,Vallejo,38.148088261589706,-122.252996214118
+191,palm-thai-bistro-fairfield,Palm Thai Bistro,4.5,5089 Business Center Dr,Fairfield,38.215523,-122.14318100000001
+192,green-bamboo-restaurant-fairfield,Green Bamboo Restaurant,3.5,4437 Central Pl,Fairfield,38.221939899999995,-122.12513
+193,thai-kitchen-american-canyon,Thai Kitchen,3.5,3425 Broadway St,American Canyon,38.17015,-122.25411000000001
+194,sactomofo-sacramento-6,SactoMofo,3.5,,Sacramento,38.67463,-121.50861
+195,westea-pleasanton,Westea,4.0,4233 Rosewood Dr,Pleasanton,37.69838055066379,-121.874124370515
+196,baotea-cafe-pleasanton-2,BaoTea Cafe,4.5,6654 Koll Center Pkwy,Pleasanton,37.658818,-121.898176
+197,i-tea-dublin-dublin,i-Tea - Dublin,4.0,4064 Grafton St,Dublin,37.703198955631706,-121.865862095172
+198,aroma-tapioca-tea-and-coffee-pleasanton,Aroma Tapioca Tea & Coffee,3.5,4833 Hopyard Rd,Pleasanton,37.69288,-121.90177
+199,i-tea-pleasanton,i-Tea,4.0,915 Main St,Pleasanton,37.665909899999996,-121.87418000000001
+200,t4-dublin,T4,3.5,3744 Fallon Rd,Dublin,37.7038018033117,-121.851168151661
+201,tea-factory-dublin-2,Tea Factory,4.0,8945 San Ramon Rd,Dublin,37.7222341,-121.94190090000001
+202,icicles-pleasanton,ICICLES,4.0,600 Main St,Pleasanton,37.661346,-121.87506
+203,sharetea-dublin-3,Sharetea,4.0,7375 Amador Valley Blvd,Dublin,37.710389899999996,-121.92743999999999
+204,cafe-tapioca-dublin,Cafe Tapioca,3.5,7160 Regional St,Dublin,37.703959000000005,-121.93422460000001
+205,quickly-pleasanton,Quickly,3.5,1 Stoneridge Mall Rd,Pleasanton,37.695654440550896,-121.929317861795
+206,letea-pleasanton-2,LeTea,2.5,4299 Rosewood Dr,Pleasanton,37.69956,-121.87326000000002
+207,tea-breeze-pleasanton,Tea Breeze,3.0,4275 Rosewood Dr,Pleasanton,37.69948196411129,-121.87408447265601
+208,360-crepes-pleasanton-3,360 Crepes,4.0,3120 Santa Rita Rd,Pleasanton,37.6905054,-121.8774678
+209,t4-san-ramon-2,T4,3.5,9140 Alcosta Blvd,San Ramon,37.73021,-121.93008999999999
+210,i-tea-san-ramon-3,i-Tea,4.0,21001 San Ramon Valley Blvd,San Ramon,37.7241,-121.94435
+211,snowflake-dublin,Snowflake,3.5,4288 Dublin Blvd,Dublin,37.7048059696965,-121.875150612505
+212,quickly-dublin,Quickly,2.5,4288 Dublin Blvd,Dublin,37.705825,-121.876084
+213,cafe-taiwan-pleasanton-9,Cafe Taiwan,4.0,3550 Stanley Blvd,Pleasanton,37.669658,-121.858772
+214,cafe-junction-pleasanton-3,Cafe Junction,4.0,5321 Hopyard Rd,Pleasanton,37.6994,-121.9048344
+215,o-honey-dublin,O'Honey,4.0,3862 Fallon Rd,Dublin,37.7049564521021,-121.85153792414101
+216,the-mix-creamery-dublin-2,The Mix Creamery,4.0,6601 Dublin Blvd,Dublin,37.704380239639896,-121.911554932594
+217,tasty-pot-dublin,Tasty Pot,4.0,4288 Dublin Blvd,Dublin,37.704566,-121.87545
+218,ohana-hawaiian-bbq-of-pleasanton-pleasanton,Ohana Hawaiian BBQ of Pleasanton,3.0,5410 Sunol Blvd,Pleasanton,37.652229999999996,-121.8786
+219,99-ranch-market-pleasanton,99 Ranch Market,3.5,4299 Rosewood Dr,Pleasanton,37.69956,-121.87326000000002
+220,menchies-frozen-yogurt-dublin,Menchie's  Frozen Yogurt,4.0,3742 Fallon Rd,Dublin,37.7037210589332,-121.851480491459
+221,blossom-bee-dublin,Blossom Bee,4.0,7335 Village Pkwy,Dublin,37.710858467095,-121.926419734955
+222,berry-delight-pleasanton,Berry Delight,3.0,1008 Stoneridge Mall Rd,Pleasanton,37.6946294,-121.93156299999998
+223,new-thai-bistro-pleasanton-2,New Thai Bistro,4.5,4301 D Valley Ave,Pleasanton,37.67718,-121.87578
+224,tutti-frutti-frozen-yogurt-dublin,Tutti Frutti Frozen Yogurt,3.0,4930 Dublin Blvd,Dublin,37.7040256307881,-121.88532839154
+225,kee-wah-bakery-dublin,Kee Wah Bakery,4.0,4288 Dublin Blvd,Dublin,37.7045783996582,-121.87580871581999
+226,blush-organic-frozen-yogurt-dublin,Blush Organic Frozen Yogurt,4.0,4640 Tassajara Rd,Dublin,37.708009999999994,-121.8731
+227,koi-palace-dublin,Koi Palace,3.5,Ulferts Ctr,Dublin,37.704636748213794,-121.87602639198299
+228,berry-and-berry-yogurt-livermore,Berry & Berry Yogurt,2.5,2774 Livermore Outlets Dr,Livermore,37.698050737381,-121.84224866330601
+229,pho-saigon-city-pleasanton,Pho Saigon City,3.0,4275 Rosewood Dr,Pleasanton,37.6994626368417,-121.873857490718
+230,yogurtland-dublin,Yogurtland,4.0,6851 Amador Plz Rd,Dublin,37.70584,-121.92708999999999
+231,lees-sandwiches-dublin-2,Lee's Sandwiches,3.5,4101 Dublin Blvd,Dublin,37.70619,-121.87378999999999
+232,osaka-ramen-dublin,Osaka Ramen,3.0,4288 Dublin Blvd,Dublin,37.70515,-121.87621999999999
+233,pho-99-dublin-5,Pho 99,4.0,7459 Amador Valley Blvd,Dublin,37.710269,-121.92861
+234,tandoori-pizza-dublin,Tandoori Pizza,4.0,4060 Grafton St,Dublin,37.7031417208061,-121.866024709375
+235,halu-shabu-shabu-dublin,Halu Shabu Shabu,3.0,4288 Dublin Blvd,Dublin,37.7045669555664,-121.875450134277
+236,amakara-dublin,Amakara,4.0,7222 Regional St,Dublin,37.705059999999996,-121.93486999999999
+237,pho-saigon-garden-dublin,Pho Saigon Garden,3.5,7265 Regional St,Dublin,37.7056511022749,-121.933658346534
+238,pho-saigon-noodle-house-san-ramon,Pho Saigon Noodle House,3.5,9150 Alcosta Blvd,San Ramon,37.72938919067379,-121.931442260742
+239,85-c-bakery-cafe-newark,85°C Bakery Cafe,3.5,35201 Newark Blvd,Newark,37.54772,-122.0466
+240,blackball-desserts-union-city-union-city,BlackBall Desserts-Union City,3.5,34563 Alvarado Niles Rd,Union City,37.586644799999995,-122.0201868
+241,tasty-pot-newark,Tasty Pot,4.0,34909 Newark Blvd,Newark,37.5508,-122.0509
+242,icicles-newark,ICICLES,4.0,39055 Cedar Blvd,Newark,37.523140000000005,-122.00792
+243,che-lo-union-city-2,Che-Lo,4.5,1767 Decoto Blvd,Union City,37.5895628278523,-122.022492714298
+244,fusion-mix-frozen-yogurt-fremont-2,Fusion Mix Frozen Yogurt,4.5,4144 Walnut Ave,Fremont,37.5436017856673,-121.984061099299
+245,crepe-bar-newark,Crepe Bar,4.0,2078 Newpark Mall,Newark,37.528230799999996,-122.00024579999999
+246,q-cup-fremont,Q Cup,3.0,39129 Fremont Blvd,Fremont,37.5461699480404,-121.987401525697
+247,bambu-newark-2,BAMBU,3.5,6058 Mowry Ave,Newark,37.5236587144356,-122.007144735602
+248,bambu-union-city-2,BAMBU,3.5,31812-31822 Alvarado Blvd,Union City,37.59146031309321,-122.07111143456899
+249,storm-crepes-newark,Storm Crepes,4.5,39658 Cedar Blvd,Newark,37.5218169879729,-121.997366492815
+250,sweet-orchid-fremont,Sweet Orchid,4.5,34460 Fremont Blvd,Fremont,37.5751187606321,-122.038859706704
+251,jenjons-cafe-union-city,Jenjon's Cafe,4.0,1704 Decoto Rd,Union City,37.589058513675,-122.01876368886002
+252,k-pop-cafe-fremont,K-Pop Cafe,4.0,35041 Fremont Blvd,Fremont,37.570362,-122.0318791
+253,milkcow-fremont-2,Milkcow,3.5,5657 Auto Mall Pkwy,Fremont,37.50466,-121.97634
+254,boba-guys-san-carlos-2,Boba Guys,4.0,872 Laurel St,San Carlos,37.5027402543983,-122.25698015853901
+255,teaquation-redwood-city,Teaquation,4.5,1036 El Camino Real,Redwood City,37.483950944157705,-122.232653501548
+256,t4-hayward-3,T4,3.5,1033 B St,Hayward,37.6731435370977,-122.08203440297501
+257,sweet-spot-castro-valley,Sweet Spot,4.5,20669 Santa Maria Ave,Castro Valley,37.6960964188897,-122.07856502383899
+258,teaster-hayward-2,Teaster,3.5,410 W A St,Hayward,37.6660188062353,-122.108395027727
+259,sharetea-palo-alto-2,Sharetea,4.0,540 Bryant St,Palo Alto,37.445381,-122.16099399999999
+260,chatime-redwood-city-2,Chatime,4.0,2202 Broadway St,Redwood City,37.487118,-122.229624
+261,eko-coffee-bar-and-tea-house-hayward,Eko Coffee Bar & Tea House,4.0,1075 B St,Hayward,37.673707008361795,-122.081397101283
+262,tea-era-cupertino,Tea Era,4.0,20916 Homestead Rd,Cupertino,37.3371504153713,-122.04035249286999
+263,fantasia-coffee-and-tea-cupertino,Fantasia Coffee & Tea,4.0,10933 N Wolfe Rd,Cupertino,37.3361159244324,-122.01589030752899
+264,tpumps-cupertino,Tpumps,3.5,19959 Stevens Creek Blvd,Cupertino,37.3232384288673,-122.02294965714701
+265,super-cue-cafe-cupertino,Super Cue Cafe,3.5,19620 Stevens Creek Blvd,Cupertino,37.3223942970538,-122.016749576721
+266,happy-lemon-cupertino-5,Happy Lemon,4.5,10963 N Wolfe Rd,Cupertino,37.3362175002018,-122.015137771311
+267,ten-ren-tea-cupertino,Ten Ren Tea,4.0,10881 N Wolfe Rd,Cupertino,37.3356484303065,-122.014956682871
+268,meet-fresh-cupertino,Meet Fresh,3.0,19449 Stevens Creek Blvd,Cupertino,37.3243651,-122.01055330000001
+269,hechaa-cupertino-4,Hechaa,3.5,10619 S De Anza Blvd,Cupertino,37.31361,-122.03263000000001
+270,calibear-cyber-cafe-sunnyvale-6,Calibear Cyber Cafe,4.5,1336 S Mary Ave,Sunnyvale,37.35065,-122.04961999999999
+271,happy-lemon-sunnyvale-2,Happy Lemon,4.5,605 E El Camino Real,Sunnyvale,37.36189,-122.02453999999999
+272,what8ver-express-cupertino-2,What8ver Express,3.5,10118 Bandley Dr,Cupertino,37.324498742943,-122.03407823789
+273,gong-cha-sunnyvale,Gong Cha,4.5,1641 Hollenbeck Ave,Sunnyvale,37.339290000000005,-122.04255
+274,cafe-lattea-cupertino,Cafe LaTTea,3.5,19501 Stevens Creek Blvd,Cupertino,37.323241317778,-122.012261466162
+275,t4-cupertino-cupertino,T4 Cupertino,4.0,19505 Stevens Creek Blvd,Cupertino,37.32328,-122.01283000000001
+276,sharetea-sunnyvale-3,Sharetea,4.0,568 El Camino Real,Sunnyvale,37.3623572836214,-122.02725608702299
+277,tea-chansii-cupertino,Tea Chansii,3.0,19449 Stevens Creek Blvd,Cupertino,37.324398934014894,-122.01113826932101
+278,verde-tea-house-cupertino-2,Verde Tea House,3.5,10477 S De Anza Blvd,Cupertino,37.3162384033203,-122.032508850098
+279,bubble-tea-time-saratoga,Bubble Tea Time,4.0,18564 Prospect Rd,Saratoga,37.29165,-121.99636000000001
+280,the-tea-zone-and-fruit-bar-mountain-view,The Tea Zone & Fruit Bar,4.5,805 El Camino Real,Mountain View,37.38565,-122.08442
+281,teaspoon-santa-clara-7,Teaspoon,4.0,3450 El Camino Real,Santa Clara,37.351987713518895,-121.991230201809
+282,beastea-santa-clara,Beastea,4.0,2785 El Camino Real,Santa Clara,37.35297,-121.97705
+283,teaspoon-mountain-view,Teaspoon,3.5,236 Castro St,Mountain View,37.3934799,-122.07956000000001
+284,tea-annie-mountain-view,Tea Annie,4.0,1712 Miramonte Ave,Mountain View,37.3723,-122.08801000000001
+285,verde-tea-cafe-mountain-view,Verde Tea Cafe,3.5,852 Villa St,Mountain View,37.3941710599454,-122.07954880400601
+286,teafans-sunnyvale,TeaFans,3.5,927 E Arques Ave,Sunnyvale,37.381369899999996,-122.00808
+287,85-c-bakery-cafe-san-jose-5,85°C Bakery Cafe,3.5,1183 S De Anza Blvd,San Jose,37.3035809397697,-122.032403200865
+288,matcha-love-san-jose-6,Matcha Love,4.0,675 Saratoga Ave,San Jose,37.314963205990004,-121.97809522149599
+289,bambu-sunnyvale-2,BAMBU,3.5,189 W Washington Ave,Sunnyvale,37.3763175470854,-122.031325878136
+290,icicles-cupertino,Icicles,4.0,19622 Stevens Creek Blvd,Cupertino,37.3225177360044,-122.017925500033
+291,sunnywich-cafe-sunnyvale,Sunnywich Cafe,4.5,223 East Maude Ave,Sunnyvale,37.3878822408982,-122.024536281978
+292,ocha-tea-café-and-restaurant-mountain-view-2,Ocha Tea Café & Restaurant,3.5,1350 Grant Rd,Mountain View,37.3770405227974,-122.076683293475
+293,bubble-bay-tea-santa-clara,Bubble Bay Tea,3.5,4300 Great America Pkwy,Santa Clara,37.3928752137833,-121.97739116027799
+294,jazen-tea-san-jose-4,Jazen Tea,3.5,1089 S De Anza Blvd,San Jose,37.30656389999999,-122.0328361
+295,comebuy-tea-and-coffee-santa-clara,Comebuy Tea & Coffee,3.5,2712 Augustine Dr,Santa Clara,37.3822051,-121.9761898
+296,music-tunnel-ktv-cafe-san-jose-2,Music Tunnel KTV Cafe,3.5,1132 S De Anza Blvd,San Jose,37.30529,-122.03166999999999
+297,jazen-tea-santa-clara-3,Jazen Tea,3.5,3147 Mission College Blvd,Santa Clara,37.3882893,-121.98355959999999
+298,butterfly-santa-clara,Butterfly,4.0,1000 Lafayette St,Santa Clara,37.350311600000005,-121.9438457
+299,quickly-cupertino,Quickly,3.0,21265 Stevens Creek Blvd,Cupertino,37.32349,-122.047397
+300,california-mochi-santa-clara-4,California Mochi,4.0,3030 El Camino Real,Santa Clara,37.3517723083496,-121.98119354248001
+301,t4-livermore-livermore-2,T4 Livermore,4.0,4010 E Ave,Livermore,37.68077,-121.74803999999999
+302,orange-tea-livermore,Orange Tea,4.5,6033 Northfront Rd,Livermore,37.711910145866796,-121.723351532745
+303,big-fat-straw-cafe-livermore-2,Big Fat Straw Cafe,4.0,980 Murrieta Blvd,Livermore,37.6761474995967,-121.785110675949
+304,donut-wheel-livermore,Donut Wheel,4.0,2017 1st St,Livermore,37.680747985839794,-121.770835876465
+305,t4-san-ramon-3,T4,3.0,11020 Bollinger Canyon Rd,San Ramon,37.7749533109683,-121.92407373922899
+306,saigon-cafe-livermore,Saigon Cafe,4.0,2011 2nd St,Livermore,37.68,-121.77058000000001
+307,rice-paper-bistro-livermore,Rice Paper Bistro,3.5,1548 N Vasco Rd,Livermore,37.718175655226496,-121.724808264734
+308,menchies-frozen-yogurt-livermore,Menchie's Frozen Yogurt,4.0,973 E Stanley Blvd,Livermore,37.6783516,-121.78412069999999
+309,la-farfalla-bakery-fremont,La Farfalla Bakery,4.0,39947 Mission Blvd,Fremont,37.5566932750951,-121.952448293212
+310,ice3-creamery-fremont,Ice3 Creamery,4.0,39957 Mission Blvd,Fremont,37.556529,-121.952556
+311,yogurt-shop-danville,Yogurt Shop,4.0,3450 Camino Tassajara Rd,Danville,37.7986554,-121.91874059999999
+312,bean-scene-cafe-fremont-2,Bean Scene Cafe,4.0,4000 Bay St,Fremont,37.532728999999996,-121.95934
+313,yogurtland-san-ramon,Yogurtland,4.0,152 Sunset Dr,San Ramon,37.7624177187681,-121.96090020239401
+314,chilly-and-munch-mountain-view,Chilly & Munch,4.5,2101 Showers Dr,Mountain View,37.4068109566105,-122.106984711639
+315,jazen-tea-mountain-view-3,Jazen Tea,3.0,220 Castro St,Mountain View,37.3936614990234,-122.079444885254
+316,t4-palo-alto-2,T4,3.5,165 University Ave,Palo Alto,37.44451,-122.16337
+317,pearl-cafe-mountain-view,Pearl Cafe,3.5,506A Showers Dr,Mountain View,37.402982863672,-122.10676106228
+318,tapioca-express-mountain-view,Tapioca Express,3.0,740 Villa St,Mountain View,37.39379,-122.07838999999998
+319,teaspoon-palo-alto-7,Teaspoon,4.5,2675 Middlefield Rd,Palo Alto,37.434084999999996,-122.129446
+320,teaspoon-milpitas,Teaspoon,4.0,201 W Calaveras Blvd,Milpitas,37.42868,-121.91131999999999
+321,teasociety-milpitas,Teasociety,3.5,55 N Milpitas Blvd,Milpitas,37.4341782,-121.90074380000001
+322,t4-milpitas,T4,3.5,540 Barber Ln,Milpitas,37.4207404131486,-121.91664888892099
+323,bcute-tea-drinks-and-finger-foods-milpitas-2,BCUTE tea drinks and finger foods,4.0,200 Serra Way,Milpitas,37.426490149909895,-121.909996320473
+324,poke-xpress-milpitas,Poke Xpress,4.5,1236 S Abel St,Milpitas,37.4128099773883,-121.90297756344101
+325,happy-lemon-milpitas-6,Happy Lemon,4.0,279 W Calaveras Blvd,Milpitas,37.4274706596526,-121.91078242325001
+326,yummi-tea-cafe-san-jose-3,Yummi Tea Cafe,4.0,2191 Morrill Ave,San Jose,37.414925,-121.875899
+327,sno-crave-tea-house-milpitas,Sno-Crave Tea House,3.5,1777 N Milpitas Blvd,Milpitas,37.455807700753205,-121.911192834377
+328,sancha-bar-milpitas,Sancha Bar,3.5,279 Jacklin Rd,Milpitas,37.4464966,-121.90401609999998
+329,chick-and-tea-milpitas-4,Chick & Tea,3.5,1723 N Milpitas Blvd,Milpitas,37.4551887512207,-121.911521911621
+330,t4-san-jose,T4,3.5,1671 N Capitol Ave,San Jose,37.3973731994629,-121.87368774414101
+331,queens-cafe-milpitas,Queen's Cafe,3.5,372 Barber Ln,Milpitas,37.4224649523506,-121.91667347853998
+332,the-pennywort-san-jose-5,The Pennywort,4.0,2056 N Capitol Ave,San Jose,37.40685,-121.88672
+333,bambu-san-jose-9,BAMBU,4.0,1688 Hostetter Rd,San Jose,37.38620887762679,-121.884416049074
+334,black-pearl-san-jose-2,Black Pearl,3.0,1055 E Brokaw Rd,San Jose,37.384315924191704,-121.89744169577
+335,happiness-cafe-san-jose,Happiness Cafe,4.5,1688 Hostetter Rd,San Jose,37.3863881481701,-121.88480323809799
+336,85-c-bakery-cafe-milpitas-2,85°C Bakery Cafe,3.5,672 Barber Ln,Milpitas,37.419465,-121.915568
+337,simpletea-milpitas,Simpletea,3.5,1535 Landess Ave,Milpitas,37.416848,-121.87689830000001
+338,bambu-milpitas-7,BAMBU,3.5,89 S Park Victoria Dr,Milpitas,37.433926,-121.88425900000001
+339,fantasia-coffee-and-tea-santa-clara,Fantasia Coffee & Tea,3.0,3969 Rivermark Plz,Santa Clara,37.3953035880334,-121.946540661156
+340,shihlin-taiwan-street-snacks-milpitas,Shihlin Taiwan Street Snacks,4.0,522 Barber Ln,Milpitas,37.420773,-121.91640500000001
+341,quickly-milpitas-2,Quickly,2.5,1350 S Park Victoria Dr,Milpitas,37.4178751788897,-121.87439297546301
+342,honeyberry-san-jose-9,Honeyberry,4.5,3655 N 1st St,San Jose,37.4093138578249,-121.945219193046
+343,aroma-coffee-and-snacks-milpitas,Aroma Coffee and Snacks,4.0,1535 Landess Ave,Milpitas,37.416845952699106,-121.87677405774599
+344,teatime-redwood-city,Teatime,4.0,1003 El Camino Real,Redwood City,37.48460420714571,-122.232427139501
+345,comebuy-drinks-redwood-city,Comebuy Drinks,4.0,2074 Broadway,Redwood City,37.4868,-122.22766000000001
+346,teaspoon-redwood-city,Teaspoon,4.0,2361 Broadway St,Redwood City,37.4861601263273,-122.230740152299
+347,davidstea-palo-alto-2,DAVIDsTEA,4.5,318 University Ave,Palo Alto,37.446105700000004,-122.1610267
+348,pokélove-palo-alto,pokéLOVE,3.5,855 El Camino Real,Palo Alto,37.438632,-122.160532
+349,bare-bowls-palo-alto,Bare Bowls,4.0,530 Emerson St,Palo Alto,37.44413,-122.16237
+350,tea-time-palo-alto,Tea Time,3.5,542 Ramona St,Palo Alto,37.444610595703104,-122.16154479980499
+351,chantal-guillon-macarons-and-teas-palo-alto-2,Chantal Guillon Macarons & Teas,4.5,444 University Ave,Palo Alto,37.447520000000004,-122.15965
+352,happy-donuts-palo-alto,Happy Donuts,3.5,3916 El Camino Real,Palo Alto,37.41643,-122.13004
+353,quickly-sunnyvale-4,Quickly,3.5,415 N Mary Ave,Sunnyvale,37.390076192143,-122.042184743589
+354,fraiche-palo-alto-2,Fraiche,4.0,200 Hamilton Ave,Palo Alto,37.443875467424796,-122.161595821381
+355,quickly-redwood-city,Quickly,3.0,300 Walnut St,Redwood City,37.4917931901457,-122.22419253147699
+356,coupa-café-palo-alto-3,Coupa Café,3.5,538 Ramona St,Palo Alto,37.444682,-122.161533
+357,cream-palo-alto-3,CREAM,3.5,440 University Ave,Palo Alto,37.447555,-122.15980400000001
+358,ohana-express-redwood-city-2,Ohana Express,4.0,640 Woodside Rd,Redwood City,37.46868,-122.22399999999999
+359,yogurtland-palo-alto,Yogurtland,4.0,494 University Ave,Palo Alto,37.4480657,-122.159221
+360,coupa-café-lytton-palo-alto,Coupa Café - Lytton,3.5,111 Lytton Ave,Palo Alto,37.4444718383711,-122.165222240072
+361,green-bakery-and-café-los-altos-11,Green Bakery & Café,3.5,692 Fremont Ave,Los Altos,37.360467292665504,-122.096757004484
+362,wild-berry-yogurt-menlo-park,Wild Berry Yogurt,3.5,325 Sharon Park Dr,Menlo Park,37.42398,-122.19693000000001
+363,the-posh-bagel-los-altos,The Posh Bagel,3.5,310 Main St,Los Altos,37.3783798,-122.11701969999999
+364,paris-baguette-palo-alto,Paris Baguette,3.5,383 University Ave,Palo Alto,37.447196960449205,-122.160781860352
+365,taza-deli-and-cafe-redwood-city,Taza Deli & Cafe,5.0,1796 Broadway,Redwood City,37.4868656,-122.22341329999999
+366,rojoz-gourmet-wraps-palo-alto-2,Rojoz Gourmet Wraps,3.5,3906 Middlefield Rd,Palo Alto,37.41883,-122.1099
+367,froyola-redwood-city,Froyola,4.0,2206 Broadway St,Redwood City,37.4867482944358,-122.229360103705
+368,mr-green-bubble-sunnyvale,Mr. Green Bubble,5.0,1255 S Mary Ave,Sunnyvale,37.35338,-122.05071000000001
+369,coupa-cafe-green-library-stanford,Coupa Cafe - Green Library,3.5,571 Escondido Mall,Stanford,37.426249336151,-122.167067527771
+370,dohatsuten-palo-alto,Dohatsuten,3.5,799 San Antonio Rd,Palo Alto,37.4203109741211,-122.102348327637
+371,panda-express-mountain-view-2,Panda Express,2.0,1035 El Monte Ave,Mountain View,37.390983766688,-122.09529408877899
+372,nekter-juice-bar-mountain-view,Nekter Juice Bar,3.5,685 San Antonio Rd,Mountain View,37.401559899999995,-122.1132477
+373,green-leaf-asian-bistro-and-cafe-redwood-city-2,Green Leaf Asian Bistro & Cafe,4.0,865 Middlefield Rd,Redwood City,37.4857502210641,-122.228834925786
+374,koma-sushi-restaurant-menlo-park-3,Koma Sushi Restaurant,3.5,211 El Camino Real,Menlo Park,37.4483544,-122.17437679999999
+375,the-axe-and-palm-stanford,The Axe and Palm,2.5,Old Union Stanford University,Stanford,37.425371754743,-122.170543670654
+376,cocohodo-sunnyvale-2,Cocohodo,4.0,1082 E El Camino Real,Sunnyvale,37.3517264451999,-122.002505609904
+377,hotpot-first-sunnyvale,Hotpot First,3.5,1149 N Lawrence Expy,Sunnyvale,37.3973885,-121.99671940000002
+378,bean-scene-sunnyvale,Bean Scene,3.5,186 S Murphy Ave,Sunnyvale,37.376183399999995,-122.0301825
+379,sharetea-santa-clara-7,Sharetea,3.5,2855 Stevens Creek Blvd,Santa Clara,37.325509999999994,-121.94462
+380,jazen-tea-santa-clara-santa-clara,Jazen Tea Santa Clara,2.5,3484 El Camino Real,Santa Clara,37.351586391268796,-121.99270148474
+381,honeyberry-santa-clara,Honeyberry,3.5,3488 El Camino Real,Santa Clara,37.35156814963771,-121.99284472945801
+382,world-wrapps-2-0-santa-clara,World Wrapps 2.0,4.5,3125 Mission College Blvd,Santa Clara,37.38919,-121.98338999999999
+383,youji-fresh-rolls-wine-and-tea-santa-clara,Youji Fresh Rolls Wine & Tea,2.5,2855 Stevens Creek Blvd,Santa Clara,37.326036489104,-121.94416520898399
+384,frozos-frozen-yogurt-santa-clara,Frozo's Frozen Yogurt,3.5,1000 Lafayette St,Santa Clara,37.3503848,-121.9437883
+385,cool-tea-bar-south-san-francisco-4,Cool Tea Bar,3.5,630 El Camino Real,South San Francisco,37.649255149959394,-122.429556883872
+386,tiger-tea-and-juice-burlingame-3,Tiger Tea & Juice,4.5,1803 El Camino Real,Burlingame,37.594114000000005,-122.38460500000001
+387,aqua-club-dessert-and-beverage-san-bruno,Aqua Club Dessert & Beverage,4.5,440 San Mateo Ave,San Bruno,37.622566,-122.41094199999999
+388,bobabia-san-mateo,Bobabia,4.0,271 - 273 Baldwin Ave,San Mateo,37.56719879999999,-122.32539640000002
+389,happy-lemon-burlingame-4,Happy Lemon,4.0,1419 Burlingame Ave,Burlingame,37.5773026,-122.3486125
+390,eggettes-south-san-francisco,Eggettes,4.0,639 El Camino Real,South San Francisco,37.649226500000005,-122.43021429999999
+391,tpumps-burlingame,Tpumps,4.0,1118 Burlingame Ave,Burlingame,37.5794379623736,-122.34590301238998
+392,teaspoon-san-mateo,Teaspoon,4.0,128 E 3rd Ave,San Mateo,37.564318,-122.32384309999999
+393,cha-express-san-mateo,Cha Express,4.0,212 E 3rd Ave,San Mateo,37.564971299999996,-122.3228903
+394,search-tea-millbrae-5,Search Tea,4.0,105 Park Blvd,Millbrae,37.61218,-122.404
+395,tea-world-pacifica,Tea World,4.0,90 Eureka Sq,Pacifica,37.633749200000004,-122.4887216
+396,t4-millbrae-10,T4,3.5,315 Broadway,Millbrae,37.601183,-122.392173
+397,i-tea-burlingame-2,i-Tea,5.0,346 Lorton Ave,Burlingame,37.5801206,-122.34688909999998
+398,boba-dude-half-moon-bay,Boba Dude,3.5,80 Cabrillo Hwy N,Half Moon Bay,37.4702203984019,-122.435569055378
+399,eggettes-millbrae-2,Eggettes,4.0,979 Broadway,Millbrae,37.6048409390981,-122.39727831293101
+400,gong-cha-san-mateo-2,Gong Cha,3.5,110 S B St,San Mateo,37.5667191,-122.3239517
+401,bambu-south-san-francisco,BAMBU,3.5,2223 Gellert Blvd,South San Francisco,37.649195,-122.45302360000001
+402,super-cue-cafe-san-mateo-2,Super Cue Cafe,3.5,2986 S Norfolk St,San Mateo,37.544473311782106,-122.28505220123002
+403,bambu-san-mateo-2,BAMBU,4.0,153 South B St,San Mateo,37.5665365,-122.32326780000001
+404,eggettes-san-mateo,Eggettes,4.0,47 S B St,San Mateo,37.567409999999995,-122.32406999999999
+405,chatime-san-mateo-2,Chatime,3.5,165 E 4th Ave,San Mateo,37.56413,-122.32293999999999
+406,tpumps-foster-city,Tpumps,4.0,985 E Hillsdale Blvd,Foster City,37.5573531403401,-122.27474234038401
+407,creme-brewlee-san-mateo-2,Creme Brewlee,4.0,2948 S Norfolk St,San Mateo,37.5448989862154,-122.28502356257
+408,chatime-foster-city,Chatime,3.5,969A Edgewater Blvd,Foster City,37.544739,-122.27108500000001
+409,quickly-san-mateo,Quickly,3.5,142 E 3rd Ave,San Mateo,37.564361572265604,-122.323524475098
+410,fresh-nation-desserts-san-mateo-2,Fresh Nation Desserts,3.0,30 E 3rd Ave,San Mateo,37.5633809,-122.3251999
+411,ya-ua-yogurt-and-boba-tea-belmont-2,Ya-Ua Yogurt & Boba Tea,4.0,1090 Alameda De Las Pulgas,Belmont,37.5102232,-122.29382079999999
+412,snacks-san-mateo-2,Snacks,4.5,31 N B St,San Mateo,37.568342799999996,-122.3254578
+413,dessert-republic-san-mateo,Dessert Republic,3.5,138 Main St,San Mateo,37.566900399999994,-122.3234145
+414,mints-and-honey-san-carlos,Mints & Honey,4.5,1524 El Camino Real,San Carlos,37.49613,-122.2477
+415,bambu-millbrae-2,BAMBU,4.5,203 El Camino Real,Millbrae,37.600379700000005,-122.3900105
+416,icicles-san-mateo,ICICLES,4.0,222 E 3rd Ave,San Mateo,37.565219899999995,-122.3225
+417,kingkat-bar-and-eatery-san-mateo-2,KingKat Bar & Eatery,4.5,33 W 25th Ave,San Mateo,37.54368,-122.30661
+418,quickly-burlingame-2,Quickly,3.5,1407 Burlingame Ave,Burlingame,37.577187594876705,-122.34879302025
+419,antoines-cookie-shop-san-mateo-3,Antoine's Cookie Shop,4.5,220 2nd Ave,San Mateo,37.56595479999999,-122.3233725
+420,quickly-foster-city-3,Quickly,3.0,969k Edgewater Blvd,Foster City,37.544759899999995,-122.27103999999999
+421,moo-moo-yogurt-foster-city,Moo Moo Yogurt,4.0,969F Edgewater Blvd,Foster City,37.5441112400917,-122.270671007271
+422,clear-optometry-san-mateo,Clear Optometry,4.0,138 E 3rd Ave,San Mateo,37.5643,-122.32361000000002
+423,boiling-point-san-mateo,Boiling Point,3.0,111 E 4th Ave,San Mateo,37.56386,-122.32335
+424,cream-san-mateo,CREAM,4.0,134 S B St,San Mateo,37.566510799999996,-122.3237287
+425,poke-island-creasian-kitchen-san-mateo,Poke Island CreAsian Kitchen,4.0,43 S B St,San Mateo,37.5674055,-122.32427609999999
+426,waterfront-cafe-burlingame,Waterfront Cafe,5.0,500 Airport Blvd,Burlingame,37.590323,-122.34142
+427,never-too-latte-san-bruno-2,Never Too Latte,3.5,486 San Mateo Ave,San Bruno,37.6241,-122.41095
+428,jougert-bar-burlingame,Jougert Bar,4.5,1115 Burlingame Ave,Burlingame,37.5793126,-122.34574009999999
+429,mini-coffee-san-mateo-2,Mini Coffee,4.0,800 S B St,San Mateo,37.56167,-122.31891
+430,sweet-indulgence-millbrae-3,Sweet Indulgence,3.0,298 Broadway,Millbrae,37.600790100000005,-122.3914315
+431,ramen-dojo-san-mateo,Ramen Dojo,4.0,805 S B St,San Mateo,37.5621429,-122.3185051
+432,quickly-millbrae-4,Quickly,4.5,325 El Camino Real,Millbrae,37.60147,-122.39148
+433,bobo-drinks-fairfield-2,Bobo Drinks,3.5,1305 Gateway Blvd,Fairfield,38.264065585563294,-122.05026432432501
+434,t4-tea-for-u-fairfield,T4 Tea For U,3.0,2700 N Texas St,Fairfield,38.276709999999994,-122.03353
+435,peace-love-and-boba-vacaville,Peace Love & Boba,4.0,3083 Alamo Dr,Vacaville,38.33538734674521,-121.95462986826901
+436,halo-halo-bar-and-boba-station-suisun-city,Halo Halo Bar & Boba Station,4.0,303 Lawler Ctr Dr,Suisun City,38.24225,-122.01803000000001
+437,quickly-fairfield-3,Quickly,2.5,1350 Travis Blvd,Fairfield,38.2603729,-122.05464009999999
+438,tutti-frutti-fairfield-2,Tutti Frutti,4.0,3334 N Texas St,Fairfield,38.2890102925701,-122.03368663787799
+439,sharetea-concord-3,Sharetea,4.0,1850 Mount Diablo St,Concord,37.976159602403605,-122.033636346459
+440,i-tea-pittsburg,i-Tea,4.0,2121 Loveridge Rd,Pittsburg,38.0108707398176,-121.86888702213801
+441,quickly-vallejo-12,Quickly,3.5,145 Plaza Dr,Vallejo,38.1340827941895,-122.21915435791
+442,teazentea-brentwood-3,TeaZenTea,4.5,1135 2nd St,Brentwood,37.9369147127279,-121.698112115264
+443,quickly-vacaville,Quickly,2.5,1667 E Monte Vista Ave,Vacaville,38.3700576,-121.961772
+444,mandro-teahouse-davis,MandRo Teahouse,4.0,1260 Lake Blvd,Davis,38.5541889,-121.78698270000001
+445,tapioca-express-vallejo,Tapioca Express,3.0,3720 Sonoma Blvd,Vallejo,38.125256896019,-122.255262583494
+446,okashi-fusion-vacaville,Okashi Fusion,4.5,1679 E Monte Vista Ave,Vacaville,38.3703303337097,-121.959481313825
+447,cafe-tapioca-hercules,Cafe Tapioca,4.0,1581 Sycamore Ave,Hercules,38.00996,-122.270604
+448,pho-saigon-no-1-vietnamese-restaurant-fairfield-2,Pho Saigon No 1 Vietnamese Restaurant,4.0,1972 N Texas St,Fairfield,38.26504,-122.03313999999999
+449,ontap-davis,OnTap,4.0,825 Russell Blvd,Davis,38.54652539999999,-121.7607466
+450,t4-antioch-12,T4,4.0,4532 Lone Tree Way,Antioch,37.9659262678636,-121.780671279596
+451,bobaloca-concord-4,Bobaloca,3.5,1843 Willow Pass Rd,Concord,37.974990319878394,-122.038871629666
+452,teabo-café-davis,Teabo Café,3.5,2191 Cowell Blvd,Davis,38.5407655197016,-121.72471787406602
+453,lazi-cow-davis,Lazi Cow,3.5,407 G St,Davis,38.5465,-121.74006000000001
+454,t4-san-pablo-3,T4,4.0,13350 San Pablo Ave,San Pablo,37.954766898894,-122.33416686114401
+455,t4-concord-concord,T4 - Concord,3.5,2151 Salvio St,Concord,37.9776375471723,-122.034577466548
+456,dragon-snow-el-sobrante,Dragon Snow,3.5,3550 San Pablo Dam Rd,El Sobrante,37.96301,-122.31987
+457,cj-fusion-fairfield,CJ Fusion,3.5,201 Travis Blvd,Fairfield,38.25803,-122.03509
+458,gong-cha-davis,Gong Cha,3.5,1411 W Covell Blvd,Davis,38.5620003834934,-121.765583911777
+459,suisun-seafood-center-suisun-city,Suisun Seafood Center,3.5,303 Lawler Center Dr,Suisun City,38.24225,-122.01803000000001
+460,teaone-davis,TeaOne,3.5,213 E St,Davis,38.5436287,-121.7415001
+461,quickly-brentwood-brentwood,Quickly Brentwood,4.5,2415 Empire Ave,Brentwood,37.960314399999994,-121.7326581
+462,t4-davis-3,T4,4.0,132 E St,Davis,38.543060716395395,-121.740498058498
+463,bangkok-paradise-fairfield,Bangkok Paradise,4.0,3344 N Texas St,Fairfield,38.291740000000004,-122.03293000000001
+464,easel-davis-2,Easel,4.5,620 W Covell Blvd,Davis,38.5603285349925,-121.757062978432
+465,sharetea-davis-davis-2,Sharetea Davis,3.5,207 3rd St,Davis,38.5436861078294,-121.74678423313499
+466,the-old-teahouse-davis-3,The Old Teahouse,4.0,825 Russell Blvd,Davis,38.54652539999999,-121.7607466
+467,pho-lee-hoa-phat-fairfield,Pho Lee Hoa Phat,3.5,870 E Travis,Fairfield,38.25835782958921,-122.020811644487
+468,skyview-noodle-and-tea-pittsburg-3,Skyview Noodle & Tea,4.5,200 E 3rd St,Pittsburg,38.032940110361295,-121.882134117186
+469,noodle-house-fairfield-2,Noodle House,3.0,1305 Gateway Blvd,Fairfield,38.263944,-122.05028100000001
+470,sisig-suisun-city-3,SISIG,3.0,303 Lawler Center Dr,Suisun City,38.24225,-122.01803000000001
+471,rrags-caffe-benicia,Rrags Caffe,4.5,1383 E 2nd St,Benicia,38.0543339252472,-122.152609080076
+472,yumygurt-pinole,Yumygurt,4.0,2701 Pinole Valley Rd,Pinole,37.9952735900879,-122.285331726074
+473,vampire-penguin-brentwood-2,Vampire Penguin,3.0,2545 Sand Creek Rd,Brentwood,37.946219,-121.73876200000001
+474,going-green-martinez,Going Green,4.5,1160 Arnold Dr,Martinez,37.9934616,-122.1024094
+475,quickly-antioch-2,Quickly,3.5,212 E 18th St,Antioch,38.004497387479,-121.79992330404801
+476,pho-lee-hoa-phat-vacaville,Pho Lee Hoa Phat,3.5,88 Peabody Rd,Vacaville,38.3539886474609,-121.97824859619101
+477,ice-monster-walnut-creek,Ice Monster,4.0,2230 Oak Grove Rd,Walnut Creek,37.9297795146704,-122.016731053591
+478,t4-walnut-creek,T4,3.5,1815 Ygnacio Valley Rd,Walnut Creek,37.917413700000004,-122.0375497
+479,chalogy-tea-bar-walnut-creek-4,CHALOGY Tea Bar,3.5,1349 Locust St,Walnut Creek,37.8981,-122.06206
+480,mr-green-bubble-walnut-creek-2,Mr. Green Bubble,3.5,1539 Locust St,Walnut Creek,37.9000639934234,-122.062495370938
+481,cool-tea-bar-danville-4,Cool Tea Bar,4.0,251 Hartz Ave,Danville,37.822753843136795,-122.001181084905
+482,quickly-concord-5,Quickly,3.0,4115 Concord Blvd,Concord,37.97879750393,-121.99236011822799
+483,quickly-concord,Quickly,2.5,1657 Willow Pass Rd,Concord,37.9728660583496,-122.043716430664
+484,t4-and-poke-walnut-creek,T4 And Poke,3.5,1385C N Main St,Walnut Creek,37.89883,-122.06105
+485,i-tea-moraga-3,i-Tea,4.5,1460 Moraga Rd,Moraga,37.8353491,-122.1264706
+486,panache-caffe-lafayette,Panache Caffe,4.0,3653 Mt Diablo Blvd,Lafayette,37.8906068,-122.12773329999999
+487,coco-swirl-pleasant-hill,Coco Swirl,4.0,35 Crescent Dr,Pleasant Hill,37.94665,-122.06161999999999
+488,surf-city-squeeze-concord,Surf City Squeeze,3.5,282 Sun Valley Mall,Concord,37.9672766,-122.06217620000001
+489,hello-pho-concord,Hello Pho,4.0,1701 Monument Blvd,Concord,37.95516,-122.04158000000001
+490,harvest-house-concord,Harvest House,4.0,2395 Monument Blvd,Concord,37.960359999999994,-122.03578
+491,i-love-teriyaki-and-sushi-concord-2,I Love Teriyaki & Sushi,3.5,1950 Salvio St,Concord,37.9762523253409,-122.037221553584
+492,cornology-walnut-creek-3,Cornology,4.5,1349 Locust St,Walnut Creek,37.8981,-122.06206
+493,saigon-bistro-concord,Saigon Bistro,3.5,1701 Willow Pass Rd,Concord,37.974103,-122.041692
+494,99-ranch-market-concord-2,99 Ranch Market,3.5,1795 Willow Pass Rd,Concord,37.974712,-122.039859
+495,double-rainbow-cafe-benicia,Double Rainbow Cafe,3.5,560 1st St,Benicia,38.04837,-122.15871000000001
+496,blue-saigon-pittsburg,Blue Saigon,4.5,2243 Railroad Ave,Pittsburg,38.0134741,-121.8905534
+497,jollibee-concord,Jollibee,3.0,2030 Diamond Blvd,Concord,37.97341,-122.0557
+498,pho-huynh-hiep-5-kevins-noodle-house-concord,Pho Huynh Hiep 5 - Kevin's Noodle House,3.5,1833 Willow Pass Rd,Concord,37.97514,-122.03901
+499,pho-lee-hoa-phat-pleasant-hill,Pho Lee Hoa Phat,3.5,508 Contra Costa Blvd,Pleasant Hill,37.980899,-122.068382
+500,pho-huynh-hiep-6-kevins-noodle-house-walnut-creek,Pho Huynh Hiep 6 - Kevin's Noodle House,4.0,2034 N Main St,Walnut Creek,37.907985687255895,-122.06430053710899
+501,smitten-ice-cream-lafayette,Smitten Ice Cream,3.5,3545 Mt Diablo Blvd,Lafayette,37.891620700000004,-122.1198696
+502,aung-maylika-benicia-4,Aung Maylika,4.5,836 Southampton Rd,Benicia,38.066112359505,-122.165491386026
+503,izzyas-frozen-custard-lafayette-2,IzzyA's Frozen Custard,4.5,,Lafayette,37.89301,-122.12063
+504,yogurtland-pleasant-hill,Yogurtland,4.0,2390 Monument Blvd,Pleasant Hill,37.944833431008604,-122.056119731669
+505,golden-bakery-pittsburg,Golden Bakery,5.0,2229 Railroad Ave,Pittsburg,38.0136496,-121.89048740000001
+506,tutti-frutti-montclair-oakland,Tutti Frutti Montclair,4.0,2066 Mountain Blvd,Oakland,37.82616420000001,-122.20920559999999
+507,tangelo-frozen-yogurt-moraga,Tangelo Frozen Yogurt,4.5,384 Park St,Moraga,37.8600274754793,-122.12560322152599
+508,surf-city-squeeze-antioch,Surf City Squeeze,3.5,2556 Somersville Rd,Antioch,38.0000664,-121.84195179999999
+509,lv-vietnamese-pho-and-sandwiches-vallejo,LV Vietnamese Pho and Sandwiches,4.0,2621 Springs Rd,Vallejo,38.1054840087891,-122.207710266113
+510,korea-house-concord,Korea House,4.0,1835 Willow Pass Rd,Concord,37.97514,-122.03873999999999
+511,yo-sushi-martinez,Yo Sushi,3.5,1029 Arnold Dr,Martinez,37.9969242,-122.10789720000001
+512,lulus-kitchen-concord,Lulu's Kitchen,4.0,1657 Willow Pass Rd,Concord,37.9728762316744,-122.043781183031
+513,pho-hoa-an-pleasant-hill,Pho Hoa An,3.0,1617 Contra Costa Blvd,Pleasant Hill,37.95448064804079,-122.060296833515
+514,saigon-bistro-restaurant-pittsburg,Saigon Bistro Restaurant,3.5,4285 Century Blvd,Pittsburg,38.0068147913603,-121.841531507671
+515,pho-lee-hoa-phat-pittsburg-5,Pho Lee Hoa Phat,3.5,140 E Leland Rd,Pittsburg,38.011477889111795,-121.889719069004
+516,viet-nam-noodle-house-antioch-4,Viet Nam Noodle House,4.0,3676 Delta Fair Blvd,Antioch,38.0040780947741,-121.844287128215
+517,little-hearty-noodle-moraga-2,Little Hearty Noodle,3.5,578 Center St,Moraga,37.857808500000004,-122.12583590000001
+518,bubble-loca-richmond,Bubble Loca,3.5,3288 Pierce St,Richmond,37.8988113,-122.3075638
+519,ten-ren-tea-co-richmond,Ten Ren Tea Co,4.0,3288 Pierce St,Richmond,37.898754308959205,-122.30745845051202
+520,tala-coffee-and-tea-el-cerrito-2,Tala Coffee & Tea,3.5,10734 San Pablo Ave,El Cerrito,37.9131379268406,-122.309712024741
+521,sharetea-san-rafael-3,Sharetea,3.5,967 Grand Ave,San Rafael,37.9717057943344,-122.518760114908
+522,tpartea-boba-drinks-and-banh-mi-san-rafael-3,TPartea Boba Drinks And Banh Mi,3.5,5800 Northgate Dr,San Rafael,38.0039492652398,-122.54388445080099
+523,sunny-day-sweet-house-richmond,Sunny Day Sweet House,3.5,3288 Pierce St,Richmond,37.89881,-122.30756000000001
+524,aloha-pure-water-shaved-ice-san-pablo,Aloha Pure Water Shaved Ice,4.5,2300 El Portal Dr,San Pablo,37.966045,-122.343246
+525,world-wrapps-corte-madera-7,World Wrapps,4.5,208 Corte Madera Town Ctr,Corte Madera,37.9283378273249,-122.51804798841499
+526,quickly-el-cerrito,Quickly,3.0,3080 El Cerrito Plz,El Cerrito,37.9012082234262,-122.299600839615
+527,tay-tah-cafe-albany,Tay Tah Cafe,3.5,1182 Solano Ave,Albany,37.890229999999995,-122.29626
+528,sweetheart-cafe-berkeley,Sweetheart Cafe,3.5,2523 Durant Ave,Berkeley,37.868052500000005,-122.258168
+529,teaone-berkeley-berkeley,TeaOne Berkeley,3.5,2380 Telegraph Ave,Berkeley,37.86727,-122.25905
+530,quickly-kobe-bento-richmond-2,Quickly - Kobe Bento,2.0,3288 Pierce St,Richmond,37.898897999999996,-122.307341
+531,quickly-san-rafael,Quickly,3.0,1128 4th St,San Rafael,37.973353700000004,-122.52893799999998
+532,sivans-cafe-hayward,Sivan's Cafe,4.5,766 A St,Hayward,37.67244,-122.08685
+533,honey-bear-smoothie-tea-and-dessert-hayward,Honey Bear Smoothie Tea & Dessert,5.0,1 Southland Mall Dr,Hayward,37.65423320000001,-122.1048419
+534,sharetea-san-ramon,Sharetea,4.0,2441 San Ramon Valley Blvd,San Ramon,37.774742126464794,-121.977684020996
+535,t4-castro-valley,T4,3.5,18911 Lake Chabot Rd,Castro Valley,37.70864,-122.09133999999999
+536,quickly-hayward,Quickly,2.5,25034 Hesperian Blvd,Hayward,37.644355022049204,-122.104630560233
+537,8-twelve-oriental-market-san-leandro,8-Twelve Oriental Market,4.0,596 E 14th St,San Leandro,37.731047700000005,-122.1605656
+538,polaris-ice-cream-rolls-hayward,Polaris Ice Cream Rolls,4.0,595 Southland Mall,Hayward,37.652548372651,-122.106453901274
+539,milkcow-castro-valley,Milkcow,3.5,3223 Castro Valley Blvd,Castro Valley,37.69529,-122.07956000000001
+540,satori-tea-company-saratoga,Satori Tea Company,3.5,14482 Big Basin Way,Saratoga,37.2574696,-122.03354270000001
+541,creative-sips-san-jose,Creative Sips,4.0,,San Jose,37.3136978149414,-121.94662475585899
+542,saratoga-bagels-saratoga,Saratoga Bagels,4.5,12840 Saratoga Sunnyvale Rd,Saratoga,37.282037944475,-122.03191663334
+543,snowflake-san-jose,Snowflake,3.5,4306 Moorpark Ave,San Jose,37.3155981167824,-121.977282188172
+544,steepers-campbell,Steepers,4.5,346 E Campbell Ave,Campbell,37.28691,-121.94397
+545,yodo-yogurt-campbell,YoDo Yogurt,3.5,2475 S Winchester Blvd,Campbell,37.2784787,-121.94977920000001
+546,caffé-central-santa-clara,Caffé Central,2.5,2855 Stevens Creek Blvd,Santa Clara,37.3260982962994,-121.944144442677
+547,bar-code-santa-clara,Bar Code,3.0,2855 Stevens Crk Blvd,Santa Clara,37.3260983428105,-121.94561896626999
+548,jovie-coffee-and-pho-campbell,Jovie Coffee & Pho,3.5,136 N San Tomas Aquino,Campbell,37.2878194445875,-121.975211858331
+549,tous-les-jours-santa-clara,Tous Les Jours,3.5,3535 Homestead Rd,Santa Clara,37.33882,-121.99497
+550,menchies-frozen-yogurt-vallejo,Menchie's Frozen Yogurt,4.5,972 Admiral Callaghan Ln,Vallejo,38.133641,-122.22246399999999
+551,starbread-bakery-vallejo,Starbread Bakery,4.5,3718 Sonoma Blvd,Vallejo,38.1253132837656,-122.25415918976101
+552,pho-1-vallejo,Pho #1,4.0,3885 Sonoma Blvd,Vallejo,38.1266670227051,-122.25612640380899
+553,sunshine-bakery-vallejo-3,Sunshine Bakery,3.0,3570 Sonoma Blvd,Vallejo,38.1221466064453,-122.254501342773
+554,original-red-onion-vallejo-2,Original Red Onion,3.0,1321 Springs Rd,Vallejo,38.10589,-122.22708999999999
+555,yo-sushi-vallejo-2,Yo Sushi,3.5,114 Robles Way,Vallejo,38.0837651342154,-122.21166662871799
+556,midori-japanese-cuisine-vallejo,Midori Japanese Cuisine,3.5,3440 Sonoma Blvd,Vallejo,38.1214397080506,-122.254726908082
+557,pho-lee-hoa-phat-vallejo-2,Pho Lee Hoa Phat,3.0,102 Springstowne Ctr,Vallejo,38.10499,-122.21531999999999
+558,pho-saigon-village-noodle-house-vallejo,Pho Saigon Village Noodle House,4.5,3636 Sonoma Blvd,Vallejo,38.123849663673894,-122.25396101427401
+559,pho-lee-hoa-phat-2-vallejo-3,Pho Lee Hoa Phat 2,3.0,3495 Sonoma Blvd,Vallejo,38.122412702549894,-122.258621526624
+560,chowking-vallejo,Chowking,3.0,3495 Sonoma Blvd,Vallejo,38.121818,-122.2554405
+561,tacos-jalisco-vallejo,Tacos Jalisco,4.0,3420 Sonoma Blvd,Vallejo,38.121189117431605,-122.254600524902
+562,menchies-frozen-yogurt-belmont-2,Menchie's Frozen Yogurt,4.0,1200 El Camino Real,Belmont,37.5189045,-122.2744648
+563,fashion-wok-foster-city,Fashion Wok,4.0,929 A Edgewater Blvd,Foster City,37.5452836454887,-122.27046500734
+564,pho-new-saigon-foster-city,Pho New Saigon,3.5,1088 Foster City Blvd,Foster City,37.553293700000005,-122.25654920000001
+565,hongry-kong-belmont-2,Hongry Kong,3.5,,Belmont,37.5240325927734,-122.27907562255899
+566,marina-food-san-mateo,Marina Food,3.0,2992 S Norfolk St,San Mateo,37.5444118546376,-122.284796650842
+567,cooking-papa-restaurant-foster-city,Cooking Papa Restaurant,3.5,949A Edgewater Blvd,Foster City,37.5446131174646,-122.270425803511
+568,sheng-kee-bakery-san-mateo-2,Sheng Kee Bakery,3.0,2964 S Norfolk St,San Mateo,37.5452652,-122.28447709999999
+569,eat-on-monday-mountain-view-3,Eat On Monday,4.5,,Mountain View,37.39316940307621,-122.085517883301
+570,pho-little-saigon-san-mateo,Pho Little Saigon,3.0,2978 S Norfolk St,San Mateo,37.5445885811679,-122.28496880575199
+571,myung-dong-tofu-cabin-san-mateo,Myung Dong Tofu Cabin,3.5,2968 S Norfolk St,San Mateo,37.5447841763127,-122.284946071312
+572,bagel-street-cafe-redwood-city,Bagel Street Cafe,3.0,254 Redwood Shores Pkwy,Redwood City,37.522466833140996,-122.25162513571999
+573,east-14th-bakery-and-cafe-san-leandro-3,East 14th Bakery & Cafe,3.5,1780 E 14th St,San Leandro,37.7215444,-122.1509912
+574,tapioca-express-san-leandro,Tapioca Express,3.5,129 W Joaquin Ave,San Leandro,37.7239999,-122.15511000000001
+575,quickly-san-leandro,Quickly,2.5,15251 Hesperian Blvd,San Leandro,37.6978340148926,-122.130355834961
+576,sweethoney-dessert-san-leandro-3,Sweethoney Dessert,3.5,1423 E 14th St,San Leandro,37.7240845354245,-122.154812393848
+577,hanoi-chicken-noodle-san-leandro,Hanoi Chicken Noodle,3.5,13720 Doolittle Dr,San Leandro,37.69982,-122.17563999999999
+578,loving-tea-san-leandro,Loving Tea,2.0,1338 Fairmont Dr,San Leandro,37.7026172,-122.1272393
+579,cafe-sorriso-san-leandro,Cafe Sorriso,4.0,1501 Washington Ave,San Leandro,37.7228,-122.155194
+580,d-t-dim-sum-and-tea-san-leandro,D T Dim Sum & Tea,3.5,1970 Lewelling Blvd,San Leandro,37.6799806952477,-122.15467102825599
+581,milk-and-cookie-bar-castro-valley-3,Milk & Cookie Bar,4.5,18911 Lake Chabot Rd,Castro Valley,37.70864,-122.09133999999999
+582,sweet-dee-cupcakes-and-snow-ice-san-leandro,Sweet Dee Cupcakes & Snow Ice,4.0,109 Pelton Ctr Way,San Leandro,37.7229449751301,-122.153543170361
+583,quickly-san-lorenzo,Quickly,3.5,17940 Hesperian Blvd,San Lorenzo,37.672988996068895,-122.122139773525
+584,tapioca-express-alameda,Tapioca Express,3.5,2306 Encinal Ave,Alameda,37.76273,-122.24497
+585,leisure-cafe-san-leandro-2,Leisure Cafe,2.5,1443 E 14th St,San Leandro,37.7236583501576,-122.15453054755899
+586,quickly-castro-valley,Quickly,3.0,20893 Redwood Rd,Castro Valley,37.6947791129351,-122.073979452252
+587,china-kitchen-express-san-leandro,China Kitchen Express,2.0,13780 E 14th St,San Leandro,37.715400700000004,-122.1423264
+588,pho-an-hoa-san-leandro,Pho An Hoa,3.5,14391 Washington Ave,San Leandro,37.702842,-122.142028
+589,tuttimelon-alameda,Tuttimelon,3.5,2402 Central Ave,Alameda,37.763940000000005,-122.24266000000001
+590,banh-mi-ba-le-oakland,Banh Mi Ba Le,4.5,1909 International Blvd,Oakland,37.78606,-122.24101
+591,pokeatery-castro-valley,Pokeatery,4.5,18911 Lake Chabot Rd,Castro Valley,37.70864,-122.09133999999999
+592,hot-spot-alameda,Hot Spot,3.5,2321 Santa Clara Ave,Alameda,37.765703473918,-122.242378592491
+593,worlds-fare-donuts-hayward,World's Fare Donuts,4.5,20770 Hesperian Blvd,Hayward,37.6651882648286,-122.116480568499
+594,taqueria-los-pericos-san-leandro,Taqueria Los Pericos,4.0,1389 E 14th St,San Leandro,37.72437,-122.15508500000001
+595,pho-anh-ha-san-leandro,Pho Anh-Ha,3.5,2089 E 14th St,San Leandro,37.71929,-122.14865
+596,craw-station-san-leandro,Craw Station,3.5,15040 Farnsworth St,San Leandro,37.690664720659704,-122.151571007974
+597,r-and-d-cafe-san-lorenzo,R & D Cafe,4.0,15813 Channel St,San Lorenzo,37.6770314768334,-122.142561774295
+598,munch-hayward,Munch,4.0,27560 Tampa Ave,Hayward,37.631869,-122.07538400000001
+599,foodnet-supermarket-san-leandro-2,Foodnet Supermarket,3.5,1960 Lewelling Blvd,San Leandro,37.6795,-122.15478999999999
+600,yo-bowl-hayward,Yo Bowl,4.0,8 Southland Mall,Hayward,37.651128,-122.10129599999999
+601,yogurt-hill-hayward-4,Yogurt Hill,4.0,1081 B St,Hayward,37.67355,-122.08113999999999
+602,alohana-hawaiian-grill-san-leandro,Alohana Hawaiian Grill,3.0,15555 E 14th St,San Leandro,37.700115999999994,-122.12685800000001
