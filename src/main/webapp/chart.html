@@ -24,7 +24,12 @@
     	
     	var chart = new google.visualization.BarChart(document.getElementById('book_chart'));
     	
-    	chart.draw(book_data);
+    	var chart_options = {
+                width: 800,
+                height: 400
+  		};
+    	
+    	chart.draw(book_data, chart_options);
     }
 </script>
   </head>
