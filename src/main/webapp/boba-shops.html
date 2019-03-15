@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boba Shops in Bay Area, San Francisco</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+  <script>  
+    function createUfoSightingsMap(){
+      fetch('/ufo-data').then(function(response) {
+        return response.json();
+      }).then((ufoSightings) => {
+          
+        const map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35.78613674, lng: -119.4491591},
+          zoom:7
+        });
+
+        ufoSightings.forEach((ufoSighting) => {
+          new google.maps.Marker({
+            position: {lat: ufoSighting.lat, lng: ufoSighting.lng},
+            map: map
+          });  
+        });
+      });
+    }
+  </script>
+  <style>
+    #map{
+      width: 500px;
+      height: 500px;
+    }
+  </style>
+</head>
+<body onload="createUfoSightingsMap();">
+ <h1>UFO Sightings</h1>
+ <div id="map"></div>
+</body>
+</html>
