@@ -78,7 +78,7 @@ limitations under the License.
         <configuration>
           <jvmFlags>
             <jvmFlag>-Xdebug</jvmFlag>
-            <jvmFlag>-Xrunjdwp:transport=dt_socket,address=1044,server=y,suspend=y
+            <jvmFlag>-Xrunjdwp:transport=dt_socket,address=1044,server=y,suspend=n
             </jvmFlag>
           </jvmFlags>
           <disableUpdateCheck>true</disableUpdateCheck>
