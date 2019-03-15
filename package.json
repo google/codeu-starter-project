@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "CodeU Team 36 repo",
   "main": "index.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {    
     "eslint": "^5.15.1",
     "prettier": "^1.16.4"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

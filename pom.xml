@@ -60,6 +60,12 @@ limitations under the License.
       <artifactId>google-cloud-datastore</artifactId>
       <version>1.52.0</version>
     </dependency>
+    
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-language</artifactId>
+      <version>1.55.0</version>
+    </dependency>
 
   </dependencies>
 
