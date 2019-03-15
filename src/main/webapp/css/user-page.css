@@ -40,6 +40,12 @@
   margin: 5px;
 }
 
+.message-body img {
+  display: block;
+  margin-top: 25px;
+  max-width: 75%;
+}
+
 /* Use this to hide certain elements like forms if the
    user is not logged in or viewing their own page. */
 .hidden {
