@@ -51,9 +51,9 @@ public class Datastore {
   /**
    * Gets messages posted by a specific user or all users.
    *
-   * @param  user  specific username to fetch the message, 
+   * @param  user  specific username to fetch the message,
    *     or "all", case insensitive, to fetch all messages
-   * @return  a list of messages posted by the user(all users), or empty list if user(everyone) 
+   * @return  a list of messages posted by the user(all users), or empty list if user(everyone)
    *     has never posted a message. List is sorted by time descending.
    */
   public List<Message> getMessages(String user) {
