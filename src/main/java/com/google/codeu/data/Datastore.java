@@ -58,10 +58,12 @@ public class Datastore {
       longestMessage = messageLength;
     }
     postsPerUser.put(message.getUser(), getMessages(message.getUser()).size());
-
-    String[] messageCategoryList = message.getMessageCategories().split("/");
+    
+    String messageCategories = message.getMessageCategories().trim();
+    String[] messageCategoryList = messageCategories.split("/");
 
     for (String category : messageCategoryList) {
+      category = category.trim();
       category = category.replace("[", "");
       category = category.replaceAll("]", "");
 
