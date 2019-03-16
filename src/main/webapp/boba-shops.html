@@ -3,58 +3,8 @@
 <head>
   <title>Boba Shops in Bay Area</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCII0kJqaa9uBysCMxSVcYJn1d2KeuAcDU"></script>
-  <script>  
-    function createBobaShopsMap(){
-      fetch('/boba-data').then(function(response) {
-        return response.json();
-      }).then((bobaShops) => {
-          
-        const map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 37.7749, lng: -122.4194},
-          zoom:9
-        });
-
-        bobaShops.forEach((bobaShop) => {
-          var marker = new google.maps.Marker({
-            position: {lat: bobaShop.lat, lng: bobaShop.lng},
-            map: map,
-            name: bobaShop.name,
-            address: bobaShop.address,
-            rating: bobaShop.rating
-          });
-
-          google.maps.event.addListener(marker, 'click', function() { 
-            displayShopInfo(marker);
-          }); 
-
-        });
-      });
-    }
-
-    /**
-     * Function to display the boba shop information on the web page
-     */
-    function displayShopInfo(marker){
-      console.log('display function called');
-      const nameDiv = document.getElementById('shop-name');
-      nameDiv.innerHTML = 'Shop name: ' + marker.name;
-
-      const addressDiv = document.getElementById('shop-address');
-      addressDiv.innerHTML = 'Address: ' + marker.address;
-
-      const ratingDiv = document.getElementById('shop-rating');
-      ratingDiv.innerHTML = 'Rating: ' + marker.rating;
-    }
-    
-  </script>
-
-  <style>
-    #map{
-      width: 500px;
-      height: 500px;
-    }
-  </style>
-
+  <script src="/js/boba-shop-loader.js"></script>
+  <link rel="stylesheet" href="/css/boba-shop.css">
 </head>
 <body onload="createBobaShopsMap();">
  <h1>Boba Shops in Bay Area</h1>
