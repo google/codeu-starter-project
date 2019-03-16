@@ -15,8 +15,11 @@ import com.google.gson.JsonArray;
 @WebServlet("/boba-data")
 public class BobaDataServlet extends HttpServlet {
 	private final int NAME_IDX = 2;
-	//private final int LAT_IDX = 6;
-	//private final int LONG_IDX = 7;
+	private final int RATING_IDX = 3;
+	private final int ADDRESS_IDX = 4;
+	private final int CITY_IDX = 5;
+	private final int LAT_IDX = 6;
+	private final int LONG_IDX = 7;
 
 	JsonArray bobaShopsArray;
 
@@ -46,15 +49,13 @@ public class BobaDataServlet extends HttpServlet {
 			String line = scanner.nextLine();
 			String[] cells = line.split(",");
 
-			// Indices for latitute and longitute
-			int long_idx = cells.length - 1;
-			int lat_idx = cells.length - 2;
-
 			String name = cells[NAME_IDX];
-			double lat = Double.parseDouble(cells[lat_idx]);
-			double lng = Double.parseDouble(cells[long_idx]);
+			String address = cells[ADDRESS_IDX] + ", " + cells[CITY_IDX];
+			double rating = Double.parseDouble(cells[RATING_IDX]);
+			double lat = Double.parseDouble(cells[LAT_IDX]);
+			double lng = Double.parseDouble(cells[LONG_IDX]);
 
-			bobaShopsArray.add(gson.toJsonTree(new BobaShop(name, lat, lng)));
+			bobaShopsArray.add(gson.toJsonTree(new BobaShop(name, address, rating, lat, lng)));
     }
     scanner.close();
     return bobaShopsArray;
@@ -62,11 +63,15 @@ public class BobaDataServlet extends HttpServlet {
 
   private static class BobaShop {
     String name;
+    String address;
+    double rating;
     double lat;
     double lng;
 
-    private BobaShop(String name, double lat, double lng) {
+    private BobaShop(String name, String address, double rating, double lat, double lng) {
       this.name = name;
+      this.address = address;
+      this.rating = rating;
       this.lat = lat;
       this.lng = lng;
     }
