@@ -42,6 +42,10 @@ import com.google.gson.Gson;
 import com.google.protobuf.ByteString;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.Translate.TranslateOption;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,10 +58,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.Translate.TranslateOption;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
 
 /** Handles fetching and saving {@link Message} instances. */
 @WebServlet("/messages")
