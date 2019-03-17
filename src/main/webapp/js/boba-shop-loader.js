@@ -1,8 +1,9 @@
+/* exported createBobaShopsMap */ 
+/* exported google */
+
 /**
  * Loads the Json array data constructed from BobaShopServlet and construct the map based on the array
  */
- 
-/* exported createBobaShopsMap */ 
 function createBobaShopsMap(){
   fetch('/boba-data').then(function(response) {
     return response.json();
@@ -38,7 +39,6 @@ function createBobaShopsMap(){
  * @param {marker} The marker that is clicked
  */
 function displayShopInfo(marker){
-  console.log('display function called');
   const nameDiv = document.getElementById('shop-name');
   nameDiv.innerHTML = 'Shop name: ' + marker.name;
 
