@@ -26,7 +26,8 @@ public class BobaDataServlet extends HttpServlet {
 
   @Override
   public void init() {
-    this.bobaShopsArray = parseDataFile(this.bobaDataFile);
+    Scanner scanner = getDataFile(bobaDataFile);
+    this.bobaShopsArray = parseDataFile(scanner);
   }
 
   @Override
@@ -38,11 +39,10 @@ public class BobaDataServlet extends HttpServlet {
   /**
    * Read and parse data from the specified csv file into JsonArray.
    */
-  private JsonArray parseDataFile(String path) {
+  private JsonArray parseDataFile(Scanner scanner) {
     bobaShopsArray = new JsonArray();
     Gson gson = new Gson();
 
-    Scanner scanner = getDataFile(path);
     scanner.nextLine(); //Skip header line
 
     while (scanner.hasNextLine()) {
