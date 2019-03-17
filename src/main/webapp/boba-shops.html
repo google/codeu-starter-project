@@ -4,13 +4,18 @@
   <title>Boba Shops in Bay Area</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCII0kJqaa9uBysCMxSVcYJn1d2KeuAcDU"></script>
   <script src="/js/boba-shop-loader.js"></script>
-  <link rel="stylesheet" href="/css/boba-shop.css">
+  <!--link rel="stylesheet" href="/css/boba-shop.css"> !-->
 </head>
 <body onload="createBobaShopsMap();">
- <h1>Boba Shops in Bay Area</h1>
- <div id="map"></div>
- <div id="shop-name"></div>
- <div id="shop-address"></div>
- <div id="shop-rating"></div>
+  <h1 align="center">Boba Shops in Bay Area</h1>
+  <div style="margin-left: 2%">
+ 	  <div id="map" style="float: left; width: 640px; height: 480px;"></div>
+
+ 	  <div style="margin-left: 58%;">
+ 	  	<h2 id="shop-name"></h2>
+ 	    <h2 id="shop-address" style="margin-top: 75px"></h2>
+ 	    <h2 id="shop-rating" style="margin-top: 75px"></h2>
+    </div>
+  </div>
 </body>
 </html>
