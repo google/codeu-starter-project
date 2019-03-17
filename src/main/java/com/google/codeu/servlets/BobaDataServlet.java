@@ -20,13 +20,13 @@ public class BobaDataServlet extends HttpServlet {
   private int cityIdx = 5;
   private int latIdx = 6;
   private int longIdx = 7;
-  private String bobaCSV = "/WEB-INF/bayarea_boba_spots.csv";
+  private String bobaDataFile = "/WEB-INF/bayarea_boba_spots.csv";
 
   JsonArray bobaShopsArray;
 
   @Override
   public void init() {
-    this.bobaShopsArray = parseCSV(this.bobaCSV);
+    this.bobaShopsArray = parseDataFile(this.bobaDataFile);
   }
 
   @Override
@@ -38,11 +38,11 @@ public class BobaDataServlet extends HttpServlet {
   /**
    * Read and parse data from the specified csv file into JsonArray.
    */
-  private JsonArray parseCSV(String path) {
+  private JsonArray parseDataFile(String path) {
     bobaShopsArray = new JsonArray();
     Gson gson = new Gson();
 
-    Scanner scanner = getCSV(path);
+    Scanner scanner = getDataFile(path);
     scanner.nextLine(); //Skip header line
 
     while (scanner.hasNextLine()) {
@@ -65,7 +65,7 @@ public class BobaDataServlet extends HttpServlet {
   /**
    * Returns a scanner on the specified csv file.
    */
-  private Scanner getCSV(String path){
+  private Scanner getDataFile(String path) {
     return new Scanner(getServletContext().getResourceAsStream(path));
   }
 
