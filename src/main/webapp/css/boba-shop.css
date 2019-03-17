@@ -1,7 +1,3 @@
-#wrapper{
-	margin-left: 2%;
-}
-
 #map{
 	float: left;
   width: 640px;
@@ -14,4 +10,8 @@
 
 #shop-rating{
 	margin-top: 75px;
+}
+
+#wrapper{
+	margin-left: 2%;
 }
