@@ -1,17 +1,17 @@
-#map{
+.map{
 	float: left;
   width: 640px;
   height: 480px;
 }
 
-#shop-address{
+.shop-address{
 	margin-top: 75px;
 }
 
-#shop-rating{
+.shop-rating{
 	margin-top: 75px;
 }
 
-#wrapper{
+.wrapper{
 	margin-left: 2%;
 }

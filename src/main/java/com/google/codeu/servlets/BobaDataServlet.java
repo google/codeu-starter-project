@@ -45,7 +45,7 @@ public class BobaDataServlet extends HttpServlet {
         new Scanner(getServletContext().getResourceAsStream("/WEB-INF/bayarea_boba_spots.csv"));
     scanner.nextLine(); //Skip header line
 
-    while(scanner.hasNextLine()){
+    while(scanner.hasNextLine()) {
       String line = scanner.nextLine();
       String[] cells = line.split(",");
 
