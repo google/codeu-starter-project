@@ -77,6 +77,11 @@ public class Message {
     return imageUrl;
   }
 
+  /* Set the text private member variable */
+  public void setText(String input) {
+    this.text = input;
+  }
+
   /* Gets the timestamp private member variable */
   public long getTimestamp() {
     return timestamp;
