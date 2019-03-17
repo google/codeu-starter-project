@@ -78,7 +78,13 @@ function showMessageFormIfLoggedIn() {
 
 /** Fetches messages and add them to the page. */
 function fetchMessages() {
-  const url = '/messages?user=' + parameterUsername;
+  // Add the query string parameter
+  const parameterLanguage = urlParams.get('language');
+
+  let url = '/messages?user=' + parameterUsername;
+  if (parameterLanguage) {
+    url += '&language=' + parameterLanguage;
+  }
 
   fetch(url)
       .then((response) => {
@@ -96,13 +102,6 @@ function fetchMessages() {
           messagesContainer.appendChild(messageDiv);
         });
       });
-
-    // Add the query string parameter
-    const parameterLanguage = urlParams.get('language');
-    let url = '/messages?user=' + parameterUsername;
-    if(parameterLanguage) {
-      url += '&language=' + parameterLanguage;
-    }
 }
 
 /**
