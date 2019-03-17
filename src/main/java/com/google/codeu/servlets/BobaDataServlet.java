@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/boba-data")
 public class BobaDataServlet extends HttpServlet {
-  private int name_idx = 2;
-  private int rating_idx = 3;
-  private int address_idx = 4;
-  private int city_idx = 5;
-  private int lat_idx = 6;
-  private int long_idx = 7;
+  private int nameIdx = 2;
+  private int ratingIdx = 3;
+  private int addressIdx = 4;
+  private int cityIdx = 5;
+  private int latIdx = 6;
+  private int longIdx = 7;
 
   JsonArray bobaShopsArray;
 
@@ -43,17 +43,17 @@ public class BobaDataServlet extends HttpServlet {
 
     Scanner scanner = 
         new Scanner(getServletContext().getResourceAsStream("/WEB-INF/bayarea_boba_spots.csv"));
-  	scanner.nextLine(); //Skip header line
+    scanner.nextLine(); //Skip header line
 
     while(scanner.hasNextLine()) {
       String line = scanner.nextLine();
       String[] cells = line.split(",");
 
-      String name = cells[name_idx];
-      String address = cells[address_idx] + ", " + cells[city_idx];
-      double rating = Double.parseDouble(cells[rating_idx]);
-      double lat = Double.parseDouble(cells[lat_idx]);
-      double lng = Double.parseDouble(cells[long_idx]);
+      String name = cells[nameIdx];
+      String address = cells[addressIdx] + ", " + cells[cityIdx];
+      double rating = Double.parseDouble(cells[ratingIdx]);
+      double lat = Double.parseDouble(cells[latIdx]);
+      double lng = Double.parseDouble(cells[longIdx]);
 
       bobaShopsArray.add(gson.toJsonTree(new BobaShop(name, address, rating, lat, lng)));
     }
