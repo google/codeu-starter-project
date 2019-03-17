@@ -13,16 +13,19 @@ function createBobaShopsMap(){
       zoom:9
     });
 
+
     bobaShops.forEach((bobaShop) => {
+      var icon = '/img/boba.png';
       var marker = new google.maps.Marker({
         position: {lat: bobaShop.lat, lng: bobaShop.lng},
         map: map,
+        icon: icon,
         name: bobaShop.name,
         address: bobaShop.address,
         rating: bobaShop.rating
       });
 
-      google.maps.event.addListener(marker, 'click', function() { 
+      google.maps.event.addListener(marker, 'click', function() {
         displayShopInfo(marker);
       }); 
 
@@ -44,5 +47,8 @@ function displayShopInfo(marker){
 
   const ratingDiv = document.getElementById('shop-rating');
   ratingDiv.innerHTML = 'Rating: ' + marker.rating;
+
+  marker.setAnimation(google.maps.Animation.BOUNCE);
+  setTimeout(function(){ marker.setAnimation(null); }, 1500);
 }
     
