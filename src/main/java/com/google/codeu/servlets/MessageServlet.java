@@ -85,7 +85,7 @@ public class MessageServlet extends HttpServlet {
 
     // Get the target language from the query string parameter and then call the helper function
     String targetLanguageCode = request.getParameter("language");
-    if(targetLanguageCode != null) {
+    if (targetLanguageCode != null) {
       translateMessages(messages, targetLanguageCode);
     }
 
@@ -136,12 +136,12 @@ public class MessageServlet extends HttpServlet {
   }
 
   /**
-   * Translates messages based on a URL query parameter
+   * Translates messages based on a URL query parameter.
    */
   private void translateMessages(List<Message> messages, String targetLanguageCode) {
     Translate translate = TranslateOptions.getDefaultInstance().getService();
 
-    for(Message message : messages) {
+    for (Message message : messages) {
       String originalText = message.getText();
 
       Translation translation =
