@@ -1,27 +1,27 @@
 package com.google.codeu.servlets;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 
 /**
- * Returns boba shop data as a JSON array, e.g. [{"lat": 38.4404675, "lng": -122.7144313}]
+ * Returns boba shop data as a JSON array, e.g. [{"lat": 38.4404675, "lng": -122.7144313}].
  */
 @WebServlet("/boba-data")
 public class BobaDataServlet extends HttpServlet {
-	private final int NAME_IDX = 2;
-	private final int RATING_IDX = 3;
-	private final int ADDRESS_IDX = 4;
-	private final int CITY_IDX = 5;
-	private final int LAT_IDX = 6;
-	private final int LONG_IDX = 7;
+  private int name_idx = 2;
+  private int rating_idx = 3;
+  private int address_idx = 4;
+  private int city_idx = 5;
+  private int lat_idx = 6;
+  private int long_idx = 7;
 
-	JsonArray bobaShopsArray;
+  JsonArray bobaShopsArray;
 
   @Override
   public void init() {
@@ -35,28 +35,29 @@ public class BobaDataServlet extends HttpServlet {
   }
 
   /**
-   * Read and parse data from the csv file into JsonArray
+   * Read and parse data from the csv file into JsonArray.
    */
-  private JsonArray parseData(){
-  	bobaShopsArray = new JsonArray();
+  private JsonArray parseData() {
+    bobaShopsArray = new JsonArray();
     Gson gson = new Gson();
 
-  	Scanner scanner = 
-  			new Scanner(getServletContext().getResourceAsStream("/WEB-INF/bayarea_boba_spots.csv"));
+    Scanner scanner = 
+        new Scanner(getServletContext().getResourceAsStream("/WEB-INF/bayarea_boba_spots.csv"));
   	scanner.nextLine(); //Skip header line
 
     while(scanner.hasNextLine()) {
-			String line = scanner.nextLine();
-			String[] cells = line.split(",");
+      String line = scanner.nextLine();
+      String[] cells = line.split(",");
 
-			String name = cells[NAME_IDX];
-			String address = cells[ADDRESS_IDX] + ", " + cells[CITY_IDX];
-			double rating = Double.parseDouble(cells[RATING_IDX]);
-			double lat = Double.parseDouble(cells[LAT_IDX]);
-			double lng = Double.parseDouble(cells[LONG_IDX]);
+      String name = cells[name_idx];
+      String address = cells[address_idx] + ", " + cells[city_idx];
+      double rating = Double.parseDouble(cells[rating_idx]);
+      double lat = Double.parseDouble(cells[lat_idx]);
+      double lng = Double.parseDouble(cells[long_idx]);
 
-			bobaShopsArray.add(gson.toJsonTree(new BobaShop(name, address, rating, lat, lng)));
+      bobaShopsArray.add(gson.toJsonTree(new BobaShop(name, address, rating, lat, lng)));
     }
+
     scanner.close();
     return bobaShopsArray;
   }
