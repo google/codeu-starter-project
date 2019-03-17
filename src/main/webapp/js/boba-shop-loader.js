@@ -15,7 +15,7 @@ function createBobaShopsMap(){
 
 
     bobaShops.forEach((bobaShop) => {
-      var icon = '/img/boba.png';
+      var icon = '/img/boba.png'; //Image source of marker icon
       var marker = new google.maps.Marker({
         position: {lat: bobaShop.lat, lng: bobaShop.lng},
         map: map,
@@ -48,7 +48,7 @@ function displayShopInfo(marker){
   const ratingDiv = document.getElementById('shop-rating');
   ratingDiv.innerHTML = 'Rating: ' + marker.rating;
 
-  marker.setAnimation(google.maps.Animation.BOUNCE);
-  setTimeout(function(){ marker.setAnimation(null); }, 1500);
+  marker.setAnimation(google.maps.Animation.BOUNCE); //Set marker to bounce
+  setTimeout(function(){ marker.setAnimation(null); }, 1500); //One bounce cycle is 750ms, so 1500 means bounce twice
 }
     
