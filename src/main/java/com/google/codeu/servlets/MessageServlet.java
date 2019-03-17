@@ -87,7 +87,13 @@ public class MessageServlet extends HttpServlet {
     String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
     String recipient = request.getParameter("recipient");
     float sentimentScore = getSentimentScore(text);
-    String messageCategories = getMessageCategories(text).keySet().toString();
+    String messageCategories = "";
+    if (getNumWords(text) > 20) {
+      messageCategories = getMessageCategories(text).keySet().toString();
+    }
+    else {
+      messageCategories = "";
+    }
 
     Message message = new Message(user, text, recipient, sentimentScore, messageCategories);
     datastore.storeMessage(message);
@@ -126,5 +132,13 @@ public class MessageServlet extends HttpServlet {
       }
     }
     return messageCategories;
+  }
+  
+  public int getNumWords(String text) {
+    // use trim and split here to count the number of words in the text
+    String trimmedText = text.trim();
+    String[] textWords = trimmedText.split("\\s+");
+    
+    return textWords.length;
   }
 }
