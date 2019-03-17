@@ -10,7 +10,7 @@ function createBobaShopsMap(){
   }).then((bobaShops) => {
       
     const map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 37.7749, lng: -122.4194},
+      center: {lat: 37.7749, lng: -122.4194}, //San Francisco
       zoom:9
     });
 
@@ -29,7 +29,6 @@ function createBobaShopsMap(){
       google.maps.event.addListener(marker, 'click', function() {
         displayShopInfo(marker);
       }); 
-
     });
   });
 }
