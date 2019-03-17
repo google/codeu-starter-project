@@ -8,9 +8,10 @@ function createBobaShopsMap(){
   fetch('/boba-data').then(function(response) {
     return response.json();
   }).then((bobaShops) => {
-      
+
+    const SanFrancisco = {lat: 37.7749, lng: -122.4194};
     const map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 37.7749, lng: -122.4194}, //San Francisco
+      center: SanFrancisco,
       zoom:9
     });
 
