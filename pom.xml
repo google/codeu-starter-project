@@ -81,6 +81,13 @@ limitations under the License.
     </dependency>
   </dependencies>
 
+  <!-- Add for translation API -->
+  <dependency>
+    <groupId>com.google.cloud</groupId>
+    <artifactId>google-cloud-storage</artifactId>
+    <version>1.64.0</version>
+  </dependency>
+
   <build>
     <plugins>
       <plugin>

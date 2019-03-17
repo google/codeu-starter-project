@@ -84,6 +84,13 @@ function fetchMessages() {
           messagesContainer.appendChild(messageDiv);
         });
       });
+
+    // Add the query string parameter
+    const parameterLanguage = urlParams.get('language');
+    let url = '/messages?user=' + parameterUsername;
+    if(parameterLanguage) {
+      url += '&language=' + parameterLanguage;
+    }
 }
 
 /**
@@ -120,6 +127,7 @@ function buildMessageDiv(message) {
 }
 
 /** Provides link to URL */
+<<<<<<< HEAD
 function buildLanguageLinks() {
   const userPageUrl = '/user-page.html?user=' + parameterUsername;
   const languagesListElement  = document.getElementById('languages');
@@ -130,6 +138,21 @@ function buildLanguageLinks() {
          userPageUrl + '&language=' + lang, languages[lang])));
   }
 
+=======
+function buildLanguageLinks(){
+  const userPageUrl = '/user-page.html?user=' + parameterUsername;
+  const languagesListElement  = document.getElementById('languages');
+  languagesListElement.appendChild(createListItem(createLink(
+       userPageUrl + '&language=en', 'English')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=zh', 'Chinese')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=hi', 'Hindi')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=es', 'Spanish')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=ar', 'Arabic')));
+>>>>>>> ML Translation
 }
 
 /** Fetches data and populates the UI of the page. */
