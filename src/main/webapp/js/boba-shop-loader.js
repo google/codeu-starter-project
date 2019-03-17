@@ -1,5 +1,5 @@
 /* exported createBobaShopsMap */ 
-/* exported google */
+/* global google */
 
 /**
  * Loads the Json array data constructed from BobaShopServlet and construct the map based on the array
