@@ -33,6 +33,10 @@ import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.Translate.TranslateOption;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.Document.Type;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 
 /** Handles fetching and saving {@link Message} instances. */
 @WebServlet("/messages")
@@ -88,6 +92,18 @@ public class MessageServlet extends HttpServlet {
   }    
 }
 
+
+  private float getSentimentScore(String text) throws IOException {
+  Document doc = Document.newBuilder()
+      .setContent(text).setType(Type.PLAIN_TEXT).build();
+
+  LanguageServiceClient languageService = LanguageServiceClient.create();
+  Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+  languageService.close();
+
+  return sentiment.getScore();
+}
+
   /** Stores a new {@link Message}. */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -107,8 +123,8 @@ public class MessageServlet extends HttpServlet {
     String regex = "(https?://\\S+\\.(png|jpg|gif))";
     String replacement = "<img src=\"$1\" />";
     String textWithImagesReplaced = userText.replaceAll(regex, replacement);
-    
-    Message message = new Message(user, textWithImagesReplaced, recipient);
+    float sentimentScore = getSentimentScore(textWithImagesReplaced);
+    Message message = new Message(user, textWithImagesReplaced, recipient, sentimentScore);
     datastore.storeMessage(message);
 
     response.sendRedirect("/user-page.html?user=" + recipient);

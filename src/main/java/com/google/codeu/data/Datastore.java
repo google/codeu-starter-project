@@ -28,6 +28,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.Document.Type;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
+
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
 
@@ -45,6 +50,7 @@ public class Datastore {
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
+    messageEntity.setProperty("sentimentScore",message.getSentimentScore());
     datastore.put(messageEntity);
   }
   /** Stores the User in Datastore. */
@@ -105,9 +111,9 @@ public List<Message> getMessages(String recipient) {
 
       String text = (String) entity.getProperty("text");
       long timestamp = (long) entity.getProperty("timestamp");
+      float sentimentScore = (float) entity.getProperty("sentimentScore");
       //String recipient = (String) entity.getProperty("recipient");
-
-      Message message = new Message(id, user, text, timestamp, recipient);
+      Message message = new Message(id, user, text, timestamp, recipient, sentimentScore);
       messages.add(message);
     } catch (Exception e) {
       System.err.println("Error reading message.");
