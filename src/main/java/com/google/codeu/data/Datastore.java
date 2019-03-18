@@ -40,7 +40,6 @@ public class Datastore {
   /** Stores the Message in Datastore. */
 
   public void storeMessage(Message message) {
-    System.out.println("hello im in storeMessage");
     Entity messageEntity = new Entity("Message", message.getId().toString());
     messageEntity.setProperty("user", message.getUser());
     messageEntity.setProperty("text", message.getText());
