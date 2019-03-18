@@ -136,7 +136,7 @@ public class MessageServlet extends HttpServlet {
   }
 
   /**
-   * Translates messages based on a URL query parameter.
+   * Translates messages based on the message and desired language.
    */
   private void translateMessages(List<Message> messages, String targetLanguageCode) {
     Translate translate = TranslateOptions.getDefaultInstance().getService();
