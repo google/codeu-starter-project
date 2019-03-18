@@ -47,6 +47,7 @@ import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.images.ServingUrlOptions;
 
+
 /** Handles fetching and saving {@link Message} instances. */
 @WebServlet("/messages")
 public class MessageServlet extends HttpServlet {
@@ -104,23 +105,16 @@ public class MessageServlet extends HttpServlet {
 
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
-    System.out.println("does the bug occur here");
     List<BlobKey> blobKeys = blobs.get("image");
-    System.out.println("or does the bug occur here");
-
-    //Message message = new Message(user, text);
 
     if(blobKeys != null && !blobKeys.isEmpty()) {
-      System.out.println("im so confused");
       BlobKey blobKey = blobKeys.get(0);
-      System.out.println("again very confused");
       ImagesService imagesService = ImagesServiceFactory.getImagesService();
-      System.out.println("extremely confused");
       ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);
-      System.out.println("maybe here");
       String imageUrl = imagesService.getServingUrl(options);
-      System.out.println("or possibly even here");
       message.setImageUrl(imageUrl);
+    } else {
+      message.setImageUrl("");
     }
 
     datastore.storeMessage(message);
