@@ -30,6 +30,23 @@ import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+
+import com.google.appengine.api.images.ImagesService;
+import com.google.appengine.api.images.ImagesServiceFactory;
+import com.google.appengine.api.images.ServingUrlOptions;
+
 /** Handles fetching and saving {@link Message} instances. */
 @WebServlet("/messages")
 public class MessageServlet extends HttpServlet {
@@ -84,9 +101,30 @@ public class MessageServlet extends HttpServlet {
     String textWithImagesReplaced = userText.replaceAll(regex, replacement);
     
     Message message = new Message(user, textWithImagesReplaced, recipient);
+
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+    Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
+    System.out.println("does the bug occur here");
+    List<BlobKey> blobKeys = blobs.get("image");
+    System.out.println("or does the bug occur here");
+
+    //Message message = new Message(user, text);
+
+    if(blobKeys != null && !blobKeys.isEmpty()) {
+      System.out.println("im so confused");
+      BlobKey blobKey = blobKeys.get(0);
+      System.out.println("again very confused");
+      ImagesService imagesService = ImagesServiceFactory.getImagesService();
+      System.out.println("extremely confused");
+      ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);
+      System.out.println("maybe here");
+      String imageUrl = imagesService.getServingUrl(options);
+      System.out.println("or possibly even here");
+      message.setImageUrl(imageUrl);
+    }
+
     datastore.storeMessage(message);
 
-    response.sendRedirect("/user-page.html?user=" + recipient);
+    response.sendRedirect("/user-page.html?user=" + user);
   }
-
 }
