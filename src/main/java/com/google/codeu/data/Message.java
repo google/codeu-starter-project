@@ -42,12 +42,15 @@ public class Message {
     this.text = text;
     this.timestamp = timestamp;
     this.recipient = recipient;
-    this.imageUrl = null;
+    this.imageUrl = "";
 
   }
 
   public void setImageUrl(String url){
     this.imageUrl = url;
+    if (url != ""){
+      this.text += "\n <img src ='" + url + "' />";
+    }
   }
 
   public String getImageUrl(){
