@@ -20,10 +20,15 @@ public class UfoDataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response){
 		Scanner scanner = new Scanner(getServletContext().getResourceAsStream("/WEB-INF/ufo_data.csv"));
+		// skip title line
+		scanner.nextLine();
 		while(scanner.hasNextLine()) {
 		  String line = scanner.nextLine();
 		  String[] cells = line.split(",");
-			
+		  // skip incomplete lines
+		  if (cells.length < 3) {
+		    continue;
+		  }
 		  String state = cells[0];
 		  double lat = Double.parseDouble(cells[1]);
 		  double lng = Double.parseDouble(cells[2]);
