@@ -75,6 +75,14 @@ limitations under the License.
         <groupId>com.google.appengine</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
         <version>1.9.59</version>
+        <configuration>
+          <jvmFlags>
+            <jvmFlag>-Xdebug</jvmFlag>
+            <jvmFlag>-Xrunjdwp:transport=dt_socket,address=1044,server=y,suspend=n
+            </jvmFlag>
+          </jvmFlags>
+          <disableUpdateCheck>true</disableUpdateCheck>
+        </configuration>
       </plugin>
     </plugins>
   </build>
