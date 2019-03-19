@@ -69,8 +69,7 @@ public class Datastore {
           messageCategoryCount.put(category, 1);
         }
       }
-    }
-    
+    } 
     else {
       messageEntity.setProperty("messageCategories", "");
     }

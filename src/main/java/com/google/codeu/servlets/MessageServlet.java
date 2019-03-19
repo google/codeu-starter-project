@@ -89,8 +89,7 @@ public class MessageServlet extends HttpServlet {
     float sentimentScore = getSentimentScore(text);
     String messageCategories = "";
     if (getNumWords(text) > 20) {
-      messageCategories = getMessageCategories(text).keySet().toString();
-    }
+      messageCategories = getMessageCategories(text).keySet().toString(); }
     else {
       messageCategories = "";
     }
@@ -133,6 +132,7 @@ public class MessageServlet extends HttpServlet {
     }
     return messageCategories;
   }
+  
   /** Determines the number of words in a given string. */ 
   public int getNumWords(String text) {
     // use trim and split here to count the number of words in the text
