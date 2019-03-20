@@ -62,11 +62,10 @@ public class Datastore {
         category = category.replace("[", "");
         category = category.replaceAll("]", "");
 
-        if (messageCategoryCount.containsKey(category)) {
-          messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);
-
-        } else {
+        if (!messageCategoryCount.containsKey(category)) {
           messageCategoryCount.put(category, 1);
+        } else {
+          messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);        
         }
       }
     } 
@@ -76,6 +75,7 @@ public class Datastore {
     datastore.put(messageEntity);
 
     int messageLength = message.getText().length();
+    
     if (messageLength > longestMessage) {
       longestMessage = messageLength;
     }
@@ -240,6 +240,7 @@ public class Datastore {
   /** Returns the number of words in a given string. */
   public int getNumWords(String text) {
     // use trim and split here to count the number of words in the text
+    //Objects.requireNonNull(text, "null text parameter");
     String trimmedText = text.trim();
     String[] textWords = trimmedText.split("\\s+");
     
