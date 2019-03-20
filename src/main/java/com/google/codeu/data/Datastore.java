@@ -89,8 +89,7 @@ public class Datastore {
    *     has never received has never posted a
    *     List is sorted by time descending.
    */
-  public List<Message> getMessages(String recipient) 
-  {
+  public List<Message> getMessages(String recipient) {
     Query query =
         new Query("Message")
         .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
