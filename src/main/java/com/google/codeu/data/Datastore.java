@@ -238,8 +238,9 @@ public class Datastore {
 
   /** Returns the number of words in a given string. */
   public int getNumWords(String text) {
-    // use trim and split here to count the number of words in the text
-    //Objects.requireNonNull(text, "null text parameter");
+    if (text==null) {
+      return 0;
+    }
     String trimmedText = text.trim();
     String[] textWords = trimmedText.split("\\s+");
     
