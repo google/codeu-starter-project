@@ -90,8 +90,7 @@ public class MessageServlet extends HttpServlet {
     String messageCategories = "";
     if (getNumWords(text) > 20) {
       messageCategories = getMessageCategories(text).keySet().toString(); 
-      }
-    else {
+    } else {
       messageCategories = "";
     }
 
