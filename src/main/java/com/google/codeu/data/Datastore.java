@@ -107,7 +107,13 @@ public List<Message> getMessages(String recipient) {
       String text = (String) entity.getProperty("text");
       long timestamp = (long) entity.getProperty("timestamp");
 
+      String imageUrl = (String) entity.getProperty("imageUrl");
+
       Message message = new Message(id, user, text, timestamp, recipient);
+      if (imageUrl != null){
+        message.setImageUrl(imageUrl);
+      }
+
       messages.add(message);
     } catch (Exception e) {
       System.err.println("Error reading message.");
