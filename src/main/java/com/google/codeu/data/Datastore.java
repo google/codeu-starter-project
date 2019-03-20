@@ -68,8 +68,7 @@ public class Datastore {
           messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);        
         }
       }
-    } 
-    else {
+    } else {
       messageEntity.setProperty("messageCategories", "");
     }
     datastore.put(messageEntity);
@@ -90,7 +89,8 @@ public class Datastore {
    *     has never received has never posted a
    *     List is sorted by time descending.
    */
-  public List<Message> getMessages(String recipient) {
+  public List<Message> getMessages(String recipient) 
+  {
     Query query =
         new Query("Message")
         .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
