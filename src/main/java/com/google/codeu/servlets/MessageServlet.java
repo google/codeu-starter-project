@@ -89,7 +89,8 @@ public class MessageServlet extends HttpServlet {
     float sentimentScore = getSentimentScore(text);
     String messageCategories = "";
     if (getNumWords(text) > 20) {
-      messageCategories = getMessageCategories(text).keySet().toString(); }
+      messageCategories = getMessageCategories(text).keySet().toString(); 
+      }
     else {
       messageCategories = "";
     }
