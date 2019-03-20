@@ -48,9 +48,6 @@ public class Message {
 
   public void setImageUrl(String url){
     this.imageUrl = url;
-    if (url != ""){
-      this.text += "\n <img src ='" + url + "' />";
-    }
   }
 
   public String getImageUrl(){
