@@ -116,7 +116,6 @@ public class MessageServlet extends HttpServlet {
     } else {
       message.setImageUrl("");
     }
-
     datastore.storeMessage(message);
 
     response.sendRedirect("/user-page.html?user=" + user);
