@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+          google.charts.load('current', {packages: ['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart(){
+            //to be filled in later
+            var book_data = new google.visualization.DataTable();
+            //define columns for the DataTable instance
+            book_data.addColumn('string', 'Book Title');
+            book_data.addColumn('number', 'Votes');
+            
+            //add data to book_data    
+            book_data.addRows([
+            ["The Best We Could Do", 6],
+            ["Sing, Unburied, Sing", 10],
+            ["The Book of Unknown Americans", 7],
+            ["The 57 Bus", 4],
+            ["The Handmaid's Tale", 8]
+            ]);
+            var chart = new google.visualization.BarChart(document.getElementById('book_chart'));
+            chart.draw(book_data);
+          }
+      </script>
+    <title>A New Chart</title>
+    <h1>Chart Project</h1>
+    <div id='book_chart'></div>
+  </head>
+  <body>
+  </body>
+</html>
