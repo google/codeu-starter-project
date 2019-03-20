@@ -49,30 +49,37 @@ public class Datastore {
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
     messageEntity.setProperty("sentimentScore", message.getSentimentScore());
-    messageEntity.setProperty("messageCategories", message.getMessageCategories());
+    
+    //If there are more than 20 words, perform content classification
+    if (getNumWords(message.getText()) > 20) {
+      messageEntity.setProperty("messageCategories", message.getMessageCategories());
+      
+      String messageCategories = message.getMessageCategories().trim();
+      String[] messageCategoryList = messageCategories.split("/");
 
+      for (String category : messageCategoryList) {
+        category = category.trim();
+        category = category.replace("[", "");
+        category = category.replaceAll("]", "");
+
+        if (!messageCategoryCount.containsKey(category)) {
+          messageCategoryCount.put(category, 1);
+        } else {
+          messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);        
+        }
+      }
+    } else {
+      messageEntity.setProperty("messageCategories", "");
+    }
     datastore.put(messageEntity);
 
     int messageLength = message.getText().length();
+    
     if (messageLength > longestMessage) {
       longestMessage = messageLength;
     }
     postsPerUser.put(message.getUser(), getMessages(message.getUser()).size());
-
-    String[] messageCategoryList = message.getMessageCategories().split("/");
-
-    for (String category : messageCategoryList) {
-      category = category.replace("[", "");
-      category = category.replaceAll("]", "");
-
-      if (messageCategoryCount.containsKey(category)) {
-        messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);
-
-      } else {
-        messageCategoryCount.put(category, 1);
-      }
-
-    }
+    
   }
 
   /**
@@ -127,7 +134,7 @@ public class Datastore {
         // sentimentScore casted to Double from float first to avoid it being saved as a 0
         float sentimentScore = entity.getProperty("sentimentScore") == null ? (float) 0.0 : 
             ((Double) entity.getProperty("sentimentScore")).floatValue();
-        String messageCategories = (String) entity.getProperty("messageCategories");
+        String messageCategories = (String) entity.getProperty("messageCategories");         
 
         // Replace all image URLS in message with proper image HTML tags
         String regex = "(https?://([^\\s.]+.?[^\\s.]*)+/[^\\s.]+.(png|jpg))";
@@ -227,5 +234,15 @@ public class Datastore {
           + messageCategoryCount.get(category) + ")" + " ; ";
     }
     return messageCategories;
+  }
+
+  /** Returns the number of words in a given string. */
+  public int getNumWords(String text) {
+    // use trim and split here to count the number of words in the text
+    //Objects.requireNonNull(text, "null text parameter");
+    String trimmedText = text.trim();
+    String[] textWords = trimmedText.split("\\s+");
+    
+    return textWords.length;
   }
 }
