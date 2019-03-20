@@ -111,7 +111,7 @@ public List<Message> getMessages(String recipient) {
 
       String text = (String) entity.getProperty("text");
       long timestamp = (long) entity.getProperty("timestamp");
-      float sentimentScore = (float) entity.getProperty("sentimentScore");
+      double sentimentScore = (double) entity.getProperty("sentimentScore");
       //String recipient = (String) entity.getProperty("recipient");
       Message message = new Message(id, user, text, timestamp, recipient, sentimentScore);
       messages.add(message);

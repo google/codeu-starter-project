@@ -26,17 +26,17 @@ public class Message {
   private String text;
   private String recipient;
   private long timestamp;
-  private float sentimentScore;
+  private double sentimentScore;
 
   /**
    * Constructs a new {@link Message} posted by {@code user} with {@code text} content. Generates a
    * random ID and uses the current system time for the creation time.
    */
-  public Message(String user, String text, String recipient, float sentimentScore) {
+  public Message(String user, String text, String recipient, double sentimentScore) {
     this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore);
   }
 
-  public Message(UUID id, String user, String text, long timestamp, String recipient, float sentimentScore) {
+  public Message(UUID id, String user, String text, long timestamp, String recipient, double sentimentScore) {
     this.id = id;
     this.user = user;
     this.text = text;
@@ -57,7 +57,7 @@ public class Message {
     return recipient;
   }
 
-  public float getSentimentScore(){
+  public double getSentimentScore(){
     return sentimentScore;
   }
 
