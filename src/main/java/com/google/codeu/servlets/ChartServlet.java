@@ -37,5 +37,6 @@ public class ChartServlet extends HttpServlet {
     String json = gson.toJson(msgList);
     response.getWriter().println(json);
   }
+  
 
 }

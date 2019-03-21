@@ -4,40 +4,51 @@
     <title>A New Chart</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
+	
 	 google.charts.load("current", {packages: ["corechart"]});
-	 google.charts.setOnLoadCallback(drawChart);
-    function drawChart(){
+	 google.charts.setOnLoadCallback(fetchMessageData);
+	 
+	function fetchMessageData() {
+        fetch("/messagechart")
+            .then((response) => {
+              return response.json();
+            })
+            .then((msgJson) => {
+              var msgData = new google.visualization.DataTable();
+              //define columns for the DataTable instance
+              msgData.addColumn('date', 'Date');
+              msgData.addColumn('number', 'Message Count');
 
-    	//add data to circle chart
-    	var data = google.visualization.arrayToDataTable([
-        ['Golfer',		  'Number of Events Played', 'Average Points',	'Total Points'],
-        ['Dustin Johnson',    	 44,				  9.77,              430.09],
-        ['Justin Rose',			 47,				  9.55,				 448.88],
-        ['Bryson DeChambeau',	 52,				  7.48,			     78.34],
-        ['Rory McIlroy',		 46, 				  6.73,			     97.73],
-        ['Francesco Molinari',	 48,				  6.71,				 72.59],
-        ['Xander Schauffele',	 52,				  6.13,				 77.32],
-        ['Rickie Fowler',		 46,				  6.11,				 84.81],
-        ['Jon Rahm',			 51,				  6.00,				 84.81],
-        ['Tiger Woods',			 40,				  5.12,				 17.41],
-        ['Jason Day',		     42,				  5.09,				 30.98]
-      ]);
-    	
-    	var chart_options = {
-    	        title: 'Correlation between events played, average number of points and total points of PGA players',
-    	        hAxis: {title: 'Total Events Played'},
-    	        vAxis: {title: 'Average Number of Points'},
-    	        bubble: {textStyle: {fontSize: 11}}
-    	      };
-    	
-        var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+             
+              for (i = 0; i < msgJson.length; i++) {
+                  msgRow = [];
+                  var timestampAsDate = new Date (msgJson[i].timestamp);
+                  var totalMessages = i + 1;
+                  msgRow.push(timestampAsDate, totalMessages);
+                  //TODO add the formatted values to msgRow array by using JS' push method
+             
+                  console.log(msgRow);
+                  msgData.addRow(msgRow);
 
-    	chart.draw(data, chart_options);
+              }
+              console.log(msgData);
+              drawChart(msgData);
+            });
+      }
+
+	//fetchMessageData();
+	/* FINISH MODIFYING THIS CAMILLE */
+
+	 function drawChart(data){
+		 
+        var chart = new google.visualization.LineChart(document.getElementById('messages_chart'));
+
+    	chart.draw(data);
     }
 </script>
   </head>
   <body>
-    <h1>Top Ten Golfer Stats</h1>
-    <div id="series_chart_div" style = "width: 1000px; height: 700px;"></div>
+    <h1>Date vs. Total Number of Messages</h1>
+    <div id="messages_chart" ></div>
   </body>
 </html>
