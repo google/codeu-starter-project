@@ -52,39 +52,29 @@ function addLoginOrLogoutLinkToNavigation() {
 }
 
 /**
- * Adds a Public Feed link to the page
+ * Adds link to navigation bar
  */
-function addPublicFeed() {
+function addNavBarElement(link, title) {
   const navigationElement = document.getElementById("navigation");
   if (!navigationElement) {
     console.warn("Navigation element not found!");
     return;
   }
-  navigationElement.appendChild(
-    createListItem(createLink("/feed.html", "Public Feed"))
-  );
+  navigationElement.appendChild(createListItem(createLink(link, title)));
 }
 
 /**
- * Adds link to map page
+ * Build Navigation Bar
  */
-function addMap() {
-  const navigationElement = document.getElementById("navigation");
-  if (!navigationElement) {
-    console.warn("Navigation element not found!");
-    return;
-  }
-  navigationElement.appendChild(createListItem(createLink("/map.html", "Map")));
-}
-
 function buildNavBar() {
   // Add login/logout link
   addLoginOrLogoutLinkToNavigation();
   // Add Public Feed link
-  addPublicFeed();
-
+  addNavBarElement("/feed.html", "Public Feed");
   // Add Map link
-  addMap();
+  addNavBarElement("/map.html", "Map");
+  // Add UFO Sightings link
+  addNavBarElement("ufo-sightings.html", "UFO Sightings");
 }
 
 /**
