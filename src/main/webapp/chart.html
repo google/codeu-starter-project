@@ -25,8 +25,7 @@
                   var timestampAsDate = new Date (msgJson[i].timestamp);
                   var totalMessages = i + 1;
                   msgRow.push(timestampAsDate, totalMessages);
-                  //TODO add the formatted values to msgRow array by using JS' push method
-             
+                  
                   console.log(msgRow);
                   msgData.addRow(msgRow);
 
@@ -35,9 +34,6 @@
               drawChart(msgData);
             });
       }
-
-	//fetchMessageData();
-	/* FINISH MODIFYING THIS CAMILLE */
 
 	 function drawChart(data){
 		 

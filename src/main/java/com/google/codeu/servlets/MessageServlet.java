@@ -135,7 +135,7 @@ public class MessageServlet extends HttpServlet {
   
   /** Determines the number of words in a given string. */ 
   public int getNumWords(String text) {
-    if (text==null) {
+    if (text == null) {
       return 0;
     }
     String trimmedText = text.trim();
