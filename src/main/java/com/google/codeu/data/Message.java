@@ -22,6 +22,7 @@ import java.util.UUID;
 public class Message {
   private String recipient;
   private String imageUrl;
+  private String imageLabels;
   private UUID id;
   private String user;
   private String text;
@@ -53,6 +54,10 @@ public class Message {
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
     return;
+  }
+
+  public void setImageLabels(String imageLabels) {
+    this.imageLabels = imageLabels;
   }
 
   /* Gets the recipient private member variable*/
