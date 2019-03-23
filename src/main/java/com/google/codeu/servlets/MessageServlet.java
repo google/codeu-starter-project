@@ -16,6 +16,12 @@
 
 package com.google.codeu.servlets;
 
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+import com.google.appengine.api.images.ImagesService;
+import com.google.appengine.api.images.ImagesServiceFactory;
+import com.google.appengine.api.images.ServingUrlOptions;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import com.google.codeu.data.Datastore;
@@ -23,6 +29,7 @@ import com.google.codeu.data.Message;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +44,7 @@ public class MessageServlet extends HttpServlet {
 
   private Datastore datastore;
 
-  private final String imgUrlRegex = 
+  private final String imgUrlRegex =
       "(https?://[[.][\\w][\\d]]+/[/[\\w][\\d]]+\\S+[[\\w][\\d]]\\.(png|jpg|gif))";
 
   private final String imgUrlReplacement = "<img src=\"$1\" />";
@@ -83,16 +90,30 @@ public class MessageServlet extends HttpServlet {
 
     String user = userService.getCurrentUser().getEmail();
     String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
-    text = extractImgUrl(text);
+
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+    Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
+    List<BlobKey> blobKeys = blobs.get("image");
+
+    String regex = "(https?://(\\w+[/|.|-]?)+\\.(bmp|png|jpg|gif|jpeg|tiff)).*";
+    String replacement = "<img src=\"$1\" />";
+    String textWithImagesReplaced = text.replaceAll(regex, replacement);
     String recipient = request.getParameter("recipient");
 
-    Message message = new Message(user, text, recipient);
-    datastore.storeMessage(message);
+    Message message = new Message(user, textWithImagesReplaced, recipient);
 
+    if (blobKeys != null && !blobKeys.isEmpty()) {
+      BlobKey blobKey = blobKeys.get(0);
+      ImagesService imagesService = ImagesServiceFactory.getImagesService();
+      ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);
+      String imageUrl = imagesService.getServingUrl(options);
+      message.setImageUrl(imageUrl);
+    }
+    datastore.storeMessage(message);
     response.sendRedirect("/user-page.html?user=" + recipient);
   }
 
-  /** 
+  /**
    * Private method to recognize the image url in the text message and convert to <img> tag.
    * Message with no img url will not be modified.
    */

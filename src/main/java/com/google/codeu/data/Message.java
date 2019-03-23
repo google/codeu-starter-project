@@ -21,6 +21,7 @@ import java.util.UUID;
 /** A single message posted by a user. */
 public class Message {
   private String recipient;
+  private String imageUrl;
   private UUID id;
   private String user;
   private String text;
@@ -34,6 +35,7 @@ public class Message {
     this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient);
   }
 
+
   /**
    * Constructs a new {@link Message} posted by {@code user} with {@code text} content.
    * Sets the private variables to the values taken in from the parameters.
@@ -46,10 +48,15 @@ public class Message {
     this.recipient = recipient;
   }
 
-  /* Gets the recipient private member variable */
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+  /* Gets the recipient private member variable*/
   public String getRecipient() {
     return recipient;
   }
+
   /* Gets the id private member variable */
   public UUID getId() {
     return id;
@@ -63,6 +70,11 @@ public class Message {
   /* Gets the text private member variable */
   public String getText() {
     return text;
+  }
+
+  /* Gets the text private member variable */
+  public String getImageUrl() {
+    return imageUrl;
   }
 
   /* Gets the timestamp private member variable */
