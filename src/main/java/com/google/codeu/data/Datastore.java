@@ -44,7 +44,7 @@ public class Datastore {
   /** Stores the Message in Datastore. */
   public void storeMessage(Message message) {
     Entity messageEntity = new Entity("Message", message.getId().toString());
-    messageEntity.setProperty("user", message.getUser());
+    messageEntity.setProperty("user", message.getUser().toString());
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
@@ -171,7 +171,8 @@ public class Datastore {
   public void storeUser(User user) {
     Entity userEntity = new Entity("User", user.getEmail());
     userEntity.setProperty("email", user.getEmail());
-    userEntity.setProperty("aboutMe", user.getAboutMe());
+    //modified
+    userEntity.setProperty("userProfile", user.getProfile());
     datastore.put(userEntity);
   }
 
@@ -189,8 +190,9 @@ public class Datastore {
       return null;
     }
 
-    String aboutMe = (String) userEntity.getProperty("aboutMe");
-    User user = new User(email, aboutMe);
+    //Modified
+    String[] userProfile = (String[]) userEntity.getProperty("userProfile");
+    User user = new User(email, userProfile);
 
     return user;
   }

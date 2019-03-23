@@ -15,8 +15,8 @@ import org.jsoup.safety.Whitelist;
 /**
  * Handles fetching and saving user data.
  */
-@WebServlet("/about")
-public class AboutMeServlet extends HttpServlet {
+@WebServlet("/profile")
+public class ProfileServlet extends HttpServlet {
 
   private Datastore datastore;
 
@@ -26,7 +26,7 @@ public class AboutMeServlet extends HttpServlet {
   }
 
   /**
-   * Responds with the "about me" section for a particular user.
+   * Responds with the "profile" section for a particular user.
    */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,11 +43,15 @@ public class AboutMeServlet extends HttpServlet {
 
     User userData = datastore.getUser(user);
 
-    if (userData == null || userData.getAboutMe() == null) {
+    if (userData == null || userData.getProfile() == null) {
       return;
     }
 
-    response.getOutputStream().println(userData.getAboutMe());
+    //TO-DO change to for loop for printing
+    for (String info : userData.getProfile())
+    {
+      response.getOutputStream().println(info);
+    }
   }
 
   @Override
@@ -61,9 +65,14 @@ public class AboutMeServlet extends HttpServlet {
     }
 
     String userEmail = userService.getCurrentUser().getEmail();
-    String aboutMe = Jsoup.clean(request.getParameter("about-me"), Whitelist.none());
-
-    User user = new User(userEmail, aboutMe);
+    
+    String name = Jsoup.clean(request.getParameter("name"), Whitelist.none());
+    String phone = Jsoup.clean(request.getParameter("phone"), Whitelist.none());
+    String schedule = Jsoup.clean(request.getParameter("schedule"), Whitelist.none());
+    
+    String[] userProfile = {name, phone, schedule};
+    
+    User user = new User(userEmail, userProfile);
     datastore.storeUser(user);
 
     response.sendRedirect("/user-page.html?user=" + userEmail);
