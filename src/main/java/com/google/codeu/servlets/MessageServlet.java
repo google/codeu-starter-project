@@ -135,7 +135,9 @@ public class MessageServlet extends HttpServlet {
   
   /** Determines the number of words in a given string. */ 
   public int getNumWords(String text) {
-    // use trim and split here to count the number of words in the text
+    if (text == null) {
+      return 0;
+    }
     String trimmedText = text.trim();
     String[] textWords = trimmedText.split("\\s+");
     
