@@ -61,11 +61,17 @@ limitations under the License.
       <version>1.52.0</version>
     </dependency>
 
-    <!-- Add for translation API -->
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-storage</artifactId>
       <version>1.64.0</version>
+    </dependency>
+
+    <!-- Add for translation API -->
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-translate</artifactId>
+      <version>1.55.0</version>
     </dependency>
 
   </dependencies>
