@@ -18,6 +18,7 @@ limitations under the License.
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/user-page.css">
+    <script src="/js/navigation-loader.js"></script>
     <script src="/js/user-page-loader.js"></script>
   </head>
   <body onload="buildUI();">
@@ -27,8 +28,12 @@ limitations under the License.
       </ul>
     </nav>
     <h1 id="page-title">User Page</h1>
-
     <form id="message-form" class="hidden" method="POST" enctype="multipart/form-data">
+
+    <!-- Add list element to show languages -->
+    <ul id="languages"></ul>
+
+    <form id="message-form" action="/messages" method="POST" class="hidden">
       Enter a new message:
       <br/>
       <textarea name="text" id="message-input"></textarea>

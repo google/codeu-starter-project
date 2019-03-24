@@ -80,7 +80,6 @@ function showMessageFormIfLoggedIn() {
 function fetchMessages() {
   // Add the query string parameter
   const parameterLanguage = urlParams.get('language');
-
   let url = '/messages?user=' + parameterUsername;
   if (parameterLanguage) {
     url += '&language=' + parameterLanguage;
@@ -132,9 +131,10 @@ function buildMessageDiv(message) {
 }
 
 /** Provides link to URL */
-function buildLanguageLinks(){
+function buildLanguageLinks() {
   const userPageUrl = '/user-page.html?user=' + parameterUsername;
   const languagesListElement  = document.getElementById('languages');
+
   languagesListElement.appendChild(createListItem(createLink(
        userPageUrl + '&language=en', 'English')));
   languagesListElement.appendChild(createListItem(createLink(
@@ -145,6 +145,7 @@ function buildLanguageLinks(){
       userPageUrl + '&language=es', 'Spanish')));
   languagesListElement.appendChild(createListItem(createLink(
       userPageUrl + '&language=ar', 'Arabic')));
+
 }
 
 /** Fetches data and populates the UI of the page. */
@@ -153,4 +154,5 @@ function buildUI() {
   showMessageFormIfLoggedIn();
   showMessageFormIfViewingSelf();
   fetchMessages();
+  buildLanguageLinks();
 }
