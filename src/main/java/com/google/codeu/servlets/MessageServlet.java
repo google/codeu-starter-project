@@ -84,8 +84,12 @@ public class MessageServlet extends HttpServlet {
     }
 
     String user = userService.getCurrentUser().getEmail();
-    String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
     String recipient = request.getParameter("recipient");
+    
+    String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    String regex = "(https?://\\S+\\.(png|jpg))";
+    String replacement = "<img src=\"$1\" />";
+    String textWithImageUrl = text.replaceAll(regex, replacement);
 
 
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
