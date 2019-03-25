@@ -47,7 +47,7 @@
 }
 
 /* Add a bottom border to the bio header. */
-.message-header {
+.bio-header {
   border-bottom: thin solid black;
   padding: 5px;
 }
