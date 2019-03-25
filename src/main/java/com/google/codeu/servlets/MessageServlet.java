@@ -94,7 +94,7 @@ public class MessageServlet extends HttpServlet {
     
     Message message = new Message(user, text, recipient);
     
-    if(blobKeys != null && !blobKeys.isEmpty()) {
+    if (blobKeys != null && !blobKeys.isEmpty()) {
       BlobKey blobKey = blobKeys.get(0);
       ImagesService imagesService = ImagesServiceFactory.getImagesService();
       ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);

@@ -69,7 +69,8 @@ public class Message {
    * @param recipient The recipient of {@code this} message
    * @param imageUrl The url of the image in this message, if any, otherwise set null
    */
-  public Message(UUID id, String user, String text, long timestamp, String recipient, String imageUrl) {
+  public Message(UUID id, String user, String text, long timestamp, 
+                 String recipient, String imageUrl) {
     this.id = id;
     this.user = user;
     this.text = text;
