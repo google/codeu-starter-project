@@ -93,7 +93,7 @@ function buildMessageDiv(message) {
   bodyDiv.classList.add('message-body');
   bodyDiv.innerHTML = message.text;
   if (message.imageUrl) {
-    bodyDiv.innerHTML += "<br/>"";
+    bodyDiv.innerHTML += "<br/>";
     bodyDiv.innerHTML += '<img src="' + message.imageUrl + '" />';
   }
 
