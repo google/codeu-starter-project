@@ -39,10 +39,6 @@ function showMessageFormIfLoggedIn() {
       })
       .then((loginStatus) => {
         if (loginStatus.isLoggedIn) {
-          //const messageForm = document.getElementById('message-form');
-          //messageForm.action = '/messages?recipient=' + parameterUsername;
-          //messageForm.classList.remove('hidden');
-          //document.getElementById('about-me-form').classList.remove('hidden');
           fetchImageUploadUrlAndShowForm();
         }
       });
