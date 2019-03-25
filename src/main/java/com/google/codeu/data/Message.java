@@ -40,7 +40,8 @@ public class Message {
    * Constructs a new {@link Message} posted by {@code user} with {@code text} content.
    * Sets the private variables to the values taken in from the parameters.
    */
-  public Message(UUID id, String user, String text, long timestamp, String recipient, String imageUrl) {
+  public Message(UUID id, String user, String text,
+    long timestamp, String recipient, String imageUrl) {
     this.id = id;
     this.user = user;
     this.text = text;
