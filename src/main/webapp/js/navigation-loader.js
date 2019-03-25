@@ -20,8 +20,7 @@
  */
 function addLoginOrLogoutLinkToNavigation() {
   const navigationElement = document.getElementById('navigation');
-  if (!navigationElement) {
-    console.warn('Navigation element not found!');
+  if (!navigationElementExists) {
     return;
   }
 
@@ -48,14 +47,38 @@ function addLoginOrLogoutLinkToNavigation() {
  */
 function addPublicFeed() {
   const navigationElement = document.getElementById('navigation');
-  if (!navigationElement) {
-    console.warn('Navigation element not found!');
+  if (!navigationElementExists) {
     return;
   }
   navigationElement.appendChild(createListItem(createLink('/feed.html', 'Public Feed')));
 }
 
+/**
+* Adds link the matches feed for the current user
+*/
+function addMatchesFeed() {
+  const navigationElement = document.getElementById('navigation');
+  if (!navigationElementExists) {
+    return;
+  }
+  navigationElement.appendChild(createListItem(createLink('/matches-feed.html', 'Matches Feed')));
+}
 
+/**
+* Checks the given navigation element is not null
+* Returns true if not null, otherwise outputs warning
+* to console and returns false
+* @param navigationElement What's being checked for nullity
+* @return true if {Element} navigationElement,is not null
+*         otherwise false and outputs warning to console
+*/
+function navigationElementExists(navigationElement) {
+  if (!navigationElement) {
+    console.warn('Navigation element not found!');
+    return false;
+  }
+  return true;
+}
 
 
 function buildNavBar() {
@@ -63,6 +86,8 @@ function buildNavBar() {
 	addLoginOrLogoutLinkToNavigation();
 	// Add Public Feed link
 	addPublicFeed();
+  // Add matches feed link
+  addMatchesFeed();
 }
 
 /**
