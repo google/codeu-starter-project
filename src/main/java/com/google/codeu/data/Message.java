@@ -53,11 +53,29 @@ public class Message {
    * @param recipient The recipient of {@code this} message
    */
   public Message(UUID id, String user, String text, long timestamp, String recipient) {
+    this(id, user, text, timestamp, recipient, null);
+  }
+
+  /**
+   * Constructs a new {@link Message} posted by {@code user}, of the given 
+   * {@code UUID} at the given {@code timestamp}, with {@code text} content,
+   * and with the given {@code recipient}. Image in {@code this} message is
+   * found at the given 'imageUrl', if any, otherwise it must be null 
+   * @param id The ID of the user sending {@code this} message
+   * @param user The user posting {@code this} message
+   * @param text The content of {@code this} message
+   * @param timestamp The time {@code this} message was made at in milliseconds
+   *                  since the Unix Epoch
+   * @param recipient The recipient of {@code this} message
+   * @param imageUrl The url of the image in this message, if any, otherwise set null
+   */
+  public Message(UUID id, String user, String text, long timestamp, String recipient, String imageUrl) {
     this.id = id;
     this.user = user;
     this.text = text;
     this.timestamp = timestamp;
     this.recipient = recipient;
+    this.imageUrl = imageUrl;
   }
 
   public UUID getId() {
@@ -85,7 +103,6 @@ public class Message {
   }
 
   public void setImageUrl(String imageUrl) {
-    // TODO Auto-generated method stub
     this.imageUrl = imageUrl;
   }
 }
