@@ -28,7 +28,7 @@ function buildBioDiv(bio){
  usernameDiv.appendChild(createLink('/user-page.html?user=' + bio.email, bio.email));
 
  const headerDiv = document.createElement('div');
- headerDiv.classList.add('message-header');
+ headerDiv.classList.add('bio-header');
  headerDiv.appendChild(usernameDiv);
 
  const bodyDiv = document.createElement('div');
