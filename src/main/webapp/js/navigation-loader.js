@@ -77,24 +77,6 @@ function addMatchesFeed() {
     })
 }
 
-fetch('/login-status')
-    .then((response) => {
-      return response.json();
-    })
-    .then((loginStatus) => {
-      if (loginStatus.isLoggedIn) {
-        navigationElement.appendChild(createListItem(createLink(
-            '/user-page.html?user=' + loginStatus.username, 'Your Page')));
-
-        navigationElement.appendChild(
-            createListItem(createLink('/logout', 'Logout')));
-      } else {
-        navigationElement.appendChild(
-            createListItem(createLink('/login', 'Login')));
-      }
-    });
-}
-
 /**
 * Checks the given navigation element is not null
 * Returns true if not null, otherwise outputs warning
