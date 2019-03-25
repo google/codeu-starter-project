@@ -34,14 +34,14 @@ function setPageTitle() {
  */
 function showMessageFormIfLoggedIn() {
   fetch('/login-status')
-      .then((response) => {
-        return response.json();
-      })
-      .then((loginStatus) => {
-        if (loginStatus.isLoggedIn) {
-          fetchImageUploadUrlAndShowForm();
-        }
-      });
+    .then((response) => {
+      return response.json();
+    })
+    .then((loginStatus) => {
+      if (loginStatus.isLoggedIn) {
+        fetchImageUploadUrlAndShowForm();
+      }
+    });
 }
 
 function fetchImageUploadUrlAndShowForm() {
