@@ -45,14 +45,15 @@ public class Datastore {
   }
 
   /**
-  * Returns the User owned by the email address,
-  *null if no matching User was found
+  * Returns the User owned by the email address.
+  *null if no matching User was found.
   */
   public User getUser(String email) {
-    Query query = new Query("User").setFilter(new Query.FilterPredicate("email",FilterOperator.EQUAL, email));
+    Query query = new Query("User").setFilter(new Query.FilterPredicate("email",
+      FilterOperator.EQUAL, email));
     PreparedQuery results = datastore.prepare(query);
     Entity userEntity = results.asSingleEntity();
-    if(userEntity == null) {
+    if (userEntity == null) {
       return null;
     }
     User user = new User(email);
