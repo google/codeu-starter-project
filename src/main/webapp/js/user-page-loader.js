@@ -64,14 +64,14 @@ function fetchMessages() {
     .then(response => {
       return response.json();
     })
-    .then((messages) => {
+    .then(messages => {
       const messagesContainer = document.getElementById('message-container');
       if (messages.length == 0) {
-        messagesContainer.innerHTML = '<p>This user has no posts yet.</p>';
+        messagesContainer.innerHTML = "<p>This user has no posts yet.</p>"";
       } else {
-        messagesContainer.innerHTML = '';
+        messagesContainer.innerHTML = "";
       }
-      messages.forEach((message) => {
+      messages.forEach(message => {
         const messageDiv = buildMessageDiv(message);
         messagesContainer.appendChild(messageDiv);
       });
@@ -107,9 +107,9 @@ function buildMessageDiv(message) {
 
 function fetchAboutMe(){
   const url = '/about?user=' + parameterUsername;
-  fetch(url).then((response) => {
+  fetch(url).then(response => {
     return response.text();
-  }).then((aboutMe) => {
+  }).then(aboutMe => {
     const aboutMeContainer = document.getElementById('about-me-container');
     if(aboutMe == ''){
       aboutMe = 'This user has not entered any information yet.';
