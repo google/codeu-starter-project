@@ -108,7 +108,8 @@ function buildMessageDiv(message) {
 function fetchAboutMe(){
   const url = '/about?user=' + parameterUsername;
 
-  fetch(url).then(response => {
+  fetch(url)
+  .then(response => {
     return response.text();
   })
   .then(aboutMe => {
