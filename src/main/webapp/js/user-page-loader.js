@@ -65,7 +65,7 @@ function fetchMessages() {
       return response.json();
     })
     .then(messages => {
-      const messagesContainer = document.getElementById('message-container');
+      const messagesContainer = document.getElementById("message-container");
       if (messages.length == 0) {
         messagesContainer.innerHTML = "<p>This user has no posts yet.</p>";
       } else {
@@ -114,7 +114,7 @@ function fetchAboutMe(){
     })
     .then(aboutMe => {
       const aboutMeContainer = document.getElementById("about-me-container");
-      if(aboutMe == ""){
+      if(aboutMe == "") {
         aboutMe = "This user has not entered any information yet.";
       }
       aboutMeContainer.innerHTML = aboutMe;
