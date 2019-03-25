@@ -41,7 +41,7 @@ public class Message {
    * Sets the private variables to the values taken in from the parameters.
    */
   public Message(UUID id, String user, String text,
-    long timestamp, String recipient, String imageUrl) {
+      long timestamp, String recipient, String imageUrl) {
     this.id = id;
     this.user = user;
     this.text = text;

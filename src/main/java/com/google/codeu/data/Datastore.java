@@ -42,29 +42,29 @@ public class Datastore {
     Entity userEntity = new Entity("User",user.getEmail());
     userEntity.setProperty("email",user.getEmail());
     datastore.put(userEntity);
-	}
+  }
 
-	/**
-	* Returns the User owned by the email address,
-	*null if no matching User was found
-	*/
+  /**
+  * Returns the User owned by the email address,
+  *null if no matching User was found
+  */
   public User getUser(String email) {
     Query query = new Query("User").setFilter(new Query.FilterPredicate("email",FilterOperator.EQUAL, email));
     PreparedQuery results = datastore.prepare(query);
     Entity userEntity = results.asSingleEntity();
     if(userEntity == null) {
-			return null;
-		}
+      return null;
+    }
     User user = new User(email);
     return user;
-  	}
+  }
 
   /** Stores the Message in Datastore. */
   public void storeMessage(Message message) {
     Entity messageEntity = new Entity("Message", message.getId().toString());
     messageEntity.setProperty("user", message.getUser());
-		messageEntity.setProperty("text", message.getText());
-		messageEntity.setProperty("timestamp", message.getTimestamp());
+    messageEntity.setProperty("text", message.getText());
+    messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
     if (message.getImageUrl() != null) {
       messageEntity.setProperty("imageUrl", message.getImageUrl());
