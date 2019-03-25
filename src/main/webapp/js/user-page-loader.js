@@ -84,7 +84,6 @@ function fetchMessages() {
   if (parameterLanguage) {
     url += '&language=' + parameterLanguage;
   }
-  console.log(url);
 
   fetch(url)
       .then((response) => {
