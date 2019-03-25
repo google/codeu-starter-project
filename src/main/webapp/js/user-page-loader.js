@@ -45,7 +45,7 @@ function showMessageFormIfLoggedIn() {
 }
 
 function fetchImageUploadUrlAndShowForm() {
-  fetch('/image-upload-url')
+  fetch("/image-upload-url")
     .then(response => {
       return response.text();
     })
