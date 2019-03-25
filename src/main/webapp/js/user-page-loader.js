@@ -34,10 +34,10 @@ function setPageTitle() {
  */
 function showMessageFormIfLoggedIn() {
   fetch('/login-status')
-    .then((response) => {
+    .then(response => {
       return response.json();
     })
-    .then((loginStatus) => {
+    .then(loginStatus => {
       if (loginStatus.isLoggedIn) {
         fetchImageUploadUrlAndShowForm();
       }
@@ -47,7 +47,7 @@ function showMessageFormIfLoggedIn() {
 function fetchImageUploadUrlAndShowForm() {
   fetch('/image-upload-url')
     .then(response => {
-    return response.text();
+      return response.text();
     })
     .then(imageUploadUrl => {
       const messageForm = document.getElementById("message-form");
@@ -61,7 +61,7 @@ function fetchImageUploadUrlAndShowForm() {
 function fetchMessages() {
   const url = '/messages?user=' + parameterUsername;
   fetch(url)
-      .then((response) => {
+      .then(response => {
         return response.json();
       })
       .then((messages) => {
