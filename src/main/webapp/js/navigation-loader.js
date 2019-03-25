@@ -54,14 +54,45 @@ function addPublicFeed() {
 }
 
 /**
-* Adds link the matches feed for the current user
+* Adds link the matches feed for the current logged in user
+* If user not logged in, then does nothing
 */
 function addMatchesFeed() {
   const navigationElement = document.getElementById('navigation');
   if (!navigationElementExists) {
     return;
   }
-  navigationElement.appendChild(createListItem(createLink('/matches-feed.html', 'Matches Feed')));
+
+  fetch('/login-status')
+    .then(response => {
+      return response.json();
+    })
+    .then(loginStatus => {
+      if (loginStatus.isLoggedIn) {
+        navigationElement.appendChild(createListItem(createLink('/matches-feed.html', 'Matches Feed')));
+      }
+      else {
+        return;
+      }
+    })
+}
+
+fetch('/login-status')
+    .then((response) => {
+      return response.json();
+    })
+    .then((loginStatus) => {
+      if (loginStatus.isLoggedIn) {
+        navigationElement.appendChild(createListItem(createLink(
+            '/user-page.html?user=' + loginStatus.username, 'Your Page')));
+
+        navigationElement.appendChild(
+            createListItem(createLink('/logout', 'Logout')));
+      } else {
+        navigationElement.appendChild(
+            createListItem(createLink('/login', 'Login')));
+      }
+    });
 }
 
 /**
