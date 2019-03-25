@@ -39,11 +39,25 @@ function showMessageFormIfLoggedIn() {
       })
       .then((loginStatus) => {
         if (loginStatus.isLoggedIn) {
-          const messageForm = document.getElementById('message-form');
-          messageForm.action = '/messages?recipient=' + parameterUsername;
-          messageForm.classList.remove('hidden');
-          document.getElementById('about-me-form').classList.remove('hidden');
+          //const messageForm = document.getElementById('message-form');
+          //messageForm.action = '/messages?recipient=' + parameterUsername;
+          //messageForm.classList.remove('hidden');
+          //document.getElementById('about-me-form').classList.remove('hidden');
+          fetchImageUploadUrlAndShowForm();
         }
+      });
+}
+
+function fetchImageUploadUrlAndShowForm() {
+  fetch('/image-upload-url')
+      .then((response) => {
+        return response.text();
+      })
+      .then((imageUploadUrl) => {
+        const messageForm = document.getElementById('message-form');
+        messageForm.action = imageUploadUrl;
+        messageForm.classList.remove('hidden');
+        document.getElementById('recipientInput').value = parameterUsername;
       });
 }
 
