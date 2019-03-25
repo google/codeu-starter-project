@@ -162,6 +162,22 @@ public class Datastore {
     return user;
   }
   
+  /*
+   * Returns a list of all users. List is empty if no users exist
+   */
+  public List<User> getAllUsers() {
+    Query query = new Query("User");
+    PreparedQuery results = datastore.prepare(query);
+    List<User> users = new ArrayList<>();
+    for (Entity entity : results.asIterable()) {
+      String email = (String) entity.getProperty("email");
+      String aboutMe = (String) entity.getProperty("aboutMe");
+      User user = new User(email, aboutMe);
+      users.add(user);
+    }
+    return users;
+  }
+  
   /** Returns the longest message length of all users. */
   public int getLongestMessageCount() {
     return longestMessage;
