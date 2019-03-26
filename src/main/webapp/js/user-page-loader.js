@@ -134,17 +134,12 @@ function buildMessageDiv(message) {
 function buildLanguageLinks() {
   const userPageUrl = '/user-page.html?user=' + parameterUsername;
   const languagesListElement  = document.getElementById('languages');
+  const languages = { en: "English", zh: "Chinese", hi: "Hindi", es: "Spanish", ar: "Arabic" }
 
-  languagesListElement.appendChild(createListItem(createLink(
-       userPageUrl + '&language=en', 'English')));
-  languagesListElement.appendChild(createListItem(createLink(
-      userPageUrl + '&language=zh', 'Chinese')));
-  languagesListElement.appendChild(createListItem(createLink(
-      userPageUrl + '&language=hi', 'Hindi')));
-  languagesListElement.appendChild(createListItem(createLink(
-      userPageUrl + '&language=es', 'Spanish')));
-  languagesListElement.appendChild(createListItem(createLink(
-      userPageUrl + '&language=ar', 'Arabic')));
+  for (var lang in languages) {
+    languagesListElement.appendChild(createListItem(createLink(
+         userPageUrl + '&language=' + lang, languages[lang])));
+  }
 
 }
 
