@@ -78,7 +78,13 @@ function showMessageFormIfLoggedIn() {
 
 /** Fetches messages and add them to the page. */
 function fetchMessages() {
-  const url = '/messages?user=' + parameterUsername;
+  // Add the query string parameter
+  const parameterLanguage = urlParams.get('language');
+  let url = '/messages?user=' + parameterUsername;
+  if (parameterLanguage) {
+    url += '&language=' + parameterLanguage;
+  }
+
   fetch(url)
       .then((response) => {
         return response.json();
@@ -124,10 +130,24 @@ function buildMessageDiv(message) {
   return messageDiv;
 }
 
+/** Provides link to URL */
+function buildLanguageLinks() {
+  const userPageUrl = '/user-page.html?user=' + parameterUsername;
+  const languagesListElement  = document.getElementById('languages');
+  const languages = { en: "English", zh: "Chinese", hi: "Hindi", es: "Spanish", ar: "Arabic" }
+
+  for (var lang in languages) {
+    languagesListElement.appendChild(createListItem(createLink(
+         userPageUrl + '&language=' + lang, languages[lang])));
+  }
+
+}
+
 /** Fetches data and populates the UI of the page. */
 function buildUI() {
   setPageTitle();
   showMessageFormIfLoggedIn();
   showMessageFormIfViewingSelf();
   fetchMessages();
+  buildLanguageLinks();
 }
