@@ -126,8 +126,7 @@ function buildMessageDiv(message) {
   return messageDiv;
 }
 
-/** Provides link to URL */
-<<<<<<< HEAD
+/** Provides link to URL. */
 function buildLanguageLinks() {
   const userPageUrl = '/user-page.html?user=' + parameterUsername;
   const languagesListElement  = document.getElementById('languages');
