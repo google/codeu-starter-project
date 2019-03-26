@@ -128,13 +128,11 @@ public class Datastore {
 
         UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
-        String text = (String) entity.getProperty("text");  
         String recipient = (String) entity.getProperty("recipient");
         String imageUrl = (String) entity.getProperty("imageUrl");
         
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
-        String recipient = (String) entity.getProperty("recipient"); 
         // sentimentScore casted to Double from float first to avoid it being saved as a 0
         float sentimentScore = entity.getProperty("sentimentScore") == null ? (float) 0.0 : 
             ((Double) entity.getProperty("sentimentScore")).floatValue();
