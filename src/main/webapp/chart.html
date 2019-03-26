@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A New Chart</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+	
+	 google.charts.load("current", {packages: ["corechart"]});
+	 google.charts.setOnLoadCallback(fetchMessageData);
+	 
+	function fetchMessageData() {
+        fetch("/messagechart")
+            .then((response) => {
+              return response.json();
+            })
+            .then((msgJson) => {
+              var msgData = new google.visualization.DataTable();
+              //define columns for the DataTable instance
+              msgData.addColumn('date', 'Date');
+              msgData.addColumn('number', 'Message Count');
+
+             
+              for (i = 0; i < msgJson.length; i++) {
+                  msgRow = [];
+                  var timestampAsDate = new Date (msgJson[i].timestamp);
+                  var totalMessages = i + 1;
+                  msgRow.push(timestampAsDate, totalMessages);
+                  
+                  console.log(msgRow);
+                  msgData.addRow(msgRow);
+
+              }
+              console.log(msgData);
+              drawChart(msgData);
+            });
+      }
+
+	 function drawChart(data){
+		 
+        var chart = new google.visualization.LineChart(document.getElementById('messages_chart'));
+
+    	chart.draw(data);
+    }
+</script>
+  </head>
+  <body>
+    <h1>Date vs. Total Number of Messages</h1>
+    <div id="messages_chart" ></div>
+  </body>
+</html>

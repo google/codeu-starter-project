@@ -1,0 +1,24 @@
+{
+  "name": "codeu-starter-project",
+  "version": "1.0.0",
+  "description": "CodeU Team 36 repo",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {    
+    "eslint": "^5.15.1",
+    "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeu-spring-2019-team-36/codeu-starter-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeu-spring-2019-team-36/codeu-starter-project/issues"
+  },
+  "homepage": "https://github.com/codeu-spring-2019-team-36/codeu-starter-project#readme"
+}

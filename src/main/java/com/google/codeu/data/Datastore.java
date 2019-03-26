@@ -35,6 +35,7 @@ public class Datastore {
   private DatastoreService datastore; 
   private static int longestMessage = 0;
   private static HashMap<String, Integer> postsPerUser = new HashMap<String,Integer>();
+  private static HashMap<String, Integer> messageCategoryCount = new HashMap<String, Integer>();
 
   public Datastore() {
     datastore = DatastoreServiceFactory.getDatastoreService();
@@ -48,14 +49,37 @@ public class Datastore {
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
     messageEntity.setProperty("imageUrl", message.getImageUrl());
-
-    datastore.put(messageEntity);
+    messageEntity.setProperty("sentimentScore", message.getSentimentScore());
     
+    //If there are more than 20 words, perform content classification
+    if (getNumWords(message.getText()) > 20) {
+      messageEntity.setProperty("messageCategories", message.getMessageCategories());
+      
+      String messageCategories = message.getMessageCategories().trim();
+      String[] messageCategoryList = messageCategories.split("/");
+
+      for (String category : messageCategoryList) {
+        category = category.trim();
+        category = category.replace("[", "");
+        category = category.replaceAll("]", "");
+        if (!messageCategoryCount.containsKey(category)) {
+          messageCategoryCount.put(category, 1);
+        } else {
+          messageCategoryCount.put(category, messageCategoryCount.get(category) + 1);        
+        }
+      }
+    } else {
+      messageEntity.setProperty("messageCategories", "");
+    }
+    datastore.put(messageEntity);
+
     int messageLength = message.getText().length();
+    
     if (messageLength > longestMessage) {
       longestMessage = messageLength;
     }
     postsPerUser.put(message.getUser(), getMessages(message.getUser()).size());
+    
   }
 
   /**
@@ -68,13 +92,13 @@ public class Datastore {
   public List<Message> getMessages(String recipient) {
     Query query =
         new Query("Message")
-            .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
-            .addSort("timestamp", SortDirection.DESCENDING);
+        .setFilter(new Query.FilterPredicate("recipient", FilterOperator.EQUAL, recipient))
+        .addSort("timestamp", SortDirection.DESCENDING);
     List<Message> messages = fetchMessages(query);
-    
+
     return messages;
   }
-  
+
   /**
    * Gets messages posted by all users.
    *
@@ -84,12 +108,12 @@ public class Datastore {
   public List<Message> getAllMessages() {
     Query query =
         new Query("Message")
-            .addSort("timestamp", SortDirection.DESCENDING);
+        .addSort("timestamp", SortDirection.DESCENDING);
     List<Message> messages = fetchMessages(query);
-    
+
     return messages;
   }
-  
+
   /**
    * Retrieves list of messages for a specific user.
    *
@@ -108,9 +132,22 @@ public class Datastore {
         String recipient = (String) entity.getProperty("recipient");
         String imageUrl = (String) entity.getProperty("imageUrl");
         
+        String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
+        String recipient = (String) entity.getProperty("recipient"); 
+        // sentimentScore casted to Double from float first to avoid it being saved as a 0
+        float sentimentScore = entity.getProperty("sentimentScore") == null ? (float) 0.0 : 
+            ((Double) entity.getProperty("sentimentScore")).floatValue();
+        String messageCategories = (String) entity.getProperty("messageCategories");         
 
-        Message message = new Message(id, user, text, timestamp, recipient, imageUrl);
+        // Replace all image URLS in message with proper image HTML tags
+        String regex = "(https?://\\S+\\.(png|jpg))";
+        String replacement = "<img src=\"$1\" />";
+        String textWithImagesReplaced = text.replaceAll(regex, replacement);
+
+        Message message = new Message(id, user, textWithImagesReplaced, timestamp, 
+            recipient, sentimentScore, messageCategories, imageUrl);
+        
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
@@ -121,8 +158,8 @@ public class Datastore {
     return messages;
   }
 
-  
-  
+
+
   /** Returns the total number of messages for all users. */
   public int getTotalMessageCount() {
     Query query = new Query("Message");
@@ -130,7 +167,7 @@ public class Datastore {
     return results.countEntities(FetchOptions.Builder.withLimit(1000));
 
   }
-  
+
 
 
   /* About me Section */
@@ -141,13 +178,13 @@ public class Datastore {
     userEntity.setProperty("aboutMe", user.getAboutMe());
     datastore.put(userEntity);
   }
- 
+
   /**
-  * Returns the User owned by the email address, or
-  * null if no matching User was found.
-  */
+   * Returns the User owned by the email address, or
+   * null if no matching User was found.
+   */
   public User getUser(String email) {
- 
+
     Query query = new Query("User")
         .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
     PreparedQuery results = datastore.prepare(query);
@@ -155,23 +192,23 @@ public class Datastore {
     if (userEntity == null) {
       return null;
     }
-  
+
     String aboutMe = (String) userEntity.getProperty("aboutMe");
     User user = new User(email, aboutMe);
-  
+
     return user;
   }
-  
+
   /** Returns the longest message length of all users. */
   public int getLongestMessageCount() {
     return longestMessage;
   }
-  
+
   /** Returns the total number of users that have posted. */
   public int getTotalUserCount() {
     return postsPerUser.size();
   }
-  
+
   /** Returns the top three users that have posted on the website. */
   public ArrayList<String> getTopUsers() {
     ArrayList<String> topUsers = new ArrayList<String>(3);
@@ -191,5 +228,26 @@ public class Datastore {
       topUsers.add(currTopUser);
     } 
     return topUsers;
+  }
+
+  /** Returns the categories and their counts of all of the messages. */
+  public String getMessageCategories() {
+    String messageCategories = "";
+    for (String category : messageCategoryCount.keySet()) {
+      messageCategories = messageCategories + "(" + category + " " 
+          + messageCategoryCount.get(category) + ")" + " ; ";
+    }
+    return messageCategories;
+  }
+
+  /** Returns the number of words in a given string. */
+  public int getNumWords(String text) {
+    if (text == null) {
+      return 0;
+    }
+    String trimmedText = text.trim();
+    String[] textWords = trimmedText.split("\\s+");
+    
+    return textWords.length;
   }
 }

@@ -19,50 +19,62 @@
  * already logged in.
  */
 function addLoginOrLogoutLinkToNavigation() {
-  const navigationElement = document.getElementById('navigation');
+  const navigationElement = document.getElementById("navigation");
   if (!navigationElement) {
-    console.warn('Navigation element not found!');
+    console.warn("Navigation element not found!");
     return;
   }
 
-  fetch('/login-status')
-      .then((response) => {
-        return response.json();
-      })
-      .then((loginStatus) => {
-        if (loginStatus.isLoggedIn) {
-          navigationElement.appendChild(createListItem(createLink(
-              '/user-page.html?user=' + loginStatus.username, 'Your Page')));
+  fetch("/login-status")
+    .then(response => {
+      return response.json();
+    })
+    .then(loginStatus => {
+      if (loginStatus.isLoggedIn) {
+        navigationElement.appendChild(
+          createListItem(
+            createLink(
+              "/user-page.html?user=" + loginStatus.username,
+              "Your Page"
+            )
+          )
+        );
 
-          navigationElement.appendChild(
-              createListItem(createLink('/logout', 'Logout')));
-        } else {
-          navigationElement.appendChild(
-              createListItem(createLink('/login', 'Login')));
-        }
-      });
+        navigationElement.appendChild(
+          createListItem(createLink("/logout", "Logout"))
+        );
+      } else {
+        navigationElement.appendChild(
+          createListItem(createLink("/login", "Login"))
+        );
+      }
+    });
 }
 
 /**
- * Adds a Public Feed link to the page
+ * Adds link to navigation bar
  */
-function addPublicFeed() {
-  const navigationElement = document.getElementById('navigation');
+function addNavBarElement(link, title) {
+  const navigationElement = document.getElementById("navigation");
   if (!navigationElement) {
-    console.warn('Navigation element not found!');
+    console.warn("Navigation element not found!");
     return;
   }
-  navigationElement.appendChild(createListItem(createLink('/feed.html', 'Public Feed')));
+  navigationElement.appendChild(createListItem(createLink(link, title)));
 }
 
-
-
-
+/**
+ * Build Navigation Bar
+ */
 function buildNavBar() {
-	// Add login/logout link
-	addLoginOrLogoutLinkToNavigation();
-	// Add Public Feed link
-	addPublicFeed();
+  // Add login/logout link
+  addLoginOrLogoutLinkToNavigation();
+  // Add Public Feed link
+  addNavBarElement("/feed.html", "Public Feed");
+  // Add Map link
+  addNavBarElement("/map.html", "Map");
+  // Add UFO Sightings link
+  addNavBarElement("ufo-sightings.html", "UFO Sightings");
 }
 
 /**
@@ -71,7 +83,7 @@ function buildNavBar() {
  * @return {Element} li element
  */
 function createListItem(childElement) {
-  const listItemElement = document.createElement('li');
+  const listItemElement = document.createElement("li");
   listItemElement.appendChild(childElement);
   return listItemElement;
 }
@@ -83,7 +95,7 @@ function createListItem(childElement) {
  * @return {Element} Anchor element
  */
 function createLink(url, text) {
-  const linkElement = document.createElement('a');
+  const linkElement = document.createElement("a");
   linkElement.appendChild(document.createTextNode(text));
   linkElement.href = url;
   return linkElement;
