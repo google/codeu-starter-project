@@ -20,6 +20,8 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
@@ -171,11 +173,21 @@ public class Datastore {
   public void storeUser(User user) {
     Entity userEntity = new Entity("User", user.getEmail());
     userEntity.setProperty("email", user.getEmail());
-    //modified
-    userEntity.setProperty("userProfile", user.getProfile());
-    datastore.put(userEntity);
+    
+    Entity profileEntity = new Entity("Profile", userEntity.getKey());
+    profileEntity.setProperty("email", user.getEmail());
+    datastore.put(profileEntity);
   }
-
+  
+  public void storeProfile(Profile profile) {
+    Key user = KeyFactory.createKey("User", profile.getEmail());
+    
+    Entity profileEntity = new Entity("Profile", user);
+    profileEntity.setProperty("email", profile.getEmail());
+    profileEntity.setProperty("phone", profile.getPhone());
+    profileEntity.setProperty("schedule", profile.getSchedule());
+    datastore.put(profileEntity);
+  }
   /**
    * Returns the User owned by the email address, or
    * null if no matching User was found.
@@ -190,11 +202,26 @@ public class Datastore {
       return null;
     }
 
-    //Modified
-    String[] userProfile = (String[]) userEntity.getProperty("userProfile");
-    User user = new User(email, userProfile);
+    User user = new User(email);
 
     return user;
+  }
+  
+  public Profile getProfile(String email) {
+
+    Query query = new Query("Profile")
+        .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
+    PreparedQuery results = datastore.prepare(query);
+    Entity profileEntity = results.asSingleEntity();
+    if (profileEntity == null) {
+      return null;
+    }
+
+    Profile profile = new Profile((String) profileEntity.getProperty("email"),
+        (String) profileEntity.getProperty("name"), (String) profileEntity.getProperty("phone"),
+        (String) profileEntity.getProperty("schedule"));
+
+    return profile;   
   }
 
   /** Returns the longest message length of all users. */
