@@ -130,18 +130,18 @@ public class Datastore {
     PreparedQuery results = datastore.prepare(query);
 
     for (Entity entity : results.asIterable()) {
-     try {
-      double lat = (double) entity.getProperty("lat");
-      double lng = (double) entity.getProperty("lng");
-      String content = (String) entity.getProperty("content");
+       try {
+          double lat = (double) entity.getProperty("lat");
+          double lng = (double) entity.getProperty("lng");
+          String content = (String) entity.getProperty("content");
 
-      UserMarker marker = new UserMarker(lat, lng, content);
-      markers.add(marker);
-     } catch (Exception e) {
-      System.err.println("Error reading marker.");
-      System.err.println(entity.toString());
-      e.printStackTrace();
-     }
+          UserMarker marker = new UserMarker(lat, lng, content);
+          markers.add(marker);
+      } catch (Exception e) {
+          System.err.println("Error reading marker.");
+          System.err.println(entity.toString());
+          e.printStackTrace();
+       }
     }
     return markers;
   }
