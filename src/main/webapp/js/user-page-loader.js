@@ -50,7 +50,6 @@ function showMessageFormIfLoggedIn() {
 
 function fetchImageUploadUrlAndShowForm() {
   fetch('/image-upload-url?recipient=' + parameterUsername).then((response) => {
-        //console.log(response.text());
         return response.text();
       })
       .then((imageUploadUrl) => {
@@ -62,7 +61,12 @@ function fetchImageUploadUrlAndShowForm() {
 
 /** Fetches messages and add them to the page. */
 function fetchMessages() {
-  const url = '/messages?user=' + parameterUsername;
+  const parameterLanguage = urlParams.get('language');
+  let url = '/messages?user=' + parameterUsername;
+  if(parameterLanguage) {
+    url += '&language=' + parameterLanguage;
+  }
+  //const url = '/messages?user=' + parameterUsername;
   fetch(url)
       .then((response) => {
         return response.json();
@@ -79,6 +83,7 @@ function fetchMessages() {
           messagesContainer.appendChild(messageDiv);
         });
       });
+  
 }
 
 /**
@@ -90,18 +95,36 @@ function buildMessageDiv(message) {
   const headerDiv = document.createElement('div');
   headerDiv.classList.add('message-header');
   headerDiv.appendChild(document.createTextNode(
-      message.user + ' - ' + new Date(message.timestamp)));
-
+    message.user + ' - ' +
+    new Date(message.timestamp) + 
+    ' [' + message.sentimentScore + ']'));
   const bodyDiv = document.createElement('div');
   bodyDiv.classList.add('message-body');
   bodyDiv.innerHTML = message.text;
-
+  if(message.imageUrl != ""){
+    bodyDiv.innerHTML += '<br/>';
+    bodyDiv.innerHTML += '<img src="' + message.imageUrl + '" />';
+  }
   const messageDiv = document.createElement('div');
   messageDiv.classList.add('message-div');
   messageDiv.appendChild(headerDiv);
   messageDiv.appendChild(bodyDiv);
 
   return messageDiv;
+}
+function buildLanguageLinks(){
+  const userPageUrl = '/user-page.html?user=' + parameterUsername;
+  const languagesListElement  = document.getElementById('languages');
+  languagesListElement.appendChild(createListItem(createLink(
+       userPageUrl + '&language=en', 'English')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=zh', 'Chinese')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=hi', 'Hindi')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=es', 'Spanish')));
+  languagesListElement.appendChild(createListItem(createLink(
+      userPageUrl + '&language=ar', 'Arabic')));
 }
 
 function fetchAboutMe(){
