@@ -58,6 +58,7 @@ public class Message {
 
   public void setImageLabels(String imageLabels) {
     this.imageLabels = imageLabels;
+    return;
   }
 
   /* Gets the recipient private member variable*/
@@ -83,6 +84,10 @@ public class Message {
   /* Gets the text private member variable */
   public String getImageUrl() {
     return imageUrl;
+  }
+
+  public String getImageLabels(){
+    return this.imageLabels;
   }
 
   /* Set the text private member variable */
