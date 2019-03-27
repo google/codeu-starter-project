@@ -124,4 +124,32 @@ public List<Message> getMessages(String recipient) {
 
   return messages;
   }
+
+/*
+returns a list of users that are similar to that of the input email.
+*/
+public List<User> getUsers(String inputEmail) {
+  List<User> users = new ArrayList<>();
+
+  Query query = new Query("User");
+  PreparedQuery results = datastore.prepare(query);
+  //every user in the program
+  for (Entity entity : results.asIterable()) {
+    try {
+      String email = (String) entity.getProperty("email");
+      //just to have it as a parameter in user
+      String aboutMe = (String) entity.getProperty("aboutMe");
+
+      if (email.contains(inputEmail) && inputEmail != ""){
+        User user = new User(email, aboutMe);
+        users.add(user);
+      }
+    } catch (Exception e) {
+      System.err.println("Error reading user.");
+      System.err.println(entity.toString());
+      e.printStackTrace();
+    }
+  }
+  return users;
+  }
 }
