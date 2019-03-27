@@ -85,7 +85,6 @@ public class MessageServlet extends HttpServlet {
     response.setContentType("application/json");
 
     String user = request.getParameter("user");
-
     if (user == null || user.equals("")) {
       // Request is invalid, return empty array
       response.getWriter().println("[]");
@@ -128,7 +127,7 @@ public class MessageServlet extends HttpServlet {
     String textWithImagesReplaced = text.replaceAll(regex, replacement);
     String recipient = request.getParameter("recipient");
 
-    Message message = new Message(user, textWithImagesReplaced, recipient);
+    Message message = new Message(user, textWithImagesReplaced, recipient, "");
 
     if (blobKeys != null && !blobKeys.isEmpty()) {
       BlobKey blobKey = blobKeys.get(0);

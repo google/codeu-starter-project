@@ -31,8 +31,8 @@ public class Message {
    * Constructs a new {@link Message} posted by {@code user} with {@code text} content. Generates a
    * random ID and uses the current system time for the creation time.
    */
-  public Message(String user, String text, String recipient) {
-    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient);
+  public Message(String user, String text, String recipient, String imageUrl) {
+    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, imageUrl);
   }
 
 
@@ -40,16 +40,19 @@ public class Message {
    * Constructs a new {@link Message} posted by {@code user} with {@code text} content.
    * Sets the private variables to the values taken in from the parameters.
    */
-  public Message(UUID id, String user, String text, long timestamp, String recipient) {
+  public Message(UUID id, String user, String text,
+      long timestamp, String recipient, String imageUrl) {
     this.id = id;
     this.user = user;
     this.text = text;
     this.timestamp = timestamp;
     this.recipient = recipient;
+    this.imageUrl = imageUrl;
   }
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+    return;
   }
 
   /* Gets the recipient private member variable*/
