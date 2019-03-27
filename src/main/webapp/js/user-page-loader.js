@@ -29,22 +29,6 @@ function setPageTitle() {
   document.title = parameterUsername + ' - User Page';
 }
 
-/**
- * Shows the message form if the user is logged in and viewing their own page.
- */
-function showMessageFormIfViewingSelf() {
-  fetch('/login-status')
-      .then((response) => {
-        return response.json();
-      })
-      .then((loginStatus) => {
-        if (loginStatus.isLoggedIn &&
-            loginStatus.username == parameterUsername) {
-          fetchImageUploadUrlAndShowForm();
-        }
-      });
-}
-
 function fetchImageUploadUrlAndShowForm() {
   fetch('/image-upload-url')
       .then((response) => {
@@ -57,7 +41,6 @@ function fetchImageUploadUrlAndShowForm() {
         document.getElementById('recipientInput').value = parameterUsername;
       });
 }
-
 
 
 /**
@@ -117,16 +100,15 @@ function buildMessageDiv(message) {
   const bodyDiv = document.createElement('div');
   bodyDiv.classList.add('message-body');
   bodyDiv.innerHTML = message.text;
-  if(message.imageUrl){
-    bodyDiv.innerHTML += '<br/>';
-    bodyDiv.innerHTML += '<img src="' + message.imageUrl + '" />';
-  }
 
   const messageDiv = document.createElement('div');
   messageDiv.classList.add('message-div');
   messageDiv.appendChild(headerDiv);
   messageDiv.appendChild(bodyDiv);
-
+  if(message.imageUrl){
+    bodyDiv.innerHTML += '<br/>';
+    bodyDiv.innerHTML += '<img src="' + message.imageUrl + '" />';
+  }
   return messageDiv;
 }
 
@@ -147,7 +129,6 @@ function buildLanguageLinks() {
 function buildUI() {
   setPageTitle();
   showMessageFormIfLoggedIn();
-  showMessageFormIfViewingSelf();
   fetchMessages();
   buildLanguageLinks();
 }
