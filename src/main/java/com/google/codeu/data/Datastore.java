@@ -106,6 +106,7 @@ public List<Message> getMessages(String recipient) {
 
       String text = (String) entity.getProperty("text");
       long timestamp = (long) entity.getProperty("timestamp");
+      //String recipient = (String) entity.getProperty("recipient");
 
       String imageUrl = (String) entity.getProperty("imageUrl");
 

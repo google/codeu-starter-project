@@ -29,6 +29,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.Translate.TranslateOption;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 
 import java.io.IOException;
 import java.util.List;
@@ -69,6 +73,7 @@ public class MessageServlet extends HttpServlet {
 
     String user = request.getParameter("user");
 
+
     if (user == null || user.equals("")) {
       // Request is invalid, return empty array
       response.getWriter().println("[]");
@@ -80,7 +85,26 @@ public class MessageServlet extends HttpServlet {
     String json = gson.toJson(messages);
 
     response.getWriter().println(json);
+    String targetLanguageCode = request.getParameter("language");
+
+    if(targetLanguageCode != null) {
+      translateMessages(messages, targetLanguageCode);
+    }
+    
   }
+  private void translateMessages(List<Message> messages, String targetLanguageCode) {
+  Translate translate = TranslateOptions.getDefaultInstance().getService();
+
+  for(Message message : messages) {
+    String originalText = message.getText();
+
+    Translation translation =
+        translate.translate(originalText, TranslateOption.targetLanguage(targetLanguageCode));
+    String translatedText = translation.getTranslatedText();
+      
+    message.setText(translatedText);
+  }    
+}
 
   
 
@@ -121,7 +145,8 @@ public class MessageServlet extends HttpServlet {
       message.setImageUrl("");
     }
     datastore.storeMessage(message);
-
+    
     response.sendRedirect("/user-page.html?user=" + user);
+
   }
 }
