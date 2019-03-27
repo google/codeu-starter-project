@@ -70,6 +70,9 @@ public class Datastore {
     if (message.getImageUrl() != null) {
       messageEntity.setProperty("imageUrl", message.getImageUrl());
     }
+    if (message.getImageLabels() != null){
+      messageEntity.setProperty("imageLabels", message.getImageLabels());
+    }
     datastore.put(messageEntity);
   }
 
