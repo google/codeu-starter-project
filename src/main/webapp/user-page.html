@@ -31,17 +31,19 @@ limitations under the License.
     </nav>
     <h1 id="page-title">User Page</h1>
 
-    <form id="message-form" action="/messages" method="POST">
+    <form id="message-form"  method="POST" enctype="multipart/form-data">
       Enter a new message:
       <br/>
       <textarea name="text" id="message-input"></textarea>
       <br/>
+      Add an image to your message:
+      <input type="file" name="image">
+      <br/>
       <input type="submit" value="Submit">
     </form>
-    <hr/>
 
     <div id="about-me-container">Loading...</div>
-      <div id="about-me-form" class="hidden">
+      <div id="about-me-form">
       <form action="/about" method="POST">
         <textarea name="about-me" placeholder="about me" rows=4 required></textarea>
         <br/>

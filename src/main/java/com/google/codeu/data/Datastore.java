@@ -45,6 +45,8 @@ public class Datastore {
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
+    messageEntity.setProperty("imageUrl", message.getImageUrl());
+    
     datastore.put(messageEntity);
   }
   /** Stores the User in Datastore. */
@@ -60,7 +62,6 @@ public class Datastore {
   * null if no matching User was found.
   */
  public User getUser(String email) {
- 
   Query query = new Query("User")
     .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
   PreparedQuery results = datastore.prepare(query);
@@ -107,7 +108,13 @@ public List<Message> getMessages(String recipient) {
       long timestamp = (long) entity.getProperty("timestamp");
       //String recipient = (String) entity.getProperty("recipient");
 
+      String imageUrl = (String) entity.getProperty("imageUrl");
+
       Message message = new Message(id, user, text, timestamp, recipient);
+      if (imageUrl != null){
+        message.setImageUrl(imageUrl);
+      }
+
       messages.add(message);
     } catch (Exception e) {
       System.err.println("Error reading message.");
