@@ -33,6 +33,10 @@ import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.Translate.TranslateOption;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.Document.Type;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 
 import java.io.IOException;
 import java.util.List;
@@ -80,11 +84,6 @@ public class MessageServlet extends HttpServlet {
       return;
     }
 
-    List<Message> messages = datastore.getMessages(user);
-    Gson gson = new Gson();
-    String json = gson.toJson(messages);
-
-    response.getWriter().println(json);
     String targetLanguageCode = request.getParameter("language");
 
     if(targetLanguageCode != null) {
@@ -103,10 +102,27 @@ public class MessageServlet extends HttpServlet {
     String translatedText = translation.getTranslatedText();
       
     message.setText(translatedText);
-  }    
+  }  
+  List<Message> messages = datastore.getMessages(user);
+  Gson gson = new Gson();
+  String json = gson.toJson(messages);
+
+  response.getWriter().println(json);
 }
 
-  
+
+
+  private double getSentimentScore(String text) throws IOException {
+  Document doc = Document.newBuilder()
+      .setContent(text).setType(Type.PLAIN_TEXT).build();
+
+  LanguageServiceClient languageService = LanguageServiceClient.create();
+  Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+  languageService.close();
+
+  return (double) sentiment.getScore();
+}
+
 
   /** Stores a new {@link Message}. */
   @Override
@@ -124,8 +140,10 @@ public class MessageServlet extends HttpServlet {
     String regex = "(https?://\\S+\\.(png|jpg|gif))";
     String replacement = "<img src=\"$1\" />";
     String textWithImagesReplaced = userText.replaceAll(regex, replacement);
+    
+    double sentimentScore = getSentimentScore(textWithImagesReplaced);
+    Message message = new Message(user, textWithImagesReplaced, recipient, sentimentScore);
 
-    Message message = new Message(user, textWithImagesReplaced, recipient);
 
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
