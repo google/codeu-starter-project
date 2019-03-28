@@ -45,7 +45,7 @@ public class ProfileServlet extends HttpServlet {
     Profile profileData = datastore.getProfile(user);
 
     if (profileData == null) {
-      return;
+      profileData = new Profile();
     }
     
     //TO-DO ask Travis about this gson again

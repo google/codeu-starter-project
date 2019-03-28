@@ -7,6 +7,9 @@ public class Profile {
   private String phone;
   private String schedule;
 
+  public Profile() {
+  }
+
   public Profile(String email, String name, String phone, String schedule) {
     this.email = email;
     this.name = name;

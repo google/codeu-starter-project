@@ -174,7 +174,7 @@ public class Datastore {
     Entity userEntity = new Entity("User", user.getEmail());
     userEntity.setProperty("email", user.getEmail());
     
-    Entity profileEntity = new Entity("Profile", userEntity.getKey());
+    Entity profileEntity = new Entity("Profile", user.getEmail(), userEntity.getKey());
     profileEntity.setProperty("email", user.getEmail());
     datastore.put(profileEntity);
   }
@@ -182,7 +182,7 @@ public class Datastore {
   public void storeProfile(Profile profile) {
     Key user = KeyFactory.createKey("User", profile.getEmail());
     
-    Entity profileEntity = new Entity("Profile", user);
+    Entity profileEntity = new Entity("Profile", profile.getEmail(), user);
     profileEntity.setProperty("email", profile.getEmail());
     profileEntity.setProperty("phone", profile.getPhone());
     profileEntity.setProperty("schedule", profile.getSchedule());
