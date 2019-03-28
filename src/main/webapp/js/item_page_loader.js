@@ -8,7 +8,6 @@ function buildUI() {
       descriptionContainer.innerHTML = item.description;
       const headerContainer = document.getElementById("item-header");
       headerContainer.innerHTML = item.title;
-      const titleContainer = document.getElementById("title");
-      titleContainer.innerHTML = item.title + item.price;
+      document.title = item.title + " - $" + item.price;
     });
 }
