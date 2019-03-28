@@ -5,7 +5,6 @@ import com.google.appengine.api.users.UserServiceFactory;
 import com.google.appengine.repackaged.com.google.gson.Gson;
 import com.google.codeu.data.Datastore;
 import com.google.codeu.data.Profile;
-import com.google.codeu.data.User;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
