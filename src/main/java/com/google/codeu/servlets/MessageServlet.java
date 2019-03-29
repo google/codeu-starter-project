@@ -16,7 +16,6 @@
 
 package com.google.codeu.servlets;
 
-
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
@@ -169,10 +168,10 @@ public class MessageServlet extends HttpServlet {
   }
 
   /**
-   * Private method to convert Blobstore image into byte array for analysis
+   * Private method to convert Blobstore image into byte array for analysis.
    */
   private byte[] getBlobBytes(BlobstoreService blobstoreService, BlobKey blobKey)
-    throws IOException {
+      throws IOException {
 
     ByteArrayOutputStream outputBytes = new ByteArrayOutputStream();
 
