@@ -91,7 +91,7 @@ public class MessageServlet extends HttpServlet {
     response.getWriter().println(json);
 
     // String targetLanguageCode = request.getParameter("language");
-
+    //this code wasnt working so i had to change it a bit
     // if(targetLanguageCode != null) {
     //   translateMessages(messages, targetLanguageCode);
     // }
