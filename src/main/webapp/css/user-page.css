@@ -21,6 +21,41 @@
   width: 100%;
 }
 
+.users{
+  height: 20px;
+  width:100%;
+  border: thin solid black;
+  margin-top: 1px;
+}
+
+.users p{
+  margin: 0px;
+}
+
+.error{
+  height: 20px;
+  width: 100%;
+  margin-top: 1px;
+}
+
+.error p{
+  color: red;
+  margin: 0px;
+}
+
+#submit{
+  margin-top: 20px;
+}
+
+#about-me-container{
+  margin-top: 20px;
+}
+
+#recipient-input{
+  height: 20px;
+  width: 100%;
+  border: thin solid black;
+}
 /* Give each message a rounded border. */
 .message-div {
   border: thin solid black;

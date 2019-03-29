@@ -84,11 +84,6 @@ public class MessageServlet extends HttpServlet {
       return;
     }
 
-    List<Message> messages = datastore.getMessages(user);
-    Gson gson = new Gson();
-    String json = gson.toJson(messages);
-
-    response.getWriter().println(json);
     String targetLanguageCode = request.getParameter("language");
 
     if(targetLanguageCode != null) {
@@ -107,8 +102,14 @@ public class MessageServlet extends HttpServlet {
     String translatedText = translation.getTranslatedText();
       
     message.setText(translatedText);
-  }    
+  }  
+  List<Message> messages = datastore.getMessages(user);
+  Gson gson = new Gson();
+  String json = gson.toJson(messages);
+
+  response.getWriter().println(json);
 }
+
 
 
   private double getSentimentScore(String text) throws IOException {
@@ -122,11 +123,10 @@ public class MessageServlet extends HttpServlet {
   return (double) sentiment.getScore();
 }
 
+
   /** Stores a new {@link Message}. */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {
       response.sendRedirect("/index.html");
@@ -135,7 +135,6 @@ public class MessageServlet extends HttpServlet {
 
     String user = userService.getCurrentUser().getEmail();
     String recipient = request.getParameter("recipient");
-
     String userText = Jsoup.clean(request.getParameter("text"), Whitelist.none());
     
     String regex = "(https?://\\S+\\.(png|jpg|gif))";
@@ -144,6 +143,7 @@ public class MessageServlet extends HttpServlet {
     
     double sentimentScore = getSentimentScore(textWithImagesReplaced);
     Message message = new Message(user, textWithImagesReplaced, recipient, sentimentScore);
+
 
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
@@ -154,7 +154,11 @@ public class MessageServlet extends HttpServlet {
       ImagesService imagesService = ImagesServiceFactory.getImagesService();
       ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);
       String imageUrl = imagesService.getServingUrl(options);
-      message.setImageUrl(imageUrl);
+      if (imageUrl == null){
+        message.setImageUrl("");
+      } else {
+        message.setImageUrl(imageUrl);
+      }
     } else {
       message.setImageUrl("");
     }

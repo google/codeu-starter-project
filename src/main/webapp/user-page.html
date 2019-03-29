@@ -31,7 +31,39 @@ limitations under the License.
     </nav>
     <h1 id="page-title">User Page</h1>
 
-    <form id="message-form"  method="POST" enctype="multipart/form-data">
+
+
+<div id="recipient-form" onkeyup="showUsers()" method="POST">  
+      Enter who you would like to send a Message to:
+      <br/>
+      <textarea name="text" id="recipient-input" value=""></textarea>
+      
+      <div id="possible-users" class="hidden"> </div>
+</div>
+
+    <br/>
+
+    <form id="message-form"  method="POST" enctype="multipart/form-data" onclick="fetchImageUploadUrlAndShowForm()">
+      Enter a new message:
+      <br/>
+      <textarea name="text" id="message-input"></textarea>
+      <br/>
+      Add an image to your message:
+      <input type="file" name="image">
+      <br/>
+    <input type="submit" value="Submit">
+    </form> 
+
+<!--     
+This is going to be the refactoring of the code to stop using fetch for everything
+<form id="message-form"  method="GET" enctype="multipart/form-data" action = "/image-upload-url"> 
+      <div id="recipient-form" onkeyup="showUsers()">  
+        Enter who you would like to send a Message to:
+        <br/>
+        <textarea name="recipient" id="recipient-input" value=""></textarea>
+        <div id="possible-users" class="hidden"> </div>
+      </div>
+      <br/>
       Enter a new message:
       <br/>
       <textarea name="text" id="message-input"></textarea>
@@ -40,10 +72,10 @@ limitations under the License.
       <input type="file" name="image">
       <br/>
       <input type="submit" value="Submit">
-    </form>
+    </form> -->
 
     <div id="about-me-container">Loading...</div>
-      <div id="about-me-form">
+      <div id="about-me-form" class="hidden">
       <form action="/about" method="POST">
         <textarea name="about-me" placeholder="about me" rows=4 required></textarea>
         <br/>
