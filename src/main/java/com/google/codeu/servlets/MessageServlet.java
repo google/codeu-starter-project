@@ -141,7 +141,7 @@ public class MessageServlet extends HttpServlet {
     String textWithImagesReplaced = text.replaceAll(regex, replacement);
     String recipient = request.getParameter("recipient");
 
-    Message message = new Message(user, textWithImagesReplaced, recipient, "");
+    Message message = new Message(user, textWithImagesReplaced, recipient, "", "");
 
     if (blobKeys != null && !blobKeys.isEmpty()) {
       BlobKey blobKey = blobKeys.get(0);
