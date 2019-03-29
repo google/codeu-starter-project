@@ -70,7 +70,7 @@ public class Datastore {
     if (message.getImageUrl() != null) {
       messageEntity.setProperty("imageUrl", message.getImageUrl());
     }
-    if (message.getImageLabels() != null){
+    if (message.getImageLabels() != null) {
       messageEntity.setProperty("imageLabels", message.getImageLabels());
     }
     datastore.put(messageEntity);
@@ -79,7 +79,7 @@ public class Datastore {
   /**
    * Gets messages posted by a specific user or all users.
    *
-   * @param  user  specific username to fetch the message,
+   * @param  recipient  specific username to fetch the message,
    *     or "all", case insensitive, to fetch all messages
    * @return  a list of messages posted by the user(all users), or empty list if user(everyone)
    *     has never posted a message. List is sorted by time descending.
