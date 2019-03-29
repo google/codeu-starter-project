@@ -184,6 +184,7 @@ public class Datastore {
     
     Entity profileEntity = new Entity("Profile", profile.getEmail(), user);
     profileEntity.setProperty("email", profile.getEmail());
+    profileEntity.setProperty("name", profile.getName());
     profileEntity.setProperty("phone", profile.getPhone());
     profileEntity.setProperty("schedule", profile.getSchedule());
     datastore.put(profileEntity);

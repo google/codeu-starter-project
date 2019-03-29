@@ -41,8 +41,7 @@ function showMessageFormIfViewingSelf() {
       if (loginStatus.isLoggedIn && loginStatus.username == parameterUsername) {
         const messageForm = document.getElementById("message-form");
         messageForm.classList.remove("hidden");
-        //Ask Travis about this:
-        document.getElementById("profile").classList.remove("hidden");
+        document.getElementById("profile");
       }
     });
 }
@@ -108,7 +107,8 @@ function fetchProfile() {
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
 
-      profileContainer.innerHTML = `Email: ${profile.email || ''} Phone: ${profile.phone || ''}`;
+      //profileContainer.innerHTML = `Name: ${profile.name || ''} Phone: ${profile.phone || ''} Schedule: ${profile.schedule || ''}`;
+      profileContainer.innerHTML = `Email: ${profile.email || ''}`;
     });
 }
 
