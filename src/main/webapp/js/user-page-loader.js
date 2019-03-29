@@ -107,8 +107,7 @@ function fetchProfile() {
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
 
-      //profileContainer.innerHTML = `Name: ${profile.name || ''} Phone: ${profile.phone || ''} Schedule: ${profile.schedule || ''}`;
-      profileContainer.innerHTML = `Email: ${profile.email || ''}`;
+      profileContainer.innerHTML = `Name: ${profile.name || ''} Phone: ${profile.phone || ''} Schedule: ${profile.schedule || ''}`;
     });
 }
 
