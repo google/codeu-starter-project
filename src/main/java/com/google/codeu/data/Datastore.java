@@ -185,6 +185,7 @@ public class Datastore {
     Entity profileEntity = new Entity("Profile", profile.getEmail(), user);
     profileEntity.setProperty("email", profile.getEmail());
     profileEntity.setProperty("name", profile.getName());
+    profileEntity.setProperty("location", profile.getLocation());
     profileEntity.setProperty("phone", profile.getPhone());
     profileEntity.setProperty("schedule", profile.getSchedule());
     datastore.put(profileEntity);
@@ -219,8 +220,8 @@ public class Datastore {
     }
 
     Profile profile = new Profile((String) profileEntity.getProperty("email"),
-        (String) profileEntity.getProperty("name"), (String) profileEntity.getProperty("phone"),
-        (String) profileEntity.getProperty("schedule"));
+        (String) profileEntity.getProperty("name"), (String) profileEntity.getProperty("location"),
+        (String) profileEntity.getProperty("phone"),(String) profileEntity.getProperty("schedule"));
 
     return profile;   
   }

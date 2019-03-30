@@ -4,14 +4,16 @@ public class Profile {
 
   private String email;
   private String name;
+  private String location;
   private String phone;
   private String schedule;
 
   public Profile() {
   }
 
-  public Profile(String email, String name, String phone, String schedule) {
+  public Profile(String email, String name, String location, String phone, String schedule) {
     this.email = email;
+    this.location = location;
     this.name = name;
     this.phone = phone;
     this.schedule = schedule;
@@ -31,5 +33,9 @@ public class Profile {
   
   public String getSchedule() {
     return schedule;
+  }
+  
+  public String getLocation() {
+    return location;
   }
 }

@@ -15,9 +15,13 @@
       </form>
     </div> -->
     
-    <form action="/profile" method="POST">
+    <form action="/profile" method="POST" enctype="multipart/form-data">
       Name:<br>
       <input type="text" name="name"><br>
+      Upload Profile Picture:<br>
+      <input type="file" name="profile_pic">
+      Location (City, State):<br>
+      <input type="text" name="location"><br>
       Phone Number:<br>
       <input type="text" name="phone"><br>
       Schedule:<br>
