@@ -70,13 +70,16 @@ public class Datastore {
     if (message.getImageUrl() != null) {
       messageEntity.setProperty("imageUrl", message.getImageUrl());
     }
+    if (message.getImageLabels() != null) {
+      messageEntity.setProperty("imageLabels", message.getImageLabels());
+    }
     datastore.put(messageEntity);
   }
 
   /**
    * Gets messages posted by a specific user or all users.
    *
-   * @param  user  specific username to fetch the message,
+   * @param  recipient  specific username to fetch the message,
    *     or "all", case insensitive, to fetch all messages
    * @return  a list of messages posted by the user(all users), or empty list if user(everyone)
    *     has never posted a message. List is sorted by time descending.
@@ -100,7 +103,8 @@ public class Datastore {
         long timestamp = (long) entity.getProperty("timestamp");
         //String recipient = (String) entity.getProperty("recipient"); // Add recipient
         String imageUrl = (String) entity.getProperty("imageUrl");
-        Message message = new Message(id, user, text, timestamp, recipient, imageUrl);
+        String imageLabels = (String) entity.getProperty("imageLabels");
+        Message message = new Message(id, user, text, timestamp, recipient, imageUrl, imageLabels);
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");

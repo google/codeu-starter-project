@@ -22,6 +22,7 @@ import java.util.UUID;
 public class Message {
   private String recipient;
   private String imageUrl;
+  private String imageLabels;
   private UUID id;
   private String user;
   private String text;
@@ -31,8 +32,9 @@ public class Message {
    * Constructs a new {@link Message} posted by {@code user} with {@code text} content. Generates a
    * random ID and uses the current system time for the creation time.
    */
-  public Message(String user, String text, String recipient, String imageUrl) {
-    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, imageUrl);
+  public Message(String user, String text, String recipient, String imageUrl, String imageLabels) {
+    this(UUID.randomUUID(), user, text, System.currentTimeMillis(), 
+        recipient, imageUrl, imageLabels);
   }
 
 
@@ -41,17 +43,23 @@ public class Message {
    * Sets the private variables to the values taken in from the parameters.
    */
   public Message(UUID id, String user, String text,
-      long timestamp, String recipient, String imageUrl) {
+      long timestamp, String recipient, String imageUrl, String imageLabels) {
     this.id = id;
     this.user = user;
     this.text = text;
     this.timestamp = timestamp;
     this.recipient = recipient;
     this.imageUrl = imageUrl;
+    this.imageLabels = imageLabels;
   }
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+    return;
+  }
+
+  public void setImageLabels(String imageLabels) {
+    this.imageLabels = imageLabels;
     return;
   }
 
@@ -78,6 +86,10 @@ public class Message {
   /* Gets the text private member variable */
   public String getImageUrl() {
     return imageUrl;
+  }
+
+  public String getImageLabels() {
+    return imageLabels;
   }
 
   /* Set the text private member variable */
