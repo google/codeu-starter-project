@@ -147,6 +147,7 @@ function showMessageFormIfLoggedIn() {
 }
 
 function fetchImageUploadUrlAndShowForm() {
+  console.log("in here");
   const contents = document.getElementById("recipient-input");
   email = contents.value;
   if (email == ""){
@@ -164,12 +165,12 @@ function fetchImageUploadUrlAndShowForm() {
 
 /** Fetches messages and add them to the page. */
 function fetchMessages() {
-  const parameterLanguage = urlParams.get('language');
-  let url = '/messages?user=' + parameterUsername;
-  if(parameterLanguage) {
-    url += '&language=' + parameterLanguage;
-  }
-  //const url = '/messages?user=' + parameterUsername;
+  // const parameterLanguage = urlParams.get('language');
+  // let url = '/messages?user=' + parameterUsername;
+  // if(parameterLanguage) {
+  //   url += '&language=' + parameterLanguage;
+  // }
+  url = '/messages?user=' + parameterUsername;
   fetch(url)
       .then((response) => {
         return response.json();
