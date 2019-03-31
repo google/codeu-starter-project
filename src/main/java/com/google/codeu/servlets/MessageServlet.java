@@ -84,44 +84,50 @@ public class MessageServlet extends HttpServlet {
       return;
     }
 
-    String targetLanguageCode = request.getParameter("language");
+    List<Message> messages = datastore.getMessages(user);
+    Gson gson = new Gson();
+    String json = gson.toJson(messages);
 
-    if(targetLanguageCode != null) {
-      translateMessages(messages, targetLanguageCode);
-    }
+    response.getWriter().println(json);
+
+    // String targetLanguageCode = request.getParameter("language");
+    //this code wasnt working so i had to change it a bit
+    // if(targetLanguageCode != null) {
+    //   translateMessages(messages, targetLanguageCode);
+    // }
     
   }
-  private void translateMessages(List<Message> messages, String targetLanguageCode) {
-  Translate translate = TranslateOptions.getDefaultInstance().getService();
+//   private void translateMessages(List<Message> messages, String targetLanguageCode) {
+//   Translate translate = TranslateOptions.getDefaultInstance().getService();
 
-  for(Message message : messages) {
-    String originalText = message.getText();
+//   for(Message message : messages) {
+//     String originalText = message.getText();
 
-    Translation translation =
-        translate.translate(originalText, TranslateOption.targetLanguage(targetLanguageCode));
-    String translatedText = translation.getTranslatedText();
+//     Translation translation =
+//         translate.translate(originalText, TranslateOption.targetLanguage(targetLanguageCode));
+//     String translatedText = translation.getTranslatedText();
       
-    message.setText(translatedText);
-  }  
-  List<Message> messages = datastore.getMessages(user);
-  Gson gson = new Gson();
-  String json = gson.toJson(messages);
+//     message.setText(translatedText);
+//   }  
+//   List<Message> messages = datastore.getMessages(user);
+//   Gson gson = new Gson();
+//   String json = gson.toJson(messages);
 
-  response.getWriter().println(json);
-}
+//   response.getWriter().println(json);
+// }
 
 
 
-  private double getSentimentScore(String text) throws IOException {
-  Document doc = Document.newBuilder()
-      .setContent(text).setType(Type.PLAIN_TEXT).build();
+//   private double getSentimentScore(String text) throws IOException {
+//   Document doc = Document.newBuilder()
+//       .setContent(text).setType(Type.PLAIN_TEXT).build();
 
-  LanguageServiceClient languageService = LanguageServiceClient.create();
-  Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-  languageService.close();
+//   LanguageServiceClient languageService = LanguageServiceClient.create();
+//   Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+//   languageService.close();
 
-  return (double) sentiment.getScore();
-}
+//   return (double) sentiment.getScore();
+// }
 
 
   /** Stores a new {@link Message}. */
@@ -141,8 +147,8 @@ public class MessageServlet extends HttpServlet {
     String replacement = "<img src=\"$1\" />";
     String textWithImagesReplaced = userText.replaceAll(regex, replacement);
     
-    double sentimentScore = getSentimentScore(textWithImagesReplaced);
-    Message message = new Message(user, textWithImagesReplaced, recipient, sentimentScore);
+    //double sentimentScore = getSentimentScore(textWithImagesReplaced);
+    Message message = new Message(user, textWithImagesReplaced, recipient, 0);
 
 
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();

@@ -112,12 +112,19 @@ public List<Message> getMessages(String recipient) {
 
       String text = (String) entity.getProperty("text");
       long timestamp = (long) entity.getProperty("timestamp");
-      double sentimentScore = (double) entity.getProperty("sentimentScore");
+      //double sentimentScore = (double) entity.getProperty("sentimentScore");
+      //System.out.println(sentimentScore);
       //String recipient = (String) entity.getProperty("recipient");
-
-      Message message = new Message(id, user, text, timestamp, recipient, sentimentScore);
-      
       String imageUrl = (String) entity.getProperty("imageUrl");
+      // double sentimentScore;
+      //  if (imageUrl == ""){
+      //    sentimentScore = (double) entity.getProperty("sentimentScore");
+      // } else{ 
+      //    sentimentScore = 0;
+      // }
+
+      Message message = new Message(id, user, text, timestamp, recipient, 0);
+      
 
       if (imageUrl != null){
         message.setImageUrl(imageUrl);
