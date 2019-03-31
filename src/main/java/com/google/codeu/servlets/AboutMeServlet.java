@@ -1,7 +1,8 @@
 package com.google.codeu.servlets;
 
 import java.io.IOException;
-
+import org.jsoup.*;
+import org.jsoup.safety.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import com.google.appengine.api.users.UserServiceFactory;
 import com.google.codeu.data.Datastore;
 import com.google.codeu.data.User;
 
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 /**
  * Handles fetching and saving user data.
  */

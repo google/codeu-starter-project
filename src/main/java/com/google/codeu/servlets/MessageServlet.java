@@ -29,6 +29,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.Translate.TranslateOption;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.Document.Type;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+
+import com.google.appengine.api.images.ImagesService;
+import com.google.appengine.api.images.ImagesServiceFactory;
+import com.google.appengine.api.images.ServingUrlOptions;
+
 
 /** Handles fetching and saving {@link Message} instances. */
 @WebServlet("/messages")
@@ -51,23 +77,56 @@ public class MessageServlet extends HttpServlet {
 
     String user = request.getParameter("user");
 
+
     if (user == null || user.equals("")) {
       // Request is invalid, return empty array
       response.getWriter().println("[]");
       return;
     }
 
-    List<Message> messages = datastore.getMessages(user);
-    Gson gson = new Gson();
-    String json = gson.toJson(messages);
+    String targetLanguageCode = request.getParameter("language");
 
-    response.getWriter().println(json);
+    if(targetLanguageCode != null) {
+      translateMessages(messages, targetLanguageCode);
+    }
+    
   }
+  private void translateMessages(List<Message> messages, String targetLanguageCode) {
+  Translate translate = TranslateOptions.getDefaultInstance().getService();
+
+  for(Message message : messages) {
+    String originalText = message.getText();
+
+    Translation translation =
+        translate.translate(originalText, TranslateOption.targetLanguage(targetLanguageCode));
+    String translatedText = translation.getTranslatedText();
+      
+    message.setText(translatedText);
+  }  
+  List<Message> messages = datastore.getMessages(user);
+  Gson gson = new Gson();
+  String json = gson.toJson(messages);
+
+  response.getWriter().println(json);
+}
+
+
+
+  private double getSentimentScore(String text) throws IOException {
+  Document doc = Document.newBuilder()
+      .setContent(text).setType(Type.PLAIN_TEXT).build();
+
+  LanguageServiceClient languageService = LanguageServiceClient.create();
+  Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+  languageService.close();
+
+  return (double) sentiment.getScore();
+}
+
 
   /** Stores a new {@link Message}. */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {
       response.sendRedirect("/index.html");
@@ -75,12 +134,37 @@ public class MessageServlet extends HttpServlet {
     }
 
     String user = userService.getCurrentUser().getEmail();
-    String text = Jsoup.clean(request.getParameter("text"), Whitelist.none());
     String recipient = request.getParameter("recipient");
+    String userText = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    
+    String regex = "(https?://\\S+\\.(png|jpg|gif))";
+    String replacement = "<img src=\"$1\" />";
+    String textWithImagesReplaced = userText.replaceAll(regex, replacement);
+    
+    double sentimentScore = getSentimentScore(textWithImagesReplaced);
+    Message message = new Message(user, textWithImagesReplaced, recipient, sentimentScore);
 
-    Message message = new Message(user, text, recipient);
+
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+    Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
+    List<BlobKey> blobKeys = blobs.get("image");
+
+    if(blobKeys != null && !blobKeys.isEmpty()) {
+      BlobKey blobKey = blobKeys.get(0);
+      ImagesService imagesService = ImagesServiceFactory.getImagesService();
+      ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);
+      String imageUrl = imagesService.getServingUrl(options);
+      if (imageUrl == null){
+        message.setImageUrl("");
+      } else {
+        message.setImageUrl(imageUrl);
+      }
+    } else {
+      message.setImageUrl("");
+    }
     datastore.storeMessage(message);
+    
+    response.sendRedirect("/user-page.html?user=" + user);
 
-    response.sendRedirect("/user-page.html?user=" + recipient);
   }
 }
