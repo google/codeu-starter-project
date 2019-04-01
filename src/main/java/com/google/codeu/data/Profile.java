@@ -13,7 +13,7 @@ public class Profile {
   public Profile() {
   }
 
-  /**String profilePicURL field redacted*/
+  /**String profilePicURL field redacted. */
   public Profile(String email, String name, Double latitude, 
       Double longitude, String phone, String schedule) {
     this.email = email;
