@@ -42,7 +42,7 @@ function showMessageFormIfLoggedIn() {
         const messageForm = document.getElementById("message-form");
         messageForm.classList.remove("hidden");
         document.getElementById("profile");
-        fetchImageUploadUrlAndShowForm();
+        //fetchImageUploadUrlAndShowForm();
       }
     });
 }
