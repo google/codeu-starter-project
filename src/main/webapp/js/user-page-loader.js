@@ -47,7 +47,7 @@ function showMessageFormIfLoggedIn() {
     });
 }
 
-function fetchImageUploadUrlAndShowForm() {
+/*function fetchImageUploadUrlAndShowForm() {
   fetch("/image-upload-url")
     .then(response => {
       return response.text();
@@ -58,7 +58,7 @@ function fetchImageUploadUrlAndShowForm() {
       messageForm.classList.remove("hidden");
       document.getElementById("recipientInput").value = parameterUsername;
     });
-}
+}*/
 
 /** Fetches messages and add them to the page. */
 function fetchMessages() {
