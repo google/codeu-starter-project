@@ -26,6 +26,7 @@ import org.jsoup.safety.Whitelist;
  * Handles fetching and saving user data.
  */
 @WebServlet("/profile")
+
 public class ProfileServlet extends HttpServlet {
 
   private Datastore datastore;

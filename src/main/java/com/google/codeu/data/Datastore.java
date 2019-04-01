@@ -166,9 +166,6 @@ public class Datastore {
 
   }
 
-
-
-  /* About me Section */
   /** Stores the User in Datastore. */
   public void storeUser(User user) {
     Entity userEntity = new Entity("User", user.getEmail());
@@ -179,6 +176,7 @@ public class Datastore {
     datastore.put(profileEntity);
   }
   
+  /*Stores the Profile in Datastore. */
   public void storeProfile(Profile profile) {
     Key user = KeyFactory.createKey("User", profile.getEmail());
     
@@ -212,7 +210,10 @@ public class Datastore {
 
     return user;
   }
-  
+  /**
+   * Returns the Profile owned by the email address, or
+   * null if no matching Profile was found.
+   */
   public Profile getProfile(String email) {
 
     Query query = new Query("Profile")
@@ -225,8 +226,11 @@ public class Datastore {
 
     // (String) profileEntity.getProperty("profilePicURL") redacted
     Profile profile = new Profile((String) profileEntity.getProperty("email"),
-        (String) profileEntity.getProperty("name"), (Double) profileEntity.getProperty("latitude"),
-        (Double) profileEntity.getProperty("longitude"),(String) profileEntity.getProperty("phone"),(String) profileEntity.getProperty("schedule"));
+        (String) profileEntity.getProperty("name"), 
+        (Double) profileEntity.getProperty("latitude"),
+        (Double) profileEntity.getProperty("longitude"),
+        (String) profileEntity.getProperty("phone"),(String) 
+        profileEntity.getProperty("schedule"));
 
     return profile;   
   }
