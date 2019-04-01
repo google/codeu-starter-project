@@ -106,11 +106,13 @@ function fetchProfile() {
     })
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
-      
+
       //fetchAndShowProfilePic();
 
-      profileContainer.innerHTML = `Name: ${profile.name || ''} Latitude: ${profile.latitude || ''} Longitude:  ${profile.longitude || ''}  Phone: ${profile.phone || ''} Schedule: ${profile.schedule || ''}`;
-      
+      profileContainer.innerHTML = `Name: ${profile.name ||
+        ""} Latitude: ${profile.latitude ||
+        ""} Longitude:  ${profile.longitude || ""}  Phone: ${profile.phone ||
+        ""} Schedule: ${profile.schedule || ""}`;
     });
 }
 
@@ -124,7 +126,6 @@ function fetchProfile() {
 	        messageForm.action = imageUploadUrl;
 	      });
 	}*/
-
 
 /** Fetches data and populates the UI of the page. */
 function buildUI() {
