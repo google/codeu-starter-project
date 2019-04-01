@@ -176,7 +176,7 @@ public class Datastore {
     datastore.put(profileEntity);
   }
   
-  /*Stores the Profile in Datastore. */
+  /**Stores the Profile in Datastore. */
   public void storeProfile(Profile profile) {
     Key user = KeyFactory.createKey("User", profile.getEmail());
     
@@ -210,10 +210,12 @@ public class Datastore {
 
     return user;
   }
+  
   /**
    * Returns the Profile owned by the email address, or
    * null if no matching Profile was found.
    */
+  
   public Profile getProfile(String email) {
 
     Query query = new Query("Profile")

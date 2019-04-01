@@ -14,7 +14,8 @@ public class Profile {
   }
 
   //String profilePicURL field redacted
-  public Profile(String email, String name, Double latitude, Double longitude, String phone, String schedule) {
+  public Profile(String email, String name, Double latitude, 
+      Double longitude, String phone, String schedule) {
     this.email = email;
     this.name = name;
     //this.profilePicURL = profilePicURL;
