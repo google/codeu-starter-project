@@ -147,14 +147,13 @@ function showMessageFormIfLoggedIn() {
 }
 
 function fetchImageUploadUrlAndShowForm() {
-  console.log("in here");
   const contents = document.getElementById("recipient-input");
   email = contents.value;
   if (email == ""){
     generateError();
     return;
   } 
-  fetch('/image-upload-url?recipient=' + email).then((response) => {
+  fetch('/image-upload-url?recipient=' + email + "&redirect=" + window.location.href).then((response) => {
         return response.text();
       })
       .then((imageUploadUrl) => {
