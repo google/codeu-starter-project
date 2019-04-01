@@ -26,6 +26,7 @@ public class Message {
   private String text;
   private long timestamp;
   private String recipient;
+  private String imageUrl;
   private float sentimentScore;
   private String messageCategories;
 
@@ -43,13 +44,16 @@ public class Message {
   public Message(String user, String text, String recipient, 
       float sentimentScore, String messageCategories) {
     this(UUID.randomUUID(), user, text, System.currentTimeMillis(), recipient, sentimentScore, 
-        messageCategories);
+        messageCategories, null);
   }
-
+  
   /**
    * Constructs a new {@link Message} posted by {@code user}, of the given 
    * {@code UUID} at the given {@code timestamp}, with {@code text} content,
-   * and with the given {@code recipient}.
+   * and with the given {@code recipient}. Image in {@code this} message is
+   * found at the given 'imageUrl', if any, otherwise it must be null. The message
+   * is also constructed with the given sentiment score from a sentiment analysis 
+   * of the message, and with a given category for type of message.
    * @param id The ID of the user sending {@code this} message
    * @param user The user posting {@code this} message
    * @param text The content of {@code this} message
@@ -58,9 +62,10 @@ public class Message {
    * @param recipient The recipient of {@code this} message
    * @param sentimentScore The score returned by Sentiment Analysis of the message
    * @param messageCategories The categories detected in the message
+   * @param imageUrl The url of the image in this message, if any, otherwise set null
    */
   public Message(UUID id, String user, String text, long timestamp, String recipient, 
-      float sentimentScore, String messageCategories) {
+                 float sentimentScore, String messageCategories, String imageUrl) {
     this.id = id;
     this.user = user;
     this.text = text;
@@ -68,6 +73,7 @@ public class Message {
     this.recipient = recipient;
     this.sentimentScore = sentimentScore;
     this.messageCategories = messageCategories;
+    this.imageUrl = imageUrl;
   }
 
   public UUID getId() {
@@ -90,11 +96,19 @@ public class Message {
     return recipient;
   }
   
+  public String getImageUrl() {
+    return imageUrl;
+  }
+
   public float getSentimentScore() {
     return sentimentScore;
   }
   
   public String getMessageCategories() {
     return messageCategories;
+  }
+  
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;  
   }
 }

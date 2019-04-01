@@ -50,6 +50,7 @@ public class Datastore {
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
+    messageEntity.setProperty("imageUrl", message.getImageUrl());
     messageEntity.setProperty("sentimentScore", message.getSentimentScore());
     
     //If there are more than 20 words, perform content classification
@@ -63,7 +64,6 @@ public class Datastore {
         category = category.trim();
         category = category.replace("[", "");
         category = category.replaceAll("]", "");
-
         if (!messageCategoryCount.containsKey(category)) {
           messageCategoryCount.put(category, 1);
         } else {
@@ -130,22 +130,24 @@ public class Datastore {
 
         UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
+        String recipient = (String) entity.getProperty("recipient");
+        String imageUrl = (String) entity.getProperty("imageUrl");
+        
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
-        String recipient = (String) entity.getProperty("recipient"); 
         // sentimentScore casted to Double from float first to avoid it being saved as a 0
         float sentimentScore = entity.getProperty("sentimentScore") == null ? (float) 0.0 : 
             ((Double) entity.getProperty("sentimentScore")).floatValue();
         String messageCategories = (String) entity.getProperty("messageCategories");         
 
         // Replace all image URLS in message with proper image HTML tags
-        String regex = "(https?://([^\\s.]+.?[^\\s.]*)+/[^\\s.]+.(png|jpg))";
+        String regex = "(https?://\\S+\\.(png|jpg))";
         String replacement = "<img src=\"$1\" />";
         String textWithImagesReplaced = text.replaceAll(regex, replacement);
 
         Message message = new Message(id, user, textWithImagesReplaced, timestamp, 
-            recipient, sentimentScore, messageCategories);
-
+            recipient, sentimentScore, messageCategories, imageUrl);
+        
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
