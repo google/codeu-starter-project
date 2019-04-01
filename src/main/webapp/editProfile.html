@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Your Profile</title>
+</head>
+<body>
+    <!--original new about me section
+    <div id="about-me-container">Loading...</div>
+    <div id="about-me-form" class="hidden">
+      <form action="/about" method="POST">
+        <textarea name="about-me" placeholder="about me" rows=4 required></textarea>
+        <br/>
+        <input type="submit" value="Submit">
+      </form>
+    </div> -->
+    
+    <!-- id = "profile-form" enctype="multipart/form-data" redacted -->
+    <form action="/profile" method="POST">
+      Name:<br>
+      <input type="text" name="name"><br><br>
+      <!--Upload Profile Picture:<br>
+      <input type="file" name="profile_pic"><br><br>-->
+      <!--Location Latitude:<br>
+      <input type="text" name ="latitude"><br><br>
+      Location Longitude:<br>
+      <input type="text" name="longitutde"><br><br>-->
+      Phone Number:<br>
+      <input type="text" name="phone"><br><br>
+      Schedule:<br>
+      <textarea name="schedule" placeholder="A description of your schedule here..." rows=10 required></textarea><br><br>
+      <br><input type="submit" value="Save changes">
+    </form>
+      
+</body>
+</html>

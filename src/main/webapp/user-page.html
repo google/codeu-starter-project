@@ -31,7 +31,7 @@ limitations under the License.
     </nav>
     <h1 id="page-title">User Page</h1>
 
-    <!--new about me section-->
+    <!--original new about me section
     <div id="about-me-container">Loading...</div>
     <div id="about-me-form" class="hidden">
       <form action="/about" method="POST">
@@ -39,17 +39,23 @@ limitations under the License.
         <br/>
         <input type="submit" value="Submit">
       </form>
-    </div>
-
-    <form id="message-form" action="/messages" method="POST" class="hidden" enctype="multipart/form-data">
+    </div> -->
+    
+    <!-- add view profile section, !!HELP!!  -->
+    <!-- <div id="about-me-container">Loading...</div> -->
+    
+	<div id="profile-container">Loading...</div>
+	<nav>
+      <ul id="navigation">
+        <li><a href="/editProfile.html">Edit your profile.</a></li>
+      </ul>
+    </nav>
+	
+    <form id="message-form" action="/messages" method="POST" class="hidden">
       Enter a new message:
       <br/>
       <textarea name="text" id="message-input"></textarea>
       <br/>
-      Add an image to your message:
-      <input type="file" name="image">
-      <br/>
-      <input type="hidden" value="" name="recipient" id="recipientInput">
       <input type="submit" value="Submit">
     </form>
     <hr/>

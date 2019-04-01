@@ -38,16 +38,16 @@ function showMessageFormIfLoggedIn() {
       return response.json();
     })
     .then(loginStatus => {
-      if (loginStatus.isLoggedIn) {
-        if (loginStatus.username == parameterUsername) {
-          document.getElementById("about-me-form").classList.remove("hidden");
-        }
-        fetchImageUploadUrlAndShowForm();
+      if (loginStatus.isLoggedIn && loginStatus.username == parameterUsername) {
+        const messageForm = document.getElementById("message-form");
+        messageForm.classList.remove("hidden");
+        document.getElementById("profile");
+        //fetchImageUploadUrlAndShowForm();
       }
     });
 }
 
-function fetchImageUploadUrlAndShowForm() {
+/*function fetchImageUploadUrlAndShowForm() {
   fetch("/image-upload-url")
     .then(response => {
       return response.text();
@@ -58,7 +58,7 @@ function fetchImageUploadUrlAndShowForm() {
       messageForm.classList.remove("hidden");
       document.getElementById("recipientInput").value = parameterUsername;
     });
-}
+}*/
 
 /** Fetches messages and add them to the page. */
 function fetchMessages() {
@@ -116,25 +116,39 @@ function buildMessageDiv(message) {
   return messageDiv;
 }
 
-function fetchAboutMe() {
-  const url = "/about?user=" + parameterUsername;
+function fetchProfile() {
+  const url = "/profile?user=" + parameterUsername;
   fetch(url)
     .then(response => {
-      return response.text();
+      return response.json();
     })
-    .then(aboutMe => {
-      const aboutMeContainer = document.getElementById("about-me-container");
-      if (aboutMe == "") {
-        aboutMe = "This user has not entered any information yet.";
-      }
-      aboutMeContainer.innerHTML = aboutMe;
+    .then(profile => {
+      const profileContainer = document.getElementById("profile-container");
+
+      //fetchAndShowProfilePic();
+
+      profileContainer.innerHTML = `Name: ${profile.name ||
+        ""} Latitude: ${profile.latitude ||
+        ""} Longitude:  ${profile.longitude || ""}  Phone: ${profile.phone ||
+        ""} Schedule: ${profile.schedule || ""}`;
     });
 }
+
+/*function fetchAndShowProfilePic() {
+	  fetch('/image-upload-url')
+	      .then((response) => {
+	        return response.text();
+	      })
+	      .then((imageUploadUrl) => {
+	        const messageForm = document.getElementById('profile-form');
+	        messageForm.action = imageUploadUrl;
+	      });
+	}*/
 
 /** Fetches data and populates the UI of the page. */
 function buildUI() {
   setPageTitle();
   showMessageFormIfLoggedIn();
   fetchMessages();
-  fetchAboutMe();
+  fetchProfile();
 }
