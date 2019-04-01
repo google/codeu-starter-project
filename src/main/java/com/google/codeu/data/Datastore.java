@@ -185,7 +185,11 @@ public class Datastore {
     Entity profileEntity = new Entity("Profile", profile.getEmail(), user);
     profileEntity.setProperty("email", profile.getEmail());
     profileEntity.setProperty("name", profile.getName());
-    profileEntity.setProperty("location", profile.getLocation());
+    /*if(profile.getProfilePicURL() != null) {
+      profileEntity.setProperty("profile_pic", profile.getProfilePicURL());
+    }*/
+    profileEntity.setProperty("latitude", profile.getLatitude());
+    profileEntity.setProperty("longitude", profile.getLongitude());
     profileEntity.setProperty("phone", profile.getPhone());
     profileEntity.setProperty("schedule", profile.getSchedule());
     datastore.put(profileEntity);
@@ -219,9 +223,10 @@ public class Datastore {
       return null;
     }
 
+    // (String) profileEntity.getProperty("profilePicURL") redacted
     Profile profile = new Profile((String) profileEntity.getProperty("email"),
-        (String) profileEntity.getProperty("name"), (String) profileEntity.getProperty("location"),
-        (String) profileEntity.getProperty("phone"),(String) profileEntity.getProperty("schedule"));
+        (String) profileEntity.getProperty("name"), (Double) profileEntity.getProperty("latitude"),
+        (Double) profileEntity.getProperty("longitude"),(String) profileEntity.getProperty("phone"),(String) profileEntity.getProperty("schedule"));
 
     return profile;   
   }

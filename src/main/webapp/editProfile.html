@@ -15,17 +15,20 @@
       </form>
     </div> -->
     
-    <form action="/profile" method="POST" enctype="multipart/form-data">
+    <!-- id = "profile-form" enctype="multipart/form-data" redacted -->
+    <form action="/profile" method="POST">
       Name:<br>
-      <input type="text" name="name"><br>
-      Upload Profile Picture:<br>
-      <input type="file" name="profile_pic">
-      Location (City, State):<br>
-      <input type="text" name="location"><br>
+      <input type="text" name="name"><br><br>
+      <!--Upload Profile Picture:<br>
+      <input type="file" name="profile_pic"><br><br>-->
+      <!--Location Latitude:<br>
+      <input type="text" name ="latitude"><br><br>
+      Location Longitude:<br>
+      <input type="text" name="longitutde"><br><br>-->
       Phone Number:<br>
-      <input type="text" name="phone"><br>
+      <input type="text" name="phone"><br><br>
       Schedule:<br>
-      <textarea name="schedule" placeholder="A description of your schedule here..." rows=10 required></textarea><br>
+      <textarea name="schedule" placeholder="A description of your schedule here..." rows=10 required></textarea><br><br>
       <br><input type="submit" value="Save changes">
     </form>
       

@@ -106,10 +106,25 @@ function fetchProfile() {
     })
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
+      
+      //fetchAndShowProfilePic();
 
-      profileContainer.innerHTML = `Name: ${profile.name || ''} Location: ${profile.location || ''} Phone: ${profile.phone || ''} Schedule: ${profile.schedule || ''}`;
+      profileContainer.innerHTML = `Name: ${profile.name || ''} Latitude: ${profile.latitude || ''} Longitude:  ${profile.longitude || ''}  Phone: ${profile.phone || ''} Schedule: ${profile.schedule || ''}`;
+      
     });
 }
+
+/*function fetchAndShowProfilePic() {
+	  fetch('/image-upload-url')
+	      .then((response) => {
+	        return response.text();
+	      })
+	      .then((imageUploadUrl) => {
+	        const messageForm = document.getElementById('profile-form');
+	        messageForm.action = imageUploadUrl;
+	      });
+	}*/
+
 
 /** Fetches data and populates the UI of the page. */
 function buildUI() {
