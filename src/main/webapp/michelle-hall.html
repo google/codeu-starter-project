@@ -1,0 +1,70 @@
+<!--
+Copyright 2019 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Page</title>
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="/css/main.css">
+      <link rel="stylesheet" href="/css/hall-page.css">
+      <script src="/js/dorm-hall-loader.js"></script>
+    </head>
+    <body onload="buildUI();">
+      <nav>
+        <ul id="navigation">
+          <li><a href="/">Home</a></li>
+      </nav>
+    <h1 id="page-title">Michelle Hall</h1>
+
+
+
+<form id="message-form"  method="POST" enctype="multipart/form-data" >
+      Enter a new message:
+      <br/>
+      <textarea name="text" id="message-input"></textarea>
+      <br/>
+      Add an image to your message:
+      <input type="file" name="image">
+      <br/>
+    <input type="submit" value="Submit">
+</form> 
+
+<!--     
+This is going to be the refactoring of the code to stop using fetch for everything
+<form id="message-form"  method="GET" enctype="multipart/form-data" action = "/image-upload-url"> 
+      <div id="recipient-form" onkeyup="showUsers()">  
+        Enter who you would like to send a Message to:
+        <br/>
+        <textarea name="recipient" id="recipient-input" value=""></textarea>
+        <div id="possible-users" class="hidden"> </div>
+      </div>
+      <br/>
+      Enter a new message:
+      <br/>
+      <textarea name="text" id="message-input"></textarea>
+      <br/>
+      Add an image to your message:
+      <input type="file" name="image">
+      <br/>
+      <input type="submit" value="Submit">
+    </form> -->
+
+
+    <div id="message-container">Loading...</div>
+
+  </body>
+</html>
