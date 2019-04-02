@@ -20,6 +20,8 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
@@ -48,6 +50,7 @@ public class Datastore {
     messageEntity.setProperty("text", message.getText());
     messageEntity.setProperty("timestamp", message.getTimestamp());
     messageEntity.setProperty("recipient", message.getRecipient());
+    messageEntity.setProperty("imageUrl", message.getImageUrl());
     messageEntity.setProperty("sentimentScore", message.getSentimentScore());
     
     //If there are more than 20 words, perform content classification
@@ -61,7 +64,6 @@ public class Datastore {
         category = category.trim();
         category = category.replace("[", "");
         category = category.replaceAll("]", "");
-
         if (!messageCategoryCount.containsKey(category)) {
           messageCategoryCount.put(category, 1);
         } else {
@@ -128,22 +130,24 @@ public class Datastore {
 
         UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
+        String recipient = (String) entity.getProperty("recipient");
+        String imageUrl = (String) entity.getProperty("imageUrl");
+        
         String text = (String) entity.getProperty("text");
         long timestamp = (long) entity.getProperty("timestamp");
-        String recipient = (String) entity.getProperty("recipient"); 
         // sentimentScore casted to Double from float first to avoid it being saved as a 0
         float sentimentScore = entity.getProperty("sentimentScore") == null ? (float) 0.0 : 
             ((Double) entity.getProperty("sentimentScore")).floatValue();
         String messageCategories = (String) entity.getProperty("messageCategories");         
 
         // Replace all image URLS in message with proper image HTML tags
-        String regex = "(https?://([^\\s.]+.?[^\\s.]*)+/[^\\s.]+.(png|jpg))";
+        String regex = "(https?://\\S+\\.(png|jpg))";
         String replacement = "<img src=\"$1\" />";
         String textWithImagesReplaced = text.replaceAll(regex, replacement);
 
         Message message = new Message(id, user, textWithImagesReplaced, timestamp, 
-            recipient, sentimentScore, messageCategories);
-
+            recipient, sentimentScore, messageCategories, imageUrl);
+        
         messages.add(message);
       } catch (Exception e) {
         System.err.println("Error reading message.");
@@ -164,17 +168,32 @@ public class Datastore {
 
   }
 
-
-
-  /* About me Section */
   /** Stores the User in Datastore. */
   public void storeUser(User user) {
     Entity userEntity = new Entity("User", user.getEmail());
     userEntity.setProperty("email", user.getEmail());
-    userEntity.setProperty("aboutMe", user.getAboutMe());
-    datastore.put(userEntity);
+    
+    Entity profileEntity = new Entity("Profile", user.getEmail(), userEntity.getKey());
+    profileEntity.setProperty("email", user.getEmail());
+    datastore.put(profileEntity);
   }
-
+  
+  /**Stores the Profile in Datastore. */
+  public void storeProfile(Profile profile) {
+    Key user = KeyFactory.createKey("User", profile.getEmail());
+    
+    Entity profileEntity = new Entity("Profile", profile.getEmail(), user);
+    profileEntity.setProperty("email", profile.getEmail());
+    profileEntity.setProperty("name", profile.getName());
+    /*if(profile.getProfilePicURL() != null) {
+      profileEntity.setProperty("profile_pic", profile.getProfilePicURL());
+    }*/
+    profileEntity.setProperty("latitude", profile.getLatitude());
+    profileEntity.setProperty("longitude", profile.getLongitude());
+    profileEntity.setProperty("phone", profile.getPhone());
+    profileEntity.setProperty("schedule", profile.getSchedule());
+    datastore.put(profileEntity);
+  }
   /**
    * Returns the User owned by the email address, or
    * null if no matching User was found.
@@ -189,10 +208,35 @@ public class Datastore {
       return null;
     }
 
-    String aboutMe = (String) userEntity.getProperty("aboutMe");
-    User user = new User(email, aboutMe);
+    User user = new User(email);
 
     return user;
+  }
+  
+  /**
+   * Returns the Profile owned by the email address, or
+   * null if no matching Profile was found.
+   */
+  
+  public Profile getProfile(String email) {
+
+    Query query = new Query("Profile")
+        .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
+    PreparedQuery results = datastore.prepare(query);
+    Entity profileEntity = results.asSingleEntity();
+    if (profileEntity == null) {
+      return null;
+    }
+
+    // (String) profileEntity.getProperty("profilePicURL") redacted
+    Profile profile = new Profile((String) profileEntity.getProperty("email"),
+        (String) profileEntity.getProperty("name"), 
+        (Double) profileEntity.getProperty("latitude"),
+        (Double) profileEntity.getProperty("longitude"),
+        (String) profileEntity.getProperty("phone"),(String) 
+        profileEntity.getProperty("schedule"));
+
+    return profile;   
   }
 
   /** Returns the longest message length of all users. */
