@@ -3,7 +3,7 @@ package com.google.codeu.data;
 public class Item {
 
   private String title;
-  private String price;
+  private Double price;
   private String email;
   private String description;
   // TODO: add image support
@@ -23,7 +23,7 @@ public class Item {
     return title;
   }
 
-  public String getPrice() {
+  public Double getPrice() {
     return price;
   }
   
