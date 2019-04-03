@@ -241,16 +241,16 @@ public class MessageServlet extends HttpServlet {
    * Translates messages based on a URL query parameter
    */
   private void translateMessages(List<Message> messages, String targetLanguageCode) {
-     Translate translate = TranslateOptions.getDefaultInstance().getService();
+    Translate translate = TranslateOptions.getDefaultInstance().getService();
 
-     for(Message message : messages) {
-       String originalText = message.getText();
+    for(Message message : messages) {
+      String originalText = message.getText();
 
-       Translation translation =
-           translate.translate(originalText, TranslateOption.targetLanguage(targetLanguageCode));
-       String translatedText = translation.getTranslatedText();
+      Translation translation =
+          translate.translate(originalText, TranslateOption.targetLanguage(targetLanguageCode));
+      String translatedText = translation.getTranslatedText();
 
-       message.setText(translatedText);
-     }
-   }
+      message.setText(translatedText);
+    }
+  }
  }
