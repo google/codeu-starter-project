@@ -84,6 +84,13 @@ function fetchMessages() {
           messagesContainer.appendChild(messageDiv);
         });
       });
+
+    // Add the query string parameter
+    const parameterLanguage = urlParams.get('language');
+    let url = '/messages?user=' + parameterUsername;
+    if(parameterLanguage) {
+      url += '&language=' + parameterLanguage;
+    }
 }
 
 /**
@@ -119,7 +126,7 @@ function buildMessageDiv(message) {
   return messageDiv;
 }
 
-/** Provides link to URL */
+/** Provides link to URL. */
 function buildLanguageLinks() {
   const userPageUrl = '/user-page.html?user=' + parameterUsername;
   const languagesListElement  = document.getElementById('languages');

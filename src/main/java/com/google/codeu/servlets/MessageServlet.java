@@ -115,6 +115,12 @@ public class MessageServlet extends HttpServlet {
 
     String json = gson.toJson(messages);
 
+    // Get the target language from the query string parameter and then call the helper function
+    String targetLanguageCode = request.getParameter("language");
+    if (targetLanguageCode != null) {
+      translateMessages(messages, targetLanguageCode);
+    }
+
     response.getWriter().println(json);
   }
 
