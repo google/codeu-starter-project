@@ -255,5 +255,6 @@ public class MessageServlet extends HttpServlet {
        String translatedText = translation.getTranslatedText();
 
        message.setText(translatedText);
-  }
-}
+     }
+   }
+ }
