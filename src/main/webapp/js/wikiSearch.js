@@ -3,31 +3,12 @@ function searchOnWiki(){
     return response.json();
   }).then((logos) => {
     const query = logos[0];
-    //var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-    //var xhr = new XMLHttpRequest();
     const url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' +
         query + '&limit=1&namespace=0&format=json&callback=handleSummary';
 
     var scpt = document.createElement("script");
     scpt.src = url;
     document.body.appendChild(scpt);
-
-    /*
-    xhr.open('GET', url);
-    xhr.send();
-
-    xhr.onreadystatechange = function () {
-      if(xhr.readyState === 4 && xhr.status === 200) {
-        var arr = JSON.parse(xhr.responseText);
-        displayLogoInfo(
-            arr[1][0],
-            arr[2][0],
-            arr[3][0],
-            )
-      }
-      else { infoNotFound(); }
-    };
-    */
   })
 }
 
