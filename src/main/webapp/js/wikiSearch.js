@@ -4,10 +4,15 @@ function searchOnWiki(){
   }).then((logos) => {
     const query = logos[0];
     //var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-    var xhr = new XMLHttpRequest();
+    //var xhr = new XMLHttpRequest();
     const url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' +
-        query + '&limit=1&namespace=0&format=json';
+        query + '&limit=1&namespace=0&format=json&callback=handleSummary';
 
+    var scpt = document.createElement("script");
+    scpt.src = url;
+    document.body.appendChild(scpt);
+
+    /*
     xhr.open('GET', url);
     xhr.send();
 
@@ -22,7 +27,15 @@ function searchOnWiki(){
       }
       else { infoNotFound(); }
     };
+    */
   })
+}
+
+function handleSummary(summary){
+  var name = summary[1][0];
+  var description = summary[2][0];
+  var link = summary[3][0];
+  displayLogoInfo(name, description, link);
 }
 
 function displayLogoInfo(name, description, link){
