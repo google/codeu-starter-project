@@ -12,6 +12,9 @@ function searchOnWiki(){
   })
 }
 
+/**
+ * The function that is called back by wikipedia api, with result stored as Json array.
+ */
 function handleSummary(summary){
   var name = summary[1][0];
   var description = summary[2][0];
@@ -28,11 +31,6 @@ function displayLogoInfo(name, description, link){
 
   const linkDiv = document.getElementById('logo-link');
   linkDiv.appendChild(document.createTextNode(link));
-}
-
-function infoNotFound(){
-  const nameDiv = document.getElementById('logo-name');
-  nameDiv.appendChild(document.createTextNode('Logo information not found'));
 }
 
 function buildInfoUI(){
