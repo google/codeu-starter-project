@@ -2,11 +2,16 @@
 <html>
   <head>
     <title>Logo Dectector</title>
-    <script src="js/user-map.js"></script>
     <link rel="stylesheet" href="css/home.css">
+    <script src="/js/wikiSearch.js"></script>
+    <script src="/js/user-map.js"></script>
   </head>
-  <body>
+  <body onload="buildInfoUI()">
    <h1>Welcome to the Logo Dectector!</h1>
    <h3>This is an application that recognizes logos from images and gives information about the logo/company.</h3>
+   <div id="logo-name"></div>
+   <div id="logo-description"></div>
+   <div id="logo-link"></div>
+   </div>
   </body>
 </html>
