@@ -142,6 +142,7 @@ public class MessageServlet extends HttpServlet {
     String user = userService.getCurrentUser().getEmail();
     String recipient = request.getParameter("recipient");
     String userText = Jsoup.clean(request.getParameter("text"), Whitelist.none());
+    String redirectLink = request.getParameter("redirect");
     
     String regex = "(https?://\\S+\\.(png|jpg|gif))";
     String replacement = "<img src=\"$1\" />";
@@ -170,7 +171,7 @@ public class MessageServlet extends HttpServlet {
     }
     datastore.storeMessage(message);
     
-    response.sendRedirect("/user-page.html?user=" + user);
+    response.sendRedirect(redirectLink);
 
   }
 }
