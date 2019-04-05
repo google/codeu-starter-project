@@ -3,7 +3,7 @@ function searchOnWiki(){
     return response.json();
   }).then((logos) => {
     const query = logos[0];
-    var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+    //var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     var xhr = new XMLHttpRequest();
     const url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' +
         query + '&limit=1&namespace=0&format=json';

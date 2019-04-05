@@ -15,14 +15,13 @@ public class LogoDetectServlet extends HttpServlet {
 
   @Override
   public void init() {
-    System.out.println("servlet init");
     this.logoArray = new JsonArray();
     this.logoArray.add("starbucks");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    System.out.println("doGet called.");
+    response.addHeader("Access-Control-Allow-Origin", "*");
     response.setContentType("application/json");
     response.getOutputStream().println(logoArray.toString());
   }
