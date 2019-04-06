@@ -16,7 +16,7 @@ function createMap(user_lat, user_lng, user_title) {
 
 function buildUI() {
   // placeholder for marker title
-  title = "";
+  var title = "";
   // fill form
   fetch("/item-data")
     .then(function(response) {
@@ -27,10 +27,9 @@ function buildUI() {
       descriptionContainer.innerHTML = item.description;
       const headerContainer = document.getElementById("item-header");
       headerContainer.innerHTML = item.title;
-      title = item.title;
+      var title = item.title;
       document.title = item.title + " - $" + item.price;
-      email = item.email;
-      const profile_url = "/profile" + "?user=" + email;
+      const profile_url = "/profile" + "?user=" item.email;
       return fetch(profile_url);
     })
     .then(function(response) {

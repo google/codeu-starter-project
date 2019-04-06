@@ -6,8 +6,10 @@ public class Item {
   private Double price;
   private String email;
   private String description;
-  // TODO: add image support
   
+  /* Item class. Stores information about a specific item posted by a user*/
+  // TODO: add image support
+
   public Item(String title, Double price, String email, String description) {
     this.title = title;
     this.price = price;
