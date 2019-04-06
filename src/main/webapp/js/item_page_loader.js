@@ -27,7 +27,7 @@ function buildUI() {
       descriptionContainer.innerHTML = item.description;
       const headerContainer = document.getElementById("item-header");
       headerContainer.innerHTML = item.title;
-      var title = item.title;
+      title = item.title;
       document.title = item.title + " - $" + item.price;
       const profile_url = "/profile" + "?user=" + item.email;
       return fetch(profile_url);
