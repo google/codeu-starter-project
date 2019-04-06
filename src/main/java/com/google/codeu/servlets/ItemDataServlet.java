@@ -3,6 +3,7 @@ package com.google.codeu.servlets;
 import com.google.gson.JsonElement;
 import com.google.api.client.json.Json;
 import com.google.appengine.repackaged.com.google.gson.JsonObject;
+import com.google.codeu.data.Item;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import java.io.IOException;
@@ -26,11 +27,11 @@ public class ItemDataServlet extends HttpServlet {
     // TODO: fetch these from DataStore for proper posting ( probably by some ID, title for now)
     String title = "1 Bedroom suite";
     String description = "Really cozy vibe. Includes hydro (sometimes, summer only)";
-    String author = "Evil corp.";
-    int price = 6000;
+    String email = "test@example.com";
+    Double price = 6000.0;
 
     // create an item
-    Item item = new Item(title, description, author, price);
+    Item item = new Item(title, price, email, description);
     // convert to JSON
     Gson gson = new Gson();
     itemJson = gson.toJsonTree(item);
@@ -39,20 +40,6 @@ public class ItemDataServlet extends HttpServlet {
     response.getOutputStream().println(itemJson.toString());
   }
 
-  // new private class to store item
-  private static class Item {
-    String title;
-    String description;
-    String author;
-    int price;
-
-    private Item(String title, String description, String author, int price) {
-      this.title = title;
-      this.description = description;
-      this.author = author;
-      this.price = price;
-    }
-  }
-
-
 }
+
+// TODO: Create doPost method to store new item (triggered when user posts an ad)
