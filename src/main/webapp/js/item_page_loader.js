@@ -7,7 +7,7 @@ function createMap(user_lat, user_lng, user_title) {
   });
 
   // add marker
-  const trexMarker = new google.maps.Marker({
+  const item_marker = new google.maps.Marker({
     position: { lat: user_lat, lng: user_lng },
     map: map,
     title: user_title
@@ -29,7 +29,7 @@ function buildUI() {
       headerContainer.innerHTML = item.title;
       var title = item.title;
       document.title = item.title + " - $" + item.price;
-      const profile_url = "/profile" + "?user=" item.email;
+      const profile_url = "/profile" + "?user=" + item.email;
       return fetch(profile_url);
     })
     .then(function(response) {
