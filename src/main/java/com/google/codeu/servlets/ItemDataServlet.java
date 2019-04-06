@@ -1,18 +1,13 @@
-import com.google.gson.JsonElement;
-import com.google.api.client.json.Json;
-import com.google.appengine.repackaged.com.google.gson.JsonObject;
+package com.google.codeu.servlets;
+
 import com.google.codeu.data.Item;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import java.io.IOException;
-import java.util.Scanner;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-package com.google.codeu.servlets;
-
 
 
 /**
