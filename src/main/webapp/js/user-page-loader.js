@@ -56,7 +56,7 @@ function fetchImageUploadUrlAndShowForm() {
       const messageForm = document.getElementById("message-form");
       messageForm.action = imageUploadUrl;
       messageForm.classList.remove("hidden");
-      document.getElementById("recipientInput").value = parameterUsername;
+      //document.getElementById("recipientInput").value = parameterUsername;
     });
 }
 
@@ -139,9 +139,10 @@ function fetchAndShowProfilePic() {
 	      .then((response) => {
 	        return response.text();
 	      })
-	      .then((imageUploadUrl) => {
-	        const messageForm = document.getElementById('profile-form');
-	        messageForm.action = imageUploadUrl;
+	      .then((profileURL) => {
+	        const profileForm = document.getElementById('profile-form');
+	        console.log(profileURL);
+	        //profileForm.action = profileURL;
 	      });
 	}
 
