@@ -42,12 +42,12 @@ function showMessageFormIfLoggedIn() {
         const messageForm = document.getElementById("message-form");
         messageForm.classList.remove("hidden");
         document.getElementById("profile");
-        //fetchImageUploadUrlAndShowForm();
+        fetchImageUploadUrlAndShowForm();
       }
     });
 }
 
-/*function fetchImageUploadUrlAndShowForm() {
+function fetchImageUploadUrlAndShowForm() {
   fetch("/image-upload-url")
     .then(response => {
       return response.text();
@@ -58,7 +58,7 @@ function showMessageFormIfLoggedIn() {
       messageForm.classList.remove("hidden");
       document.getElementById("recipientInput").value = parameterUsername;
     });
-}*/
+}
 
 /** Fetches messages and add them to the page. */
 function fetchMessages() {
@@ -135,7 +135,7 @@ function fetchProfile() {
 }
 
 function fetchAndShowProfilePic() {
-	  fetch('/image-upload-url')
+	  fetch('/profile-pic-upload-url')
 	      .then((response) => {
 	        return response.text();
 	      })
