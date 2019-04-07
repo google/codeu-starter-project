@@ -230,6 +230,7 @@ public class Datastore {
 
     // (String) profileEntity.getProperty("profilePicURL") redacted
     Profile profile = new Profile((String) profileEntity.getProperty("email"),
+        (String) profileEntity.getProperty("profilePicURL"),
         (String) profileEntity.getProperty("name"), 
         (Double) profileEntity.getProperty("latitude"),
         (Double) profileEntity.getProperty("longitude"),

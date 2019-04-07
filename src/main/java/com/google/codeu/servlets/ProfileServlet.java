@@ -60,7 +60,6 @@ public class ProfileServlet extends HttpServlet {
       profileData = new Profile();
     }
     
-    //TO-DO ask Travis about this gson again
     Gson gson = new Gson();
     String json = gson.toJson(profileData);
 
@@ -85,7 +84,7 @@ public class ProfileServlet extends HttpServlet {
     String phone = Jsoup.clean(request.getParameter("phone"), Whitelist.none());
     String schedule = Jsoup.clean(request.getParameter("schedule"), Whitelist.none());
 
-    /*BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
     List<BlobKey> blobKeys = blobs.get("profile_pic");
 
@@ -96,10 +95,9 @@ public class ProfileServlet extends HttpServlet {
       ImagesService imagesService = ImagesServiceFactory.getImagesService();
       ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);
       profilePicURL = imagesService.getServingUrl(options);
-    }*/
+    }
     
-    //profileURL parameter redacted below
-    Profile profile = new Profile(userEmail, name, latitude, longitude, phone, schedule);
+    Profile profile = new Profile(userEmail, profilePicURL, name, latitude, longitude, phone, schedule);
     datastore.storeProfile(profile);
 
     response.sendRedirect("/user-page.html?user=" + userEmail);

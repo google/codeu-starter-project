@@ -125,7 +125,7 @@ function fetchProfile() {
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
 
-      //fetchAndShowProfilePic();
+      fetchAndShowProfilePic();
 
       profileContainer.innerHTML = `Name: ${profile.name ||
         ""} Latitude: ${profile.latitude ||
@@ -134,7 +134,7 @@ function fetchProfile() {
     });
 }
 
-/*function fetchAndShowProfilePic() {
+function fetchAndShowProfilePic() {
 	  fetch('/image-upload-url')
 	      .then((response) => {
 	        return response.text();
@@ -143,7 +143,7 @@ function fetchProfile() {
 	        const messageForm = document.getElementById('profile-form');
 	        messageForm.action = imageUploadUrl;
 	      });
-	}*/
+	}
 
 /** Fetches data and populates the UI of the page. */
 function buildUI() {

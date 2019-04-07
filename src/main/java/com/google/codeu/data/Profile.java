@@ -4,7 +4,7 @@ public class Profile {
 
   private String email = "N/A";
   private String name = "N/A";
-  //private String profilePicURL;
+  private String profilePicURL;
   private Double latitude = 37.422;
   private Double longitude = -122.084;
   private String phone = "N/A";
@@ -13,12 +13,11 @@ public class Profile {
   public Profile() {
   }
 
-  /**String profilePicURL field redacted. */
-  public Profile(String email, String name, Double latitude, 
+  public Profile(String email, String profilePicURL, String name, Double latitude, 
       Double longitude, String phone, String schedule) {
     this.email = email;
     this.name = name;
-    //this.profilePicURL = profilePicURL;
+    this.profilePicURL = profilePicURL;
     this.latitude = latitude;
     this.longitude = longitude;
     this.phone = phone;
@@ -33,9 +32,9 @@ public class Profile {
     return name;
   }
   
-  /*public String getProfilePicURL() {
+  public String getProfilePicURL() {
     return profilePicURL;
-  }*/
+  }
   
   public String getPhone() {
     return phone;
