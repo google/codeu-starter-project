@@ -2,13 +2,13 @@ package com.google.codeu.data;
 
 public class Profile {
 
-  private String email;
-  private String name;
+  private String email = "N/A";
+  private String name = "N/A";
   //private String profilePicURL;
-  private Double latitude;
-  private Double longitude;
-  private String phone;
-  private String schedule;
+  private Double latitude = 37.422;
+  private Double longitude = -122.084;
+  private String phone = "N/A";
+  private String schedule = "N/A";
 
   public Profile() {
   }
