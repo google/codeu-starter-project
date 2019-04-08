@@ -20,7 +20,7 @@ public class ProfilePicUploadURLServlet extends HttpServlet {
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     String profileURL = blobstoreService.createUploadUrl("/profile");
 
-    response.setContentType("text/html");
+    response.setContentType("text/html"); 
     response.getOutputStream().println(profileURL);
   }
 }
