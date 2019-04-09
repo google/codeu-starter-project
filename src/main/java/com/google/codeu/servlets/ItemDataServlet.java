@@ -2,40 +2,60 @@ package com.google.codeu.servlets;
 
 import com.google.codeu.data.Item;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+import com.google.codeu.data.Datastore;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 /**
- * Handles fetching site statistics.
+ * Handles fetching postings
  */
 @WebServlet("/item-data")
 public class ItemDataServlet extends HttpServlet {
-  JsonElement itemJson;
+  private Datastore datastore;
+
+  @Override
+  public void init() {
+    datastore = new Datastore();
+  }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    // TODO: fetch these from DataStore for proper posting ( probably by some ID, title for now)
-    String title = "1 Bedroom suite";
-    String description = "Really cozy vibe. Includes hydro (sometimes, summer only)";
-    String email = "test@example.com";
-    Double price = 6000.0;
-
-    // create an item
-    Item item = new Item(title, price, email, description);
-    // convert to JSON
+    String user = request.getParameter("user");
+    Item postingData = datastore.getPosting(user);
+    if (postingData == null) {
+      postingData = new Item();
+    }
     Gson gson = new Gson();
-    itemJson = gson.toJsonTree(item);
-
-    response.setContentType("application/json");
-    response.getOutputStream().println(itemJson.toString());
+    String json = gson.toJson(postingData);
+    response.getWriter().println(json);
   }
 
-}
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-// TODO: Create doPost method to store new item (triggered when user posts an ad)
+    // redirect user if they not logged in
+    UserService userService = UserServiceFactory.getUserService();
+    if (!userService.isUserLoggedIn()) {
+      response.sendRedirect("/index.html");
+      return;
+    }
+
+    // get parameters about post
+    String userEmail = userService.getCurrentUser().getEmail();
+    String title = Jsoup.clean(request.getParameter("title"), Whitelist.none());
+    String price = request.getParameter("price");
+    String description = Jsoup.clean(request.getParameter("description"), Whitelist.none());
+
+    // create an item and store in Datastore
+    Item item = new Item(title, Double.parseDouble(price), userEmail, description);
+    datastore.storePosting(item);
+    response.sendRedirect("/user-page.html?user=" + userEmail);
+  }
+}

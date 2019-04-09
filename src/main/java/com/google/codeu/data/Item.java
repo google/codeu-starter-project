@@ -6,10 +6,8 @@ public class Item {
   private Double price;
   private String email;
   private String description;
-  
-  /* Item class. Stores information about a specific item posted by a user*/
-  // TODO: add image support
 
+  /* Item class. Stores information about a specific item posted by a user */
   public Item(String title, Double price, String email, String description) {
     this.title = title;
     this.price = price;
@@ -17,10 +15,12 @@ public class Item {
     this.description = description;
   }
 
+  public Item() {}
+
   public String getEmail() {
     return email;
   }
-  
+
   public String getTitle() {
     return title;
   }
@@ -28,7 +28,7 @@ public class Item {
   public Double getPrice() {
     return price;
   }
-  
+
   public String getDescription() {
     return description;
   }

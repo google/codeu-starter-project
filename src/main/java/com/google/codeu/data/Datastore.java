@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+
 /** Provides access to the data stored in Datastore. */
 public class Datastore {
 
@@ -190,6 +191,17 @@ public class Datastore {
     datastore.put(profileEntity);
   }
 
+
+  /** Stores a posting in Datastore. */
+  public void storePosting(Item item) {
+    Entity postingEntity = new Entity("Posting", item.getEmail());
+    postingEntity.setProperty("email", item.getEmail());
+    postingEntity.setProperty("title", item.getTitle());
+    postingEntity.setProperty("price", item.getPrice());
+    postingEntity.setProperty("description", item.getDescription());
+    datastore.put(postingEntity);
+  }
+
   /**
    * Returns the User owned by the email address, or null if no matching User was found.
    */
@@ -232,25 +244,14 @@ public class Datastore {
     return profile;
   }
 
-
-  /** Stores an item in Datastore. */
-  public void storeItem(Item item) {
-    Entity profileEntity = new Entity("Item", item.getEmail());
-    profileEntity.setProperty("email", item.getEmail());
-    profileEntity.setProperty("title", item.getTitle());
-    profileEntity.setProperty("price", item.getPrice());
-    profileEntity.setProperty("description", item.getDescription());
-    datastore.put(profileEntity);
-  }
-
   /**
    * Returns the Item owned by the email address, or null if no matching Item was found. TODO: an
    * item is uniquely identified by an email. change later so it is by a unique random ID
    */
 
-  public Item getItem(String email) {
-
-    Query query = new Query("Item")
+  public Item getPosting(String email) {
+    
+    Query query = new Query("Posting")
         .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
     PreparedQuery results = datastore.prepare(query);
     Entity itemEntity = results.asSingleEntity();
