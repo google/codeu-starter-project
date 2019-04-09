@@ -42,7 +42,7 @@ public class LogoDetectServlet extends HttpServlet {
       String[] logosArray = logos.split(",");
       this.logoJsonArray.add(logosArray[0]); //Chose the first logo for now
     }
-    //response.sendRedirect("/user-page.html?user=" + recipient);
+    response.sendRedirect("/info-present.html");
   }
 
   /**
