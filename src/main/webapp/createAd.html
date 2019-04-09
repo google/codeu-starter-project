@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Create an Ad</title>
+</head>
+<body> 
+  <form action="/item-data" method="POST">
+    Title:<br> 
+	  <input type="text" name="name"><br><br>
+	  Price:<br> <input type="number"  min="1" name="price" ><br><br>
+    Description:<br>
+    <textarea name="description" placeholder="A description of your item" rows=10 required></textarea><br><br>
+    <br><input type="submit" value="Post!">
+  </form>    
+</body>
+</html>
