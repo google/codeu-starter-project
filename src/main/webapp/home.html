@@ -10,10 +10,11 @@
   <body onload="buildUI();">
     <h3>Welcome to the Logo Dectector!</h3>
     <h3>Hi,this is an application that recognizes logos from images and gives information about the logo/company.</h3>
-    Upload an image here:
-    <form id="message-form" action="/image-upload-url" class="hidden" method="POST" enctype="multipart/form-data">
+    <p>Upload an image here:</p>
+    <form id="logo-form" action="/logo-detect" method="POST">
       <input type="file"  accept="image/*" name="image" class="file"  onchange="loadFile(event)">
       <p><img id="output" width="500" /></p>
+      <input type="submit" value="Submit">
     </form>
 
   </body>
