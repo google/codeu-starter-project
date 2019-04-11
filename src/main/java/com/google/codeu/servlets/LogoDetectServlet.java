@@ -24,4 +24,9 @@ public class LogoDetectServlet extends HttpServlet {
     response.setContentType("application/json");
     response.getOutputStream().println(this.logoJsonArray.toString());
   }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    response.sendRedirect("/info-present.html");
+  }
 }
