@@ -233,7 +233,7 @@ public class Datastore {
     }
     
     Profile profile = new Profile((String) profileEntity.getProperty("email"),
-        (String) profileEntity.getProperty("profilePicURL"),
+        (String) profileEntity.getProperty("profile_pic"),
         (String) profileEntity.getProperty("name"), 
         (Double) profileEntity.getProperty("latitude"),
         (Double) profileEntity.getProperty("longitude"),

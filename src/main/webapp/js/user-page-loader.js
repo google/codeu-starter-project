@@ -126,7 +126,7 @@ function fetchProfile() {
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
       
-      profileContainer.innerHTML = "";
+      profileContainer.innerHTML = "<br/>";
       
       if (profile.profilePicURL) {
     	    profileContainer.innerHTML += '<img src="' + profile.profilePicURL + '" />';

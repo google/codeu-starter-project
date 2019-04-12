@@ -12,8 +12,6 @@ import com.google.appengine.repackaged.com.google.gson.Gson;
 import com.google.codeu.data.Datastore;
 import com.google.codeu.data.Profile;
 
-import jdk.internal.jline.internal.Log;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
