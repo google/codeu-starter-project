@@ -11,6 +11,9 @@ import com.google.appengine.api.users.UserServiceFactory;
 import com.google.appengine.repackaged.com.google.gson.Gson;
 import com.google.codeu.data.Datastore;
 import com.google.codeu.data.Profile;
+
+import jdk.internal.jline.internal.Log;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +47,7 @@ public class ProfileServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-
+    System.out.println("--------------------------PROFILE SERVLET GET--------------------------");
     response.setContentType("application/json");
 
     String user = request.getParameter("user");
@@ -69,7 +72,7 @@ public class ProfileServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-
+    System.out.println("--------------------------PROFILE SERVLET POST--------------------------");
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {
       response.sendRedirect("/index.html");

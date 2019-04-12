@@ -131,6 +131,7 @@ public class Datastore {
         UUID id = UUID.fromString(idString);    
         String user = (String) entity.getProperty("user");
         String recipient = (String) entity.getProperty("recipient");
+        System.out.println("GET HERE!");
         String imageUrl = (String) entity.getProperty("imageUrl");
         
         String text = (String) entity.getProperty("text");
@@ -180,6 +181,8 @@ public class Datastore {
   
   /**Stores the Profile in Datastore. */
   public void storeProfile(Profile profile) {
+    System.out.println("--------------------------STORING PROFILE--------------------------");
+
     Key user = KeyFactory.createKey("User", profile.getEmail());
     
     Entity profileEntity = new Entity("Profile", profile.getEmail(), user);
@@ -187,6 +190,7 @@ public class Datastore {
     profileEntity.setProperty("name", profile.getName());
     if(profile.getProfilePicURL() != null) {
       profileEntity.setProperty("profile_pic", profile.getProfilePicURL());
+      System.out.println("-------------------------------------STORING PROFILE PIC URL------------------------------");
     }
     profileEntity.setProperty("latitude", profile.getLatitude());
     profileEntity.setProperty("longitude", profile.getLongitude());
@@ -219,7 +223,7 @@ public class Datastore {
    */
   
   public Profile getProfile(String email) {
-
+    System.out.println("--------------------------GETTING PROFILE--------------------------");
     Query query = new Query("Profile")
         .setFilter(new Query.FilterPredicate("email", FilterOperator.EQUAL, email));
     PreparedQuery results = datastore.prepare(query);

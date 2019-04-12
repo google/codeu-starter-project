@@ -4,7 +4,7 @@ public class Profile {
 
   private String email = "N/A";
   private String name = "N/A";
-  private String profilePicURL;
+  private String profilePicURL = "N/A";
   private Double latitude = 37.422;
   private Double longitude = -122.084;
   private String phone = "N/A";

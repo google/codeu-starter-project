@@ -22,5 +22,6 @@ public class ProfilePicUploadURLServlet extends HttpServlet {
 
     response.setContentType("text/html"); 
     response.getOutputStream().println(profileURL);
+    System.out.println("---------------------------RETRIEVED URL---------------------------------");
   }
 }

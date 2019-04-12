@@ -3,20 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Your Profile</title>
-<script src="/js/profile-loader.js"></script>
+ <script src="/js/profile-loader.js"></script>
 </head>
-<body>
-    <!--original new about me section
-    <div id="about-me-container">Loading...</div>
-    <div id="about-me-form" class="hidden">
-      <form action="/about" method="POST">
-        <textarea name="about-me" placeholder="about me" rows=4 required></textarea>
-        <br/>
-        <input type="submit" value="Submit">
-      </form>
-    </div> -->
-    
-    <form id = "profile-form" action="/profile" method="POST" enctype="multipart/form-data">
+<body onload="buildUI();">
+    <form id = "profile-form" method="post" enctype="multipart/form-data">
       Name:<br>
       <input type="text" name="name"><br><br>
       Upload Profile Picture:<br>
@@ -24,7 +14,7 @@
       Location Latitude:<br>
       <input type="text" name ="latitude"><br><br>
       Location Longitude:<br>
-      <input type="text" name="longitutde"><br><br>
+      <input type="text" name="longitude"><br><br>
       Phone Number:<br>
       <input type="text" name="phone"><br><br>
       Schedule:<br>
