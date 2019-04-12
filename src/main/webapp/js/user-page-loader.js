@@ -125,11 +125,18 @@ function fetchProfile() {
     })
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
-
-      profileContainer.innerHTML = `Name: ${profile.name ||
+      
+      profileContainer.innerHTML = "";
+      
+      if (profile.profilePicURL) {
+    	    profileContainer.innerHTML += '<img src="' + profile.profilePicURL + '" />';
+    		profileContainer.innerHTML += "<br/>";
+    	  }
+      profileContainer.innerHTML += `Name: ${profile.name ||
         ""} Latitude: ${profile.latitude ||
         ""} Longitude:  ${profile.longitude || ""}  Phone: ${profile.phone ||
         ""} Schedule: ${profile.schedule || ""}`;
+      
     });
 	console.log("fetched profile folks!");
 }
