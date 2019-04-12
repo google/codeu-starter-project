@@ -117,7 +117,6 @@ function buildMessageDiv(message) {
 }
 
 function fetchProfile() {
-  console.log("fetching profile folks!");
   const url = "/profile?user=" + parameterUsername;
   fetch(url)
     .then(response => {
@@ -125,20 +124,19 @@ function fetchProfile() {
     })
     .then(profile => {
       const profileContainer = document.getElementById("profile-container");
-      
+
       profileContainer.innerHTML = "<br/>";
-      
+
       if (profile.profilePicURL) {
-    	    profileContainer.innerHTML += '<img src="' + profile.profilePicURL + '" />';
-    		profileContainer.innerHTML += "<br/>";
-    	  }
+        profileContainer.innerHTML +=
+          '<img src="' + profile.profilePicURL + '" />';
+        profileContainer.innerHTML += "<br/>";
+      }
       profileContainer.innerHTML += `Name: ${profile.name ||
         ""} Latitude: ${profile.latitude ||
         ""} Longitude:  ${profile.longitude || ""}  Phone: ${profile.phone ||
         ""} Schedule: ${profile.schedule || ""}`;
-      
     });
-	console.log("fetched profile folks!");
 }
 
 /** Fetches data and populates the UI of the page. */

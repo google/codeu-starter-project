@@ -45,7 +45,6 @@ public class ProfileServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-    System.out.println("--------------------------PROFILE SERVLET GET--------------------------");
     response.setContentType("application/json");
 
     String user = request.getParameter("user");
@@ -70,7 +69,6 @@ public class ProfileServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
-    System.out.println("--------------------------PROFILE SERVLET POST--------------------------");
     UserService userService = UserServiceFactory.getUserService();
     if (!userService.isUserLoggedIn()) {
       response.sendRedirect("/index.html");
