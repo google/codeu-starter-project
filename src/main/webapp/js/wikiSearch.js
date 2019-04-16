@@ -1,15 +1,19 @@
-function searchOnWiki(){
-  fetch('/logo-detect').then(function(response) {
-    return response.json();
-  }).then((logos) => {
-    const query = logos[0];
-    const url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' +
-        query + '&limit=1&namespace=0&format=json&callback=handleSummary';
+function getKeyword(url_string){
+  var url = new URL(url_string);
+  return url.searchParams.get("kw");
+}
 
+function searchOnWiki(keyword){
+  if(keyword == 'error'){
+    displayLogoInfo('', 'Error: Logo not found', '');
+  }
+  else{
+    const url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' +
+        keyword + '&limit=1&namespace=0&format=json&callback=handleSummary';
     var scpt = document.createElement("script");
     scpt.src = url;
     document.body.appendChild(scpt);
-  })
+  }
 }
 
 /**
@@ -34,5 +38,6 @@ function displayLogoInfo(name, description, link){
 }
 
 function buildInfoUI(){
-  searchOnWiki();
+  var keyword = getKeyword(window.location.href);
+  searchOnWiki(keyword);
 }
