@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Logo Detector</title>
@@ -8,11 +9,11 @@
 
   <body onload = buildUI();>
     <h3>Welcome to the Logo Dectector!</h3>
-    <h3>Hi,this is an application that recognizes logos from images and gives information about the logo/company.</h3>
+    <h3>Hi, this is an application that recognizes logos from images and gives information about the logo/company.</h3>
     <p>Upload an image here:</p>
     <form id="logo-form" action="/logo-upload-url" enctype="multipart/form-data" method="POST">
-      <input type="file" name="image" class="file">
-      <input type="submit" value="Submit">
+      <input type="file" name="image" accept="image/*" class="file">
+      <br><img id="myImg" src="#" alt="your image" height=400 width=400>
     </form>
   </body>
 </html>
