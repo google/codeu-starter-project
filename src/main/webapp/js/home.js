@@ -1,10 +1,5 @@
-var loadFile = function(event) {
-  var image = document.getElementById('output');
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
-
 function fetchLogoUploadUrlAndShowForm() {
-  fetch('/logo-detect')
+  fetch('/logo-upload-url')
       .then((response) => {
         return response.text();
       })
@@ -17,5 +12,4 @@ function fetchLogoUploadUrlAndShowForm() {
 /** Fetches data and populates the UI of the page. */
 function buildUI() {
   fetchLogoUploadUrlAndShowForm();
-  loadFile(event);
 }

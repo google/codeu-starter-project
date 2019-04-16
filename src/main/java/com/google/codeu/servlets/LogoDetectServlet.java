@@ -20,26 +20,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/logo-detect")
 public class LogoDetectServlet extends HttpServlet {
 
-  JsonArray logoJsonArray;
-
-  @Override
-  public void init() {
-    this.logoJsonArray = new JsonArray();
-    this.logoJsonArray.add("starbucks");
-  }
-
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("application/json");
-    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-    String uploadUrl = blobstoreService.createUploadUrl("/logo-detect");
-    Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
-    List<BlobKey> blobKeys = blobs.get("image");
-    response.getOutputStream().println(this.logoJsonArray.toString());
-  }
-
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.sendRedirect("/info-present.html");
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+    Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(request);
+    List<BlobKey> blobKeys = blobs.get("image");
+    response.sendRedirect("/home.html");
   }
 }
