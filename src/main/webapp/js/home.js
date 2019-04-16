@@ -17,4 +17,5 @@ function fetchLogoUploadUrlAndShowForm() {
 /** Fetches data and populates the UI of the page. */
 function buildUI() {
   fetchLogoUploadUrlAndShowForm();
+  loadFile(event);
 }
