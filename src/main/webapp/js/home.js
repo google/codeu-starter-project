@@ -3,9 +3,9 @@ function fetchLogoUploadUrlAndShowForm() {
       .then((response) => {
         return response.text();
       })
-      .then((LogoUploadUrlServlet) => {
+      .then((LogoUploadUrl) => {
         const logo = document.getElementById('logo-form');
-        logo.action = LogoUploadUrlServlet;
+        logo.action = LogoUploadUrl;
       });
 }
 
@@ -19,7 +19,6 @@ function displayImage() {
     if (this.files && this.files[0]) {
       var img = document.querySelector('img');
       img.src = URL.createObjectURL(this.files[0]);
-      img.onload = imageIsLoaded;
     }
   });
 }
