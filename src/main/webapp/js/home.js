@@ -19,7 +19,6 @@ function displayImage() {
     if (this.files && this.files[0]) {
       var img = document.querySelector('img');
       img.src = URL.createObjectURL(this.files[0]);
-      //img.onload = imageIsLoaded;
     }
   });
 }

@@ -41,12 +41,12 @@ public class LogoDetectServlet extends HttpServlet {
       ServingUrlOptions options = ServingUrlOptions.Builder.withBlobKey(blobKey);
       String imageUrl = imagesService.getServingUrl(options);
       byte[] blobBytes = getBlobBytes(blobstoreService, blobKey);
-      try{
+      try {
         List<String> logos = detectLogos(blobBytes);
-        String keyWord = logos.get(0); //Chose the first logo for now
+        String keyWord = logos.get(0); //Chose the first logo, which is the most confident
         response.sendRedirect("/info-present.html?kw=" + keyWord);
-      }
-      catch(Exception e){
+        //Catch null return value returned by detectLogos if AnnotateImageResponse has error
+      } catch (NullPointerException e) { 
         response.sendRedirect("/info-present.html?kw=" + "error");
       }
     }
@@ -81,11 +81,11 @@ public class LogoDetectServlet extends HttpServlet {
     return outputBytes.toByteArray();
   }
 
-   /**
+  /**
    * Private method that takes in the byte array representation of an image.
    * It returns a list of logos
    */
-  public List<String> detectLogos(byte[] imgBytes) throws Exception, IOException {
+  private List<String> detectLogos(byte[] imgBytes) throws IOException {
     List<String> result = new ArrayList<>();
     List<AnnotateImageRequest> requests = new ArrayList<>();
     ByteString byteString = ByteString.copyFrom(imgBytes);
