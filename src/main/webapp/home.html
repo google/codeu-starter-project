@@ -2,14 +2,16 @@
 <html>
   <head>
     <title>Logo Detector</title>
-    <script src="js/user-map.js"></script>
     <script src="/js/home.js"></script>
     <link rel="stylesheet" href="css/home.css">
   </head>
 
   <body onload = buildUI();>
-    <h3>Welcome to the Logo Dectector!</h3>
-    <h3>Hi, this is an application that recognizes logos from images and gives information about the logo/company.</h3>
+    <br>
+    <img src="img/logodetectorlogo.png">
+    <h1>Welcome to the Logo Dectector!</h1>
+    <h3>This is an application that recognizes logos from images and gives information about the logo/company.
+        So if you're interested in knowing about any company, go ahead and give our application a go!</h3>
     <p>Upload an image here:</p>
     <form id="logo-form" action="/logo-upload-url" enctype="multipart/form-data" method="POST">
       <input type="file" name="image" accept="image/*" class="file">

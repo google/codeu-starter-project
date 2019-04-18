@@ -1,9 +1,11 @@
-.body {
+body {
+  padding: 50px 60px;
   text-align: center;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 .file {
-  background-color: #eeccff;
+  background-color: #108094;
   border: none;
   color: #000000;
   display: inline-block;
@@ -11,4 +13,10 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
+}
+
+img {
+  float:center;
+  height: 100px;
+  width: 50px;
 }
