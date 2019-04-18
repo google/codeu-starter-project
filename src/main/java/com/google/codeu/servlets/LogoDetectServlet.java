@@ -45,8 +45,11 @@ public class LogoDetectServlet extends HttpServlet {
         List<String> logos = detectLogos(blobBytes);
         String keyWord = logos.get(0); //Chose the first logo, which is the most confident
         response.sendRedirect("/info-present.html?kw=" + keyWord);
-        //Catch null return value returned by detectLogos if AnnotateImageResponse has error
-      } catch (NullPointerException e) { 
+        /* 
+          Catch null return value returned by detectLogos if AnnotateImageResponse has error.
+          Also empty arraylist when the API cannot recognize any logo.
+        */
+      } catch (NullPointerException | IndexOutOfBoundsException e) { 
         response.sendRedirect("/info-present.html?kw=" + "error");
       }
     }

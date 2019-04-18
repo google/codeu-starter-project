@@ -7,7 +7,7 @@ function getKeyword(url_string){
 
 function searchOnWiki(){
   if(keyword == 'error'){
-    displayLogoInfo('', 'Error: Logo not found', '');
+    displayError();
   }
   else{
     const url = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' +
@@ -43,6 +43,11 @@ function displayLogoInfo(name, description, link){
   const linkDiv = document.getElementById("logo-link");
   linkDiv.appendChild(document.createTextNode("Read more"));
   linkDiv.href = link;
+}
+
+function displayError(){
+  const errorDiv = document.getElementById("logo-description");
+  errorDiv.appendChild(document.createTextNode("Oops: Cannot find any logo."));
 }
 
 function displayOtherOptions(){
